@@ -34,3 +34,39 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## Contact Form — Environment Variables
+
+The `/contact` page submits to `app/api/contact/route.ts`, which uses [Resend](https://resend.com) to deliver emails.
+
+### Local development
+
+Create a `.env.local` file in the project root:
+
+```env
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxx
+CONTACT_EMAIL=storage@bluegou.com
+```
+
+### Vercel deployment
+
+Add the same two variables in **Vercel → Project → Settings → Environment Variables**.
+
+### Verified sender domain
+
+Before going live, verify `bluegou.com` as a sending domain in the Resend dashboard
+(`Domains → Add Domain`). Until the domain is verified, Resend will reject the
+`from: noreply@bluegou.com` address. While testing, you can use the Resend sandbox
+address `onboarding@resend.dev` as a temporary sender.
+
+### Rate limiting upgrade path
+
+The API route uses an in-memory `Map` to enforce a limit of 5 submissions per IP per
+15 minutes. This works for single-instance deployments but will reset on every cold
+start and will not work correctly across multiple Vercel function instances.
+
+For production, replace the in-memory store with
+[Upstash Redis](https://upstash.com/) or [Vercel KV](https://vercel.com/docs/storage/vercel-kv)
+and use the `@upstash/ratelimit` package for atomic, distributed rate limiting.
