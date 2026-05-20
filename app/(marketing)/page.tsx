@@ -1,29 +1,65 @@
-import { site, ctaPrimary } from '@/config/site';
+import type { Metadata } from 'next'
+import { Hero } from '@/components/sections/Hero'
+import { TerminalNetwork } from '@/components/sections/TerminalNetwork'
+import { MarketTicker } from '@/components/sections/MarketTicker'
+import { Services } from '@/components/sections/Services'
+import { FeaturedProducts } from '@/components/sections/FeaturedProducts'
+import { StrategicLocations } from '@/components/sections/StrategicLocations'
+import { SustainabilityTriptych } from '@/components/sections/SustainabilityTriptych'
+import { FinalCta } from '@/components/sections/FinalCta'
+
+// ISR: rebuild the home page every 15 minutes so live prices stay fresh
+export const revalidate = 900
+
+export const metadata: Metadata = {
+  title: 'Blue Gate Shipping & Trade B.V. — Oil Storage Rotterdam',
+  description:
+    'ISO-certified storage of Jet A1, EN590, D6 and crude oil in Rotterdam. 60+ years of bulk liquid expertise.',
+  openGraph: {
+    title: 'Blue Gate Shipping & Trade B.V. — Oil Storage Rotterdam',
+    description:
+      'ISO-certified storage of Jet A1, EN590, D6 and crude oil in Rotterdam. 60+ years of bulk liquid expertise.',
+    images: [{ url: '/images/og-home.jpg', width: 1200, height: 630 }],
+  },
+}
 
 export default function HomePage() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center min-h-screen gap-6 px-6">
-      <p className="text-sm uppercase tracking-widest text-brand-steel font-sans font-medium">
-        {site.name}
-      </p>
-      <h1
-        className="font-serif text-center leading-tight text-ink"
-        style={{ fontSize: 'clamp(48px, 7vw, 96px)', letterSpacing: '-0.02em', fontWeight: 400 }}
-      >
-        Petroleum Storage.{' '}
-        <em>Engineered for Reliability.</em>
-      </h1>
-      <p className="max-w-xl text-center font-sans text-muted-foreground text-lg">
-        Rotterdam — the primary terminal for Jet A1, Diesel EN590, Fuel Oil D6, and Crude Oil.
-        Founded {site.founded}. Built for scale.
-      </p>
-      <p className="text-xs font-mono text-muted-foreground">{site.contact.email}</p>
-      <a
-        href={ctaPrimary.href}
-        className="mt-4 inline-flex items-center gap-2 bg-brand text-primary-foreground px-6 py-3 font-sans font-medium text-sm hover:bg-brand-steel transition-colors focus-visible:outline-offset-2"
-      >
-        {ctaPrimary.label}
-      </a>
-    </main>
-  );
+    <>
+      <section id="hero" aria-label="Hero" className="scroll-mt-24">
+        <Hero />
+      </section>
+
+      <section id="terminals" aria-label="Terminal network" className="scroll-mt-24">
+        <TerminalNetwork />
+      </section>
+
+      <section id="markets" aria-label="Market prices" className="scroll-mt-24">
+        <MarketTicker />
+      </section>
+
+      <section id="services" aria-label="Services" className="scroll-mt-24">
+        <Services />
+      </section>
+
+      <section id="products" aria-label="Products" className="scroll-mt-24">
+        <FeaturedProducts />
+      </section>
+
+      <section id="locations" aria-label="Locations" className="scroll-mt-24">
+        <StrategicLocations />
+      </section>
+
+      <section id="sustainability" aria-label="Sustainability" className="scroll-mt-24">
+        <SustainabilityTriptych />
+      </section>
+
+      <FinalCta
+        heading={<>Reserve Your <em className="text-brand">Capacity.</em></>}
+        subline="Our operations team responds within 24 hours. Bring your volume, your product, and your timeline — we will engineer the storage solution around them."
+        primaryCta={{ label: 'Contact Operations →', href: '/contact?intent=quote' }}
+        secondaryCta={{ label: 'View Storage Facility', href: '/storage-facility' }}
+      />
+    </>
+  )
 }

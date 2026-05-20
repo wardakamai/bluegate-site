@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazily instantiated so the module loads safely without RESEND_API_KEY at build time
+const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
 const contactSchema = z.object({
   name: z.string().min(2),
@@ -25,7 +26,7 @@ export async function POST(request: NextRequest) {
   const to = process.env.CONTACT_EMAIL ?? 'storage@bluegou.com';
 
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'Blue Gate Website <noreply@bluegou.com>',
       to,
       replyTo: email,
