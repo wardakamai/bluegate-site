@@ -15,7 +15,7 @@ export default async function ProductPage({ params }: Props) {
   return (
     <main>
       <h1>{product.name}</h1>
-      <p>{product.tagline}</p>
+      <p>{product.shortPositioning}</p>
       <p>— Full product detail page coming soon —</p>
     </main>
   );

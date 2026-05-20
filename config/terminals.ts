@@ -1,44 +1,58 @@
+export type TerminalStatus = 'active' | 'tbc';
+
 export type Terminal = {
   id: string;
+  flag: string;
   city: string;
   country: string;
-  flag: string;
-  incoterms: string[];
-  products: string[];
+  region: string;
+  incoterm: string;
+  productTags: string[];
   capacityM3: number;
-  // TODO: confirm with client — are Houston and Singapore currently active?
-  active: boolean;
+  description: string;
+  status: TerminalStatus;
 };
 
 export const terminals: Terminal[] = [
   {
     id: 'rotterdam',
+    flag: '🇳🇱',
     city: 'Rotterdam',
     country: 'Netherlands',
-    flag: '🇳🇱',
-    incoterms: ['FOB', 'CIF', 'DAP', 'EXW'],
-    products: ['Jet A1', 'Diesel EN590', 'Fuel Oil D6', 'Crude Oil'],
+    region: 'Europe',
+    incoterm: 'Storage & Throughput',
+    productTags: ['Jet A1', 'Diesel EN590', 'Fuel Oil D6', 'Crude Oil'],
     capacityM3: 80000,
-    active: true,
+    description:
+      'Primary terminal on the Port of Rotterdam — Europe\'s largest cargo port. Fixed-roof, floating-roof, and heated tanks across a full product range. Direct pipeline access, road tanker bays, and vessel berths.',
+    status: 'active',
   },
   {
+    // TODO: confirm with client — operational status
     id: 'houston',
+    flag: '🇺🇸',
     city: 'Houston',
     country: 'United States',
-    flag: '🇺🇸',
-    incoterms: ['FOB', 'CIF'],
-    products: ['Crude Oil', 'Diesel EN590'],
+    region: 'North America',
+    incoterm: 'Storage & Throughput',
+    productTags: ['Crude Oil', 'Diesel EN590'],
     capacityM3: 0, // TODO: confirm with client
-    active: false, // TODO: confirm with client
+    description:
+      'Gulf Coast terminal in the Houston Ship Channel corridor. Positioned for US crude and distillate storage pending final confirmation of operational status.', // TODO: confirm with client
+    status: 'tbc',
   },
   {
+    // TODO: confirm with client — operational status
     id: 'singapore',
+    flag: '🇸🇬',
     city: 'Singapore',
     country: 'Singapore',
-    flag: '🇸🇬',
-    incoterms: ['FOB', 'CIF', 'DAP'],
-    products: ['Jet A1', 'Fuel Oil D6'],
+    region: 'Asia-Pacific',
+    incoterm: 'Storage & Throughput',
+    productTags: ['Jet A1', 'Fuel Oil D6'],
     capacityM3: 0, // TODO: confirm with client
-    active: false, // TODO: confirm with client
+    description:
+      'Strategic Asia-Pacific hub at one of the world\'s busiest bunkering ports. Aviation fuel and residual fuel oil storage pending final confirmation of operational status.', // TODO: confirm with client
+    status: 'tbc',
   },
 ];
