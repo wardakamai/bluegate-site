@@ -1,7 +1,7 @@
 export type TerminalStatus = 'active' | 'tbc';
 
 export type Terminal = {
-  id: string;
+  id: 'rotterdam' | 'fujairah' | 'houston' | 'jurong';
   flag: string;
   city: string;
   country: string;
@@ -10,6 +10,7 @@ export type Terminal = {
   productTags: string[];
   capacityM3: number;
   description: string;
+  flagship: boolean;
   status: TerminalStatus;
 };
 
@@ -19,40 +20,60 @@ export const terminals: Terminal[] = [
     flag: '🇳🇱',
     city: 'Rotterdam',
     country: 'Netherlands',
-    region: 'Europe',
+    region: 'Northwest Europe',
     incoterm: 'Storage & Throughput',
-    productTags: ['Jet A1', 'Diesel EN590', 'Fuel Oil D6', 'Crude Oil'],
-    capacityM3: 80000,
+    productTags: ['Jet A1', 'EN590', 'D6', 'Crude'],
+    capacityM3: 2_800_000, // TODO: confirm with client
     description:
-      'Primary terminal on the Port of Rotterdam — Europe\'s largest cargo port. Fixed-roof, floating-roof, and heated tanks across a full product range. Direct pipeline access, road tanker bays, and vessel berths.',
+      'Our flagship terminal at the Port of Rotterdam — Europe’s largest energy hub. ' +
+      'Deep-water marine access, dedicated jetties, and pipeline interconnection across the ARA blending corridor.',
+    flagship: true,
     status: 'active',
   },
   {
-    // TODO: confirm with client — operational status
+    id: 'fujairah',
+    flag: '🇦🇪',
+    city: 'Fujairah',
+    country: 'United Arab Emirates',
+    region: 'Middle East / Indian Ocean',
+    incoterm: 'Storage & Throughput',
+    productTags: ['Crude', 'D6', 'EN590', 'Jet A1'],
+    capacityM3: 1_400_000, // TODO: confirm with client
+    description:
+      'Strategic position on the Arabian Sea outside the Strait of Hormuz. ' +
+      'World-class bunkering and crude-blending hub serving Middle East and Indian Ocean flows.',
+    flagship: false,
+    status: 'tbc', // TODO: confirm with client
+  },
+  {
     id: 'houston',
     flag: '🇺🇸',
     city: 'Houston',
     country: 'United States',
-    region: 'North America',
+    region: 'US Gulf Coast',
     incoterm: 'Storage & Throughput',
-    productTags: ['Crude Oil', 'Diesel EN590'],
-    capacityM3: 0, // TODO: confirm with client
+    productTags: ['Crude', 'EN590', 'Jet A1'],
+    capacityM3: 1_600_000, // TODO: confirm with client
     description:
-      'Gulf Coast terminal in the Houston Ship Channel corridor. Positioned for US crude and distillate storage pending final confirmation of operational status.', // TODO: confirm with client
-    status: 'tbc',
+      'Gulf Coast position with direct pipeline connectivity to US refineries and extensive marine export infrastructure.',
+    flagship: false,
+    status: 'tbc', // TODO: confirm with client
   },
   {
-    // TODO: confirm with client — operational status
-    id: 'singapore',
+    id: 'jurong',
     flag: '🇸🇬',
-    city: 'Singapore',
+    city: 'Jurong',
     country: 'Singapore',
     region: 'Asia-Pacific',
     incoterm: 'Storage & Throughput',
-    productTags: ['Jet A1', 'Fuel Oil D6'],
-    capacityM3: 0, // TODO: confirm with client
+    productTags: ['D6', 'Jet A1', 'EN590'],
+    capacityM3: 1_200_000, // TODO: confirm with client
     description:
-      'Strategic Asia-Pacific hub at one of the world\'s busiest bunkering ports. Aviation fuel and residual fuel oil storage pending final confirmation of operational status.', // TODO: confirm with client
-    status: 'tbc',
+      'Asia-Pacific bunkering and bulk-liquid specialist with direct access to the Strait of Malacca trade routes.',
+    flagship: false,
+    status: 'tbc', // TODO: confirm with client
   },
 ];
+
+export const flagshipTerminal = terminals.find((t) => t.flagship)!; // Rotterdam
+export const secondaryTerminals = terminals.filter((t) => !t.flagship);

@@ -26,7 +26,7 @@ Rebuild the website of **Blue Gate Shipping and Trade B.V.** (legacy site: https
 | SAFE No. | NL06152688 |
 | Sector | Bulk liquid / petroleum storage, terminal operations, shipping & trade |
 | Specialisation | Storage of Jet A1 Fuel, Diesel EN590, Virgin Fuel Oil D6, Crude Oil (various origins) |
-| Terminals | Rotterdam (primary) + Houston + Singapore (verify status before publish) |
+| Terminals | Rotterdam (flagship) + Fujairah + Houston + Jurong (verify Fujairah / Houston / Jurong status before publish) |
 
 ---
 

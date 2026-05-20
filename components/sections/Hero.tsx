@@ -13,7 +13,7 @@ const HERO_IMAGE =
 
 const STATS = [
   { value: 60, suffix: '+', label: 'Years Experience' },
-  { value: 3, suffix: '', label: 'Terminal Hubs' },
+  { value: 4, suffix: '', label: 'Terminal Hubs' },
   { value: 4, suffix: '', label: 'Core Products' },
   { value: 24, suffix: '/7', label: 'Operations' },
 ] as const

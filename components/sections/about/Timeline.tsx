@@ -25,9 +25,15 @@ const MILESTONES: Milestone[] = [
     desc: 'Extended throughput and custody-transfer services to the Gulf Coast refining complex, deepening Blue Gate\'s reach into North American commodity flows.',
   },
   {
+    // TODO: confirm with client — Fujairah onboarding date
     year: '2010s',
-    title: 'Singapore Expansion', // TODO: confirm with client — founding date and operational scope
-    desc: 'Opened Asia-Pacific capability at the world\'s leading bunkering hub, connecting Blue Gate to Asian petroleum trade flows and bunkering supply chains.',
+    title: 'Fujairah Hub Onboarded',
+    desc: 'Extended network reach to Fujairah on the Arabian Sea — a strategic bunkering and crude-blending position outside the Strait of Hormuz, serving Middle East and Indian Ocean petroleum flows.',
+  },
+  {
+    year: '2010s',
+    title: 'Jurong / Singapore Expansion', // TODO: confirm with client — founding date and operational scope
+    desc: 'Opened Asia-Pacific capability at the Jurong terminal in Singapore — the world\'s leading bunkering hub — connecting Blue Gate to Asian petroleum trade flows and Strait of Malacca supply chains.',
   },
   {
     year: '2020s',
@@ -79,7 +85,7 @@ export function Timeline() {
           {/* Continuous vertical line — desktop only */}
           <div
             className="hidden md:block absolute inset-y-0 left-1/2 w-px -translate-x-1/2"
-            style={{ background: 'rgba(197,3,55,0.15)' }}
+            style={{ background: 'rgba(208,0,24,0.15)' }}
             aria-hidden="true"
           />
 

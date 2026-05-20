@@ -17,21 +17,33 @@ export function TerminalNetwork() {
             className="font-serif font-normal text-ink leading-tight mb-4"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
-            Three Hubs. <em className="text-brand">One Trusted Partner.</em>
+            Four Hubs. <em className="text-brand">One Trusted Partner.</em>
           </h2>
           <p className="font-sans text-muted-foreground max-w-2xl mb-14 text-base leading-relaxed">
-            From Europe&apos;s premier cargo port to strategic outposts in North America and
-            Asia-Pacific, Blue Gate positions product at the heart of global energy flows.
+            From Europe&apos;s premier cargo port to strategic extensions in the Middle East, the US
+            Gulf, and Asia-Pacific, Blue Gate positions product at the heart of global energy flows.
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {terminals.map((terminal, i) => (
             <ScrollReveal key={terminal.id} delay={i * 0.1}>
-              <GlowCard className="group flex flex-col h-full rounded-xl bg-bg p-7">
-                {/* Status badge */}
+              <GlowCard
+                className={cn(
+                  'group flex flex-col h-full rounded-xl bg-bg p-7 relative',
+                  terminal.flagship && 'border-t-2 border-t-accent',
+                )}
+              >
+                {/* Flagship pill */}
+                {terminal.flagship && (
+                  <span className="absolute top-4 right-4 inline-flex items-center text-[10px] uppercase tracking-[0.08em] font-medium text-accent bg-accent/10 border border-accent/25 rounded px-2 py-0.5">
+                    Flagship
+                  </span>
+                )}
+
+                {/* TBC badge */}
                 {terminal.status === 'tbc' && (
-                  <span className="absolute top-4 right-4 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.08em] font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded px-2 py-0.5">
+                  <span className="absolute top-4 right-4 inline-flex items-center text-[10px] uppercase tracking-[0.08em] font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded px-2 py-0.5">
                     Status: TBC
                   </span>
                 )}
@@ -41,7 +53,15 @@ export function TerminalNetwork() {
                     {terminal.flag}
                   </span>
                 </div>
-                <h3 className="font-serif text-2xl font-normal text-ink mb-1">{terminal.city}</h3>
+
+                <h3
+                  className={cn(
+                    'font-serif font-normal text-ink mb-1',
+                    terminal.flagship ? 'text-3xl' : 'text-2xl',
+                  )}
+                >
+                  {terminal.city}
+                </h3>
                 <p className="font-sans text-sm text-muted-foreground mb-4">{terminal.country}</p>
 
                 <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.08em] font-medium text-muted-foreground bg-muted rounded px-2 py-1 w-fit mb-4">
@@ -63,9 +83,9 @@ export function TerminalNetwork() {
                 {terminal.capacityM3 > 0 ? (
                   <p className="font-mono text-sm text-ink mb-2">
                     <span className="text-lg font-medium">
-                      {terminal.capacityM3.toLocaleString()}
+                      {new Intl.NumberFormat('en-GB').format(terminal.capacityM3)}
                     </span>{' '}
-                    m³ total capacity
+                    m³ nominal capacity
                   </p>
                 ) : (
                   <p className="font-mono text-sm text-muted-foreground mb-2">Capacity TBC</p>
