@@ -15,7 +15,7 @@ const fraunces = Fraunces({
   variable: '--font-fraunces',
   display: 'swap',
   style: ['normal', 'italic'],
-  weight: ['300', '400', '500', '600', '700', '900'],
+  // weight omitted — required when using variable-font axes
 });
 
 const jetbrainsMono = JetBrains_Mono({
