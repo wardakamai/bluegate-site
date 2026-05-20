@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { pageMeta } from '@/lib/meta'
+import { localBusinessSchema } from '@/lib/schema'
 import Link from 'next/link'
 import { Flame, Shield, Activity, Waves } from 'lucide-react'
 import { StorageHero } from '@/components/sections/storage/Hero'
@@ -10,37 +12,13 @@ import { NetworkContext } from '@/components/sections/storage/NetworkContext'
 import { ServiceFeatureGrid, type FeatureItem } from '@/components/sections/services/ServiceFeatureGrid'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { FinalCta } from '@/components/sections/FinalCta'
-import { site } from '@/config/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Rotterdam Storage Facility — Tank Inventory & Capacity — Blue Gate',
   description:
-    'Rotterdam tank inventory and capacity — Jet A1, EN590, Virgin Fuel Oil D6, and crude oil storage at our flagship facility.',
-  openGraph: {
-    title: 'Rotterdam Storage Facility — Tank Inventory & Capacity — Blue Gate',
-    description:
-      'Rotterdam tank inventory and capacity — Jet A1, EN590, Virgin Fuel Oil D6, and crude oil storage at our flagship facility.',
-  },
-}
-
-const localBusinessJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: site.name,
-  '@id': 'https://bluegou.com/#rotterdam-facility',
-  url: 'https://bluegou.com/storage-facility',
-  telephone: site.contact.phone,
-  email: site.contact.email,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: site.address.street,
-    postalCode: site.address.postcode,
-    addressLocality: site.address.city,
-    addressCountry: 'NL',
-  },
-  description:
-    'Bulk liquid petroleum storage facility at the Port of Rotterdam — Jet A1, EN590, Virgin Fuel Oil D6, and crude oil.',
-}
+    'Full tank inventory at our Rotterdam flagship: Jet A1, EN590, Virgin Fuel Oil D6, and crude oil in dedicated matched infrastructure. Capacity from 1,000 to 80,000 m³.',
+  path: 'storage-facility',
+})
 
 const SAFETY_FEATURES: FeatureItem[] = [
   {
@@ -71,7 +49,7 @@ export default function StorageFacilityPage() {
       <Script
         id="storage-facility-jsonld"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
       />
 
       <main>

@@ -1,72 +1,223 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Blue Gate Shipping and Trade B.V. — Website
 
-## Getting Started
+Modern, conversion-focused corporate site for **Blue Gate Shipping and Trade B.V.**, a bulk liquid petroleum storage and terminal operator headquartered in Rotterdam. Built with Next.js 14 App Router, TypeScript, and Tailwind CSS.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> See [CLAUDE.md](./CLAUDE.md) for full project context, design system, copy rules, and acceptance criteria.
 
 ---
 
-## Contact Form — Environment Variables
+## Tech Stack
 
-The `/contact` page submits to `app/api/contact/route.ts`, which uses [Resend](https://resend.com) to deliver emails.
+| Layer | Tooling |
+|---|---|
+| Framework | Next.js 16 (App Router, TypeScript strict) |
+| Styling | Tailwind CSS v4 + CSS custom properties |
+| UI primitives | shadcn/ui (Button, Card, Select, Sheet, Tabs, Accordion) |
+| Icons | Lucide React |
+| Forms | React Hook Form + Zod |
+| Email | Resend |
+| Market data | yahoo-finance2, ISR `revalidate: 900` |
+| Analytics | Plausible (optional) |
+| Hosting | Vercel |
+| Package manager | pnpm |
 
-### Local development
+---
 
-Create a `.env.local` file in the project root:
+## Setup
 
-```env
-RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxx
-CONTACT_EMAIL=storage@bluegou.com
+### 1. Install dependencies
+
+```bash
+pnpm install
 ```
 
-### Vercel deployment
+### 2. Configure environment variables
 
-Add the same two variables in **Vercel → Project → Settings → Environment Variables**.
+Copy `.env.example` to `.env.local` and fill in the values:
 
-### Verified sender domain
+```bash
+cp .env.example .env.local
+```
 
-Before going live, verify `bluegou.com` as a sending domain in the Resend dashboard
-(`Domains → Add Domain`). Until the domain is verified, Resend will reject the
-`from: noreply@bluegou.com` address. While testing, you can use the Resend sandbox
-address `onboarding@resend.dev` as a temporary sender.
+| Variable | Required | Description |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Yes | Full URL of the deployed site, e.g. `https://bluegou.com` |
+| `RESEND_API_KEY` | Yes (for contact form) | API key from [resend.com](https://resend.com/api-keys) |
+| `CONTACT_EMAIL` | No | Destination for form submissions (defaults to `storage@bluegou.com`) |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | No | Plausible analytics domain; leave empty to skip the script |
 
-### Rate limiting upgrade path
+### 3. Start the dev server
 
-The API route uses an in-memory `Map` to enforce a limit of 5 submissions per IP per
-15 minutes. This works for single-instance deployments but will reset on every cold
-start and will not work correctly across multiple Vercel function instances.
+```bash
+pnpm dev
+```
 
-For production, replace the in-memory store with
-[Upstash Redis](https://upstash.com/) or [Vercel KV](https://vercel.com/docs/storage/vercel-kv)
-and use the `@upstash/ratelimit` package for atomic, distributed rate limiting.
+Open [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Scripts
+
+```bash
+pnpm dev        # start development server (Next.js Turbopack)
+pnpm build      # production build
+pnpm start      # serve production build locally
+pnpm lint       # ESLint
+pnpm tsc        # TypeScript type-check (no emit)
+```
+
+---
+
+## Deploy to Vercel
+
+1. Push the repository to GitHub / GitLab.
+2. Import the project in [Vercel](https://vercel.com/new).
+3. Set the following **Environment Variables** in Vercel → Project → Settings → Environment Variables:
+   - `NEXT_PUBLIC_SITE_URL` → `https://bluegou.com`
+   - `RESEND_API_KEY` → your Resend API key
+   - `CONTACT_EMAIL` → `storage@bluegou.com`
+   - `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` → `bluegou.com` (optional)
+4. Deploy. Vercel auto-detects Next.js and builds correctly.
+
+### Resend sender domain
+
+Before the contact form can deliver email, verify `bluegou.com` as a sending domain in **Resend → Domains → Add Domain**. Until then, substitute `onboarding@resend.dev` as a temporary sender in `app/api/contact/route.ts`.
+
+### Rate limiting
+
+The contact API uses an in-memory `Map` — acceptable for single-instance preview, but resets on cold starts. For production, replace it with [Upstash Redis](https://upstash.com/) or [Vercel KV](https://vercel.com/docs/storage/vercel-kv) and the `@upstash/ratelimit` package.
+
+---
+
+## How to Swap Copy
+
+All brand data lives in **`config/`** — never hardcode addresses, phone numbers, or emails elsewhere:
+
+| File | Contains |
+|---|---|
+| `config/site.ts` | Brand name, address, phone, email, WhatsApp link, social handles |
+| `config/products.ts` | Product specs, storage descriptions, origins, safety data |
+| `config/terminals.ts` | Terminal cities, capacities, status, Incoterm tags |
+| `config/tanks.ts` | Tank inventory with IDs, types, capacity, compatible products |
+
+Edit the relevant config file and the change propagates to every page that imports it.
+
+---
+
+## How to Swap Images
+
+1. Drop new JPEG/WebP files into `public/images/`.
+2. For hero images and product images, update the `heroImage` URL in `config/products.ts` (currently Unsplash placeholders).
+3. For OG social images, the site generates them dynamically at `/api/og?title=...`. No static files needed unless you prefer static images — in that case, add them to `public/og/` and update `lib/meta.ts`.
+4. Production photography should replace Unsplash placeholder URLs in components and config files before go-live.
+
+---
+
+## How to Add a New Product
+
+1. Add an entry to the `products` array in **`config/products.ts`** following the existing `Product` type.
+2. Add tank data to **`config/tanks.ts`** with `compatibleProducts` matching the new `tankCompatTag`.
+3. That's it — the dynamic route `app/(marketing)/products/[slug]/page.tsx` and the Products hub page pick it up automatically.
+4. Add a spec-sheet PDF placeholder to `public/specs/<slug>-spec.pdf` and an SDS PDF to `public/specs/<slug>-sds.pdf`.
+5. Update `app/sitemap.ts` to include the new product path.
+
+---
+
+## Information Architecture
+
+```
+/                          Home
+/about                     Company history, mission-vision-values
+/services                  Services hub
+  /services/oil-storage    Bulk liquid tank storage
+  /services/product-inspection  Independent cargo inspection
+  /services/laboratory     On-site petroleum testing lab
+  /services/shipping       Multi-modal logistics
+/terminal                  Four-terminal network overview
+/storage-facility          Rotterdam tank inventory & capacity
+/markets                   Live indicative prices + tariff context
+/products                  Products hub
+  /products/jet-a1         Jet A1 Fuel
+  /products/diesel-en590   Diesel EN590
+  /products/virgin-fuel-oil-d6  Virgin Fuel Oil D6
+  /products/crude-oil      Crude Oil (7 benchmark grades)
+/sustainability            ESG, emissions targets, community
+/hse                       Health, Safety & Environment
+/contact                   Contact form + office details
+```
+
+---
+
+## Legacy URL Redirects
+
+Configured in `next.config.ts`. All 301-redirect from legacy WordPress slugs:
+
+| From | To |
+|---|---|
+| `/operations.html` | `/services/oil-storage` |
+| `/pipeline-transport.html` | `/services/shipping` |
+| `/logistics-solutions.html` | `/services/shipping` |
+| `/terminal-operations.html` | `/terminal` |
+| `/about-us.html` | `/about` |
+| `/sustainability.html` | `/sustainability` |
+| `/contact-us.html` | `/contact` |
+| `/services.html` | `/services` |
+| `/products.html` | `/products` |
+
+---
+
+## Client Sign-Off Checklist
+
+The following items are marked `// TODO: confirm with client` in the codebase. **Nothing should go live until these are resolved.**
+
+### Company & Brand
+- [ ] LinkedIn company page URL → `config/site.ts`
+- [ ] Approved wordmark / logo file → `public/logo.svg`
+- [ ] Production hero photography → `public/images/`
+
+### Terminals & Capacity
+- [ ] Confirm which terminals are currently active (Rotterdam confirmed; Fujairah, Houston, Jurong marked `tbc`)
+- [ ] Confirm actual capacity figures for each terminal → `config/terminals.ts`
+- [ ] Confirm exact terminal GPS coordinates → `lib/schema.ts`
+- [ ] Confirm founding / onboarding dates for Houston, Fujairah, Jurong → `components/sections/about/Timeline.tsx`
+
+### Storage Facility
+- [ ] Confirm real tank IDs, tank types, and capacities → `config/tanks.ts`
+- [ ] Confirm capacity stats (total m³, throughput m³/hr, etc.) → `components/sections/storage/CapacityStats.tsx`
+- [ ] Facility spec sheet PDF → `public/specs/rotterdam-facility-spec.pdf`
+
+### Certifications & Compliance
+- [ ] Confirm certifications actually held (ISO 9001 / 14001 / 45001, OCIMF/SIRE, FETSA, SQAS, etc.) → `components/sections/about/Certifications.tsx`, `components/sections/hse/Certifications.tsx`
+- [ ] Confirm HSE metrics (LTIF, spill count, audit frequency, toolbox talk cadence) → `components/sections/hse/Metrics.tsx`
+- [ ] Reporting frameworks subscribed to (GRI, TCFD, etc.) → `components/sections/sustainability/Reporting.tsx`
+- [ ] Emissions baselines and reduction targets → `components/sections/sustainability/EmissionsTable.tsx`
+
+### Contact & Operations
+- [ ] Commercial email address (if different from `storage@bluegou.com`) → `app/(marketing)/contact/page.tsx`
+- [ ] Dedicated HSE contact email → `app/(marketing)/contact/page.tsx`
+- [ ] Inspection / Laboratory contact email → `app/(marketing)/contact/page.tsx`
+
+### Product Documents
+- [ ] Real spec-sheet PDFs per product → `public/specs/`
+- [ ] Real Safety Data Sheets (SDS) per product → `public/specs/`
+
+### Leadership & Team
+- [ ] Leadership team names, titles, and approved headshots → `components/sections/about/Leadership.tsx`
+
+### Email / Deploy
+- [ ] Verify `bluegou.com` as sending domain in Resend dashboard before contact form goes live
+- [ ] Confirm `RESEND_API_KEY` and `CONTACT_EMAIL` set in Vercel environment variables
+
+---
+
+## Acceptance Criteria (CLAUDE.md §10)
+
+- [ ] All 10 primary nav routes + 4 service sub-routes + 4 product detail routes are live and styled
+- [ ] Market-price ticker fetches live data, ISR `revalidate: 900`
+- [ ] Each product page renders spec table AND matching storage tank table
+- [ ] Contact form submits to `storage@bluegou.com` and shows success/error states
+- [ ] Lighthouse mobile on `/`: ≥95 Performance / 100 Accessibility / 100 Best-Practices / 100 SEO
+- [ ] All copy original — zero text copied from competitor sites
+- [ ] WCAG 2.2 AA — axe-core zero serious/critical violations
+- [ ] Renders correctly from 375px (iPhone SE) to 2560px (4K)
+- [ ] Legacy WordPress redirects return 301 to correct routes

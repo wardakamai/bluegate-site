@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageMeta } from '@/lib/meta'
 import Link from 'next/link'
 import { Activity, Zap, Thermometer, Wind } from 'lucide-react'
 import { ServiceHero } from '@/components/sections/services/ServiceHero'
@@ -7,11 +8,12 @@ import { SpecTable } from '@/components/sections/services/SpecTable'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Button } from '@/components/ui/button'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Fuel Testing Laboratory Rotterdam — Blue Gate',
   description:
-    'On-site ASTM-grade petroleum laboratory at Rotterdam. Flash point, distillation, sulphur, density, viscosity, and eleven standard test methods. Same-day results.',
-}
+    'On-site ASTM-grade petroleum laboratory at Rotterdam. Flash point, distillation, sulphur, density, viscosity — eleven standard test methods. Same-day results.',
+  path: 'services/laboratory',
+})
 
 const TEST_CAPABILITIES = [
   { property: 'Distillation profile', value: 'IBP, 10%, 50%, 90%, FBP', method: 'ASTM D86' },

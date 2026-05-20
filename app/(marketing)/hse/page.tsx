@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageMeta } from '@/lib/meta'
 import Image from 'next/image'
 import { Policy } from '@/components/sections/hse/Policy'
 import { Certifications } from '@/components/sections/hse/Certifications'
@@ -10,11 +11,12 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=80'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Health, Safety & Environment — Blue Gate',
   description:
-    "Blue Gate's HSE framework: ISO 45001, OCIMF SIRE, zero-spill operations, 24/7 emergency response.",
-}
+    "Blue Gate's HSE framework: ISO 45001, OCIMF SIRE, zero-spill policy, documented incident response, and 24/7 emergency line at Rotterdam terminal.",
+  path: 'hse',
+})
 
 export default function HsePage() {
   return (

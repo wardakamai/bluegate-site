@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
+import { pageMeta } from '@/lib/meta'
+import { localBusinessSchema } from '@/lib/schema'
 import { Hero } from '@/components/sections/Hero'
 import { TerminalNetwork } from '@/components/sections/TerminalNetwork'
 import { MarketTicker } from '@/components/sections/MarketTicker'
@@ -11,21 +14,21 @@ import { FinalCta } from '@/components/sections/FinalCta'
 // ISR: rebuild the home page every 15 minutes so live prices stay fresh
 export const revalidate = 900
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Blue Gate Shipping & Trade B.V. — Oil Storage Rotterdam',
   description:
-    'ISO-certified storage of Jet A1, EN590, D6 and crude oil in Rotterdam. 60+ years of bulk liquid expertise.',
-  openGraph: {
-    title: 'Blue Gate Shipping & Trade B.V. — Oil Storage Rotterdam',
-    description:
-      'ISO-certified storage of Jet A1, EN590, D6 and crude oil in Rotterdam. 60+ years of bulk liquid expertise.',
-    images: [{ url: '/images/og-home.jpg', width: 1200, height: 630 }],
-  },
-}
+    'ISO-certified storage of Jet A1, EN590, D6 and crude oil in Rotterdam. 60+ years of bulk liquid expertise. Request allocation in 24 hours.',
+  path: '',
+})
 
 export default function HomePage() {
   return (
     <>
+      <Script
+        id="local-business-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
+      />
       <section id="hero" aria-label="Hero" className="scroll-mt-24">
         <Hero />
       </section>

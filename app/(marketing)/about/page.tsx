@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
+import { pageMeta } from '@/lib/meta'
+import { aboutPageSchema } from '@/lib/schema'
 import { Hero } from '@/components/sections/about/Hero'
 import { Narrative } from '@/components/sections/about/Narrative'
 import { Timeline } from '@/components/sections/about/Timeline'
@@ -8,20 +11,21 @@ import { Certifications } from '@/components/sections/about/Certifications'
 import { FinalCta } from '@/components/sections/FinalCta'
 import { site } from '@/config/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'About Blue Gate — 60 Years of Bulk Liquid Storage',
   description:
-    'Founded 1964 in Rotterdam. Blue Gate Shipping and Trade B.V. operates ISO-certified storage and terminal services across Europe and beyond.',
-  openGraph: {
-    title: 'About Blue Gate — 60 Years of Bulk Liquid Storage',
-    description:
-      'Founded 1964 in Rotterdam. Blue Gate Shipping and Trade B.V. operates ISO-certified storage and terminal services across Europe and beyond.',
-  },
-}
+    'Founded 1964 in Rotterdam. Blue Gate Shipping and Trade B.V. operates ISO-certified bulk liquid storage and terminal services with global reach.',
+  path: 'about',
+})
 
 export default function AboutPage() {
   return (
     <>
+      <Script
+        id="about-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema()) }}
+      />
       <Hero />
       <Narrative />
       <Timeline />

@@ -5,6 +5,7 @@ import { TopBar } from '@/components/layout/TopBar'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppFab } from '@/components/layout/WhatsAppFab'
+import { organizationSchema } from '@/lib/schema'
 import './globals.css'
 
 const inter = Inter({
@@ -68,6 +69,10 @@ export default function RootLayout({
       className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-page text-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
+        />
         <TopBar />
         <Header />
         <main id="main-content" className="flex-1">
@@ -82,7 +87,7 @@ export default function RootLayout({
           defer
           data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
           src="https://plausible.io/js/script.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       )}
     </html>

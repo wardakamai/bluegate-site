@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
+import { pageMeta } from '@/lib/meta'
 import Link from 'next/link'
 import { ServiceHero } from '@/components/sections/services/ServiceHero'
 import { ShippingTabs } from '@/components/sections/services/ShippingTabs'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Button } from '@/components/ui/button'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Shipping Services — Trucking, Rail, Cargo, Tanker — Blue Gate',
   description:
-    'Multi-modal petroleum logistics from Rotterdam: ADR road tankers, ISO tank rail, containerised deep-sea cargo, and full marine tanker co-ordination from VLCC to coastal.',
-}
+    'Multi-modal petroleum logistics from Rotterdam: ADR road tankers, ISO tank rail, containerised deep-sea cargo, and marine tanker co-ordination from VLCC to coastal.',
+  path: 'services/shipping',
+})
 
 export default function ShippingPage() {
   return (

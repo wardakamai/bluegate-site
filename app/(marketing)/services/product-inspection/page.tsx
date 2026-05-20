@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageMeta } from '@/lib/meta'
 import Link from 'next/link'
 import {
   ClipboardList,
@@ -18,11 +19,12 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { FinalCta } from '@/components/sections/FinalCta'
 import { Button } from '@/components/ui/button'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Petroleum Product Inspection — Blue Gate',
   description:
-    'Independent pre-loading, loading, discharge, and certification inspections to ASTM D4057 and ISO 3170. Quantity and quality surveys, sampling reports, and custody certificates.',
-}
+    'Independent pre-loading, loading, discharge, and certification inspections to ASTM D4057 and ISO 3170. Quantity surveys, sampling reports, and custody certificates.',
+  path: 'services/product-inspection',
+})
 
 const WORKFLOW_STEPS = [
   {

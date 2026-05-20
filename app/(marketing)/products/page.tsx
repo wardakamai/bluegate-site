@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageMeta } from '@/lib/meta'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
@@ -7,16 +8,12 @@ import { Button } from '@/components/ui/button'
 import { FinalCta } from '@/components/sections/FinalCta'
 import { products } from '@/config/products'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Products — Jet A1, Diesel EN590, Fuel Oil D6, Crude Oil — Blue Gate',
   description:
-    'Blue Gate stores four specification-grade petroleum products: Jet A1, Diesel EN590, Virgin Fuel Oil D6, and Crude Oil. Each in dedicated, matched tank infrastructure.',
-  openGraph: {
-    title: 'Products — Jet A1, Diesel EN590, Fuel Oil D6, Crude Oil — Blue Gate',
-    description:
-      'Blue Gate stores four specification-grade petroleum products: Jet A1, Diesel EN590, Virgin Fuel Oil D6, and Crude Oil. Each in dedicated, matched tank infrastructure.',
-  },
-}
+    'Four specification-grade petroleum products: Jet A1, Diesel EN590, Virgin Fuel Oil D6, and Crude Oil — each stored in matched, dedicated tank infrastructure.',
+  path: 'products',
+})
 
 const CATEGORY_STYLES: Record<string, string> = {
   AVIATION:   'text-sky-400 bg-sky-400/10 border-sky-400/25',

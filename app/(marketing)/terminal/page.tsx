@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { pageMeta } from '@/lib/meta'
 import { TerminalHero } from '@/components/sections/terminal/Hero'
 import { NetworkSummary } from '@/components/sections/terminal/NetworkSummary'
 import { RotterdamFlagship } from '@/components/sections/terminal/RotterdamFlagship'
@@ -8,34 +9,15 @@ import { WhyNetwork } from '@/components/sections/terminal/WhyNetwork'
 import { Certifications } from '@/components/sections/about/Certifications'
 import { FinalCta } from '@/components/sections/FinalCta'
 import { terminals } from '@/config/terminals'
-import { site } from '@/config/site'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Terminal Network — Rotterdam, Fujairah, Houston, Jurong — Blue Gate',
   description:
-    'Blue Gate operates four terminals worldwide, anchored by our Rotterdam flagship, with strategic extensions in Fujairah, Houston, and Jurong.',
-  openGraph: {
-    title: 'Terminal Network — Rotterdam, Fujairah, Houston, Jurong — Blue Gate',
-    description:
-      'Blue Gate operates four terminals worldwide, anchored by our Rotterdam flagship, with strategic extensions in Fujairah, Houston, and Jurong.',
-  },
-}
+    'Four-terminal network anchored by Rotterdam. Strategic extensions in Fujairah, Houston, and Jurong covering Atlantic, Middle East, and Pacific product flows.',
+  path: 'terminal',
+})
 
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://bluegou.com/#organization',
-  name: site.name,
-  url: 'https://bluegou.com',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: site.address.street,
-    postalCode: site.address.postcode,
-    addressLocality: site.address.city,
-    addressCountry: 'NL',
-  },
-}
-
+// Organization schema is injected site-wide in layout.tsx — only Place data needed here
 const placeJsonLd = terminals.map((t) => ({
   '@context': 'https://schema.org',
   '@type': 'Place',
@@ -54,9 +36,7 @@ export default function TerminalPage() {
       <Script
         id="terminal-jsonld"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([organizationJsonLd, ...placeJsonLd]),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(placeJsonLd) }}
       />
 
       <main>

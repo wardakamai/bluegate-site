@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { pageMeta } from '@/lib/meta'
 import Link from 'next/link'
 import { Layers, Waves, Shield, Thermometer, Gauge, Clock, FileText, Wifi } from 'lucide-react'
 import { ServiceHero } from '@/components/sections/services/ServiceHero'
@@ -9,11 +10,12 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { FinalCta } from '@/components/sections/FinalCta'
 import { Button } from '@/components/ui/button'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Oil Storage Services Rotterdam — Blue Gate',
   description:
-    'Bulk liquid tank storage for Jet A1, Diesel EN590, D6, and Crude Oil at Rotterdam. Fixed-roof, floating-roof, and heated tanks from 1,000 to 80,000 m³ with throughput and blending.',
-}
+    'Bulk liquid tank storage for Jet A1, Diesel EN590, D6, and Crude Oil at Rotterdam. Fixed-roof, floating-roof, heated tanks from 1,000 to 80,000 m³ with throughput and blending.',
+  path: 'services/oil-storage',
+})
 
 const TANK_TYPES = [
   {

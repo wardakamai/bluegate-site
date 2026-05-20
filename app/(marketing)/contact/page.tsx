@@ -1,22 +1,28 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Suspense } from 'react'
 import { Mail, Phone, MessageCircle, Clock, AlertTriangle, MapPin } from 'lucide-react'
+import { pageMeta } from '@/lib/meta'
+import { contactPageSchema } from '@/lib/schema'
 import { site } from '@/config/site'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { MapEmbed } from '@/components/sections/MapEmbed'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: 'Contact — Blue Gate Shipping & Trade',
   description:
-    'Speak to our operations desk for storage allocation, tariffs, and site visits. 24-hour response.',
-  openGraph: {
-    title: 'Contact — Blue Gate Shipping & Trade',
-    description: 'Speak to our operations desk for storage allocation, tariffs, and site visits. 24-hour response.',
-  },
-}
+    'Speak to our operations desk for storage allocation, tariffs, and site visits. 24-hour response commitment. Rotterdam, Netherlands.',
+  path: 'contact',
+})
 
 export default function ContactPage() {
   return (
+    <>
+      <Script
+        id="contact-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema()) }}
+      />
     <div className="bg-page min-h-screen">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[3fr_2fr]">
@@ -131,6 +137,7 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

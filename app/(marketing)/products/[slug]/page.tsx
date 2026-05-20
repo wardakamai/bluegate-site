@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { notFound } from 'next/navigation'
+import { pageMeta } from '@/lib/meta'
+import { productSchema } from '@/lib/schema'
 import { products } from '@/config/products'
-import { site } from '@/config/site'
 import { ProductHero } from '@/components/products/ProductHero'
 import { AtAGlanceStrip } from '@/components/products/AtAGlanceStrip'
 import { SpecificationTable, GradeComparisonTable } from '@/components/products/SpecificationTable'
@@ -47,11 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = TITLES[slug] ?? `${product.name} — Blue Gate`
   const description = DESCRIPTIONS[slug] ?? product.shortPositioning
 
-  return {
-    title,
-    description,
-    openGraph: { title, description },
-  }
+  return pageMeta({ title, description, path: `products/${slug}` })
 }
 
 export default async function ProductDetail({ params }: Props) {
@@ -59,34 +56,14 @@ export default async function ProductDetail({ params }: Props) {
   const product = products.find((p) => p.slug === slug)
   if (!product) notFound()
 
-  const productJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: product.name,
-    description: product.shortPositioning,
-    brand: {
-      '@type': 'Brand',
-      name: site.name,
-    },
-    offers: {
-      '@type': 'Offer',
-      url: `https://bluegou.com/products/${product.slug}`,
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      seller: {
-        '@type': 'Organization',
-        name: site.name,
-        url: 'https://bluegou.com',
-      },
-    },
-  }
+  const jsonLd = productSchema(product)
 
   return (
     <>
       <Script
         id={`product-jsonld-${product.slug}`}
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       <main>
