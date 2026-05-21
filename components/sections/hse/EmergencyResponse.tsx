@@ -1,5 +1,5 @@
 import { Flame, Droplets, Handshake, Radio } from 'lucide-react'
-import { ServiceFeatureGrid, type FeatureItem } from '@/components/sections/services/ServiceFeatureGrid'
+import type { FeatureItem } from '@/components/sections/services/ServiceFeatureGrid'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 const RESPONSE_FEATURES: FeatureItem[] = [
@@ -46,12 +46,12 @@ export function EmergencyResponse() {
           <ScrollReveal>
             <div className="space-y-5 font-sans text-base text-muted-foreground leading-relaxed">
               <p>
-                Emergency preparedness is built into Blue Gate's operating licence. The Rotterdam
+                Emergency preparedness is built into Blue Gate&apos;s operating licence. The Rotterdam
                 terminal maintains an on-site fire response capability at all times — not as a
                 regulatory checkbox, but as a genuine operational commitment.
               </p>
               <p>
-                Our response framework integrates directly with the Port of Rotterdam Authority's
+                Our response framework integrates directly with the Port of Rotterdam Authority&apos;s
                 emergency coordination structure through a formal mutual aid agreement. When an
                 incident escalates beyond on-site capability, the handoff to port fire brigade and
                 Rijnmond Safety Region is pre-planned, pre-rehearsed, and executed without
@@ -69,7 +69,7 @@ export function EmergencyResponse() {
           {/* Right — feature grid (2×2) */}
           <ScrollReveal delay={0.1}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {RESPONSE_FEATURES.map((item, i) => {
+              {RESPONSE_FEATURES.map((item) => {
                 const Icon = item.icon
                 return (
                   <div

@@ -24,8 +24,8 @@ export function StatTile({ value, suffix, label }: StatTileProps) {
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reducedMotion) {
-      setDisplay(value)
-      return
+      const id = window.setTimeout(() => setDisplay(value), 0)
+      return () => window.clearTimeout(id)
     }
 
     const ctx = gsap.context(() => {

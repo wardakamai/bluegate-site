@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 import { pageMeta } from '@/lib/meta'
 import Link from 'next/link'
-import { Layers, Waves, Shield, Thermometer, Gauge, Clock, FileText, Wifi } from 'lucide-react'
+import { Layers, Waves, Shield, Thermometer } from 'lucide-react'
 import { ServiceHero } from '@/components/sections/services/ServiceHero'
 import { ServiceFeatureGrid } from '@/components/sections/services/ServiceFeatureGrid'
 import { SpecTable } from '@/components/sections/services/SpecTable'
 import { OilStorageAccordion } from '@/components/sections/services/OilStorageAccordion'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { FinalCta } from '@/components/sections/FinalCta'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = pageMeta({

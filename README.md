@@ -166,6 +166,30 @@ Configured in `next.config.ts`. All 301-redirect from legacy WordPress slugs:
 
 ---
 
+## Assets to Replace Before Launch
+
+The following placeholder files in `public/specs/` are **zero-byte stubs**. Replace each with the real document before going live:
+
+| File | Description |
+|---|---|
+| `public/specs/jet-a1-spec.pdf` | Jet A1 Fuel — product spec sheet |
+| `public/specs/jet-a1-sds.pdf` | Jet A1 Fuel — Safety Data Sheet |
+| `public/specs/diesel-en590-spec.pdf` | Diesel EN590 — product spec sheet |
+| `public/specs/diesel-en590-sds.pdf` | Diesel EN590 — Safety Data Sheet |
+| `public/specs/virgin-fuel-oil-d6-spec.pdf` | Virgin Fuel Oil D6 — product spec sheet |
+| `public/specs/virgin-fuel-oil-d6-sds.pdf` | Virgin Fuel Oil D6 — Safety Data Sheet |
+| `public/specs/crude-oil-spec.pdf` | Crude Oil — product spec sheet |
+| `public/specs/crude-oil-sds.pdf` | Crude Oil — Safety Data Sheet |
+| `public/specs/rotterdam-facility-spec.pdf` | Rotterdam storage facility — site spec sheet |
+| `public/specs/hse-policy.pdf` | HSE Policy document |
+| `public/specs/esg-report.pdf` | ESG / Sustainability report |
+
+Drop-in replacement: overwrite each file at the same path. No code changes needed — all `<a href="/specs/...">` links reference these paths directly.
+
+Also replace OG images in `public/og/` if using static social images instead of the dynamic `/api/og` generator.
+
+---
+
 ## Client Sign-Off Checklist
 
 The following items are marked `// TODO: confirm with client` in the codebase. **Nothing should go live until these are resolved.**

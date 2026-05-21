@@ -1,13 +1,10 @@
 'use client'
 
-import { useReducedMotion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 import { site } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 export function WhatsAppFab() {
-  const shouldReduceMotion = useReducedMotion()
-
   return (
     <a
       href={site.contact.whatsapp}

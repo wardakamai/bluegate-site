@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -52,7 +53,11 @@ export function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
-      res.ok ? setDone(true) : setServerErr('Something went wrong — please email storage@bluegou.com directly.')
+      if (res.ok) {
+        setDone(true)
+      } else {
+        setServerErr('Something went wrong — please email storage@bluegou.com directly.')
+      }
     } catch {
       setServerErr('Something went wrong — please email storage@bluegou.com directly.')
     }
@@ -63,10 +68,10 @@ export function ContactForm() {
       <div role="status" className="rounded-xl border border-ok/30 bg-ok/10 p-10 text-center space-y-4">
         <CheckCircle className="mx-auto size-12 text-ok" aria-hidden />
         <p className="font-serif text-2xl text-ink">Enquiry received.</p>
-        <p className="text-sm text-muted-foreground">We've received your enquiry — we'll reply within 24 hours.</p>
-        <a href="/" className="inline-block text-sm text-brand hover:text-brand-steel transition-colors">
+        <p className="text-sm text-muted-foreground">We&apos;ve received your enquiry — we&apos;ll reply within 24 hours.</p>
+        <Link href="/" className="inline-block text-sm text-brand hover:text-brand-steel transition-colors">
           Return to home →
-        </a>
+        </Link>
       </div>
     )
   }

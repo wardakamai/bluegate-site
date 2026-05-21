@@ -16,7 +16,6 @@ import {
 import { ServiceHero } from '@/components/sections/services/ServiceHero'
 import { ServiceFeatureGrid } from '@/components/sections/services/ServiceFeatureGrid'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { FinalCta } from '@/components/sections/FinalCta'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = pageMeta({

@@ -1,7 +1,7 @@
 'use client'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Truck, Train, Package, Anchor, Shield, Navigation, Activity, Globe, Waves, FileCheck } from 'lucide-react'
+import { Package, Anchor, Shield, Navigation, Activity, Globe, Waves, FileCheck } from 'lucide-react'
 import { ServiceFeatureGrid, type FeatureItem } from './ServiceFeatureGrid'
 import { SpecTable, type SpecRow } from './SpecTable'
 

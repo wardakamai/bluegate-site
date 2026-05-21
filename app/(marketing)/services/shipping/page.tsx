@@ -69,7 +69,7 @@ export default function ShippingPage() {
                   an inland industrial customer, or by coastal tanker to a UK or Scandinavian port.
                 </p>
                 <p>
-                  All four legs are co-ordinated from Blue Gate's Rotterdam operations desk. The
+                  All four legs are co-ordinated from Blue Gate&apos;s Rotterdam operations desk. The
                   same custody chain, the same documentation standard, and the same 24-hour contact
                   commitment applies whether the movement is a 28,000 L road tanker or a 150,000 DWT
                   Suezmax parcel. Clients deal with one contact for scheduling, documentation, and

@@ -42,11 +42,10 @@ const METRICS: MetricTile[] = [
 
 function AnimatedNumber({
   from,
-  to,
   display,
 }: {
   from: number
-  to: string
+  to?: string
   display: string
 }) {
   const [shown, setShown] = useState(display === '0.00' || display === '0' ? display : display)

@@ -34,8 +34,8 @@ export function Community() {
                 people who choose careers in bulk liquid logistics.
               </p>
               <p>
-                Through the port's vocational training networks and direct partnerships with
-                Rotterdam's maritime educational institutions, Blue Gate funds competency
+                Through the port&apos;s vocational training networks and direct partnerships with
+                Rotterdam&apos;s maritime educational institutions, Blue Gate funds competency
                 development for the next generation of terminal operators, gaugers, and logistics
                 professionals. We track apprenticeship outcomes and publish intake numbers in our
                 annual ESG report.

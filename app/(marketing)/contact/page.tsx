@@ -41,7 +41,7 @@ export default function ContactPage() {
             </h1>
             <p className="mt-5 max-w-lg text-base text-muted-foreground leading-relaxed">
               Our operations team responds within 24 hours. For storage allocation, tariff
-              enquiries, site visits, and product availability — fill in the form and we'll route
+              enquiries, site visits, and product availability — fill in the form and we&apos;ll route
               your message to the right desk.
             </p>
 
