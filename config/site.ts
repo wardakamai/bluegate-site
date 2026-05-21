@@ -14,6 +14,7 @@ export const site = {
   },
   contact: {
     email: 'storage@bluegou.com',
+    emailShipping: 'shipping@bluegou.com',
     phone: '+31 97005033211',
     phoneLink: 'tel:+3197005033211',
     whatsapp:

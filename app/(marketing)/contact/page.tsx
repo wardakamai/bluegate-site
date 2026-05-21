@@ -85,7 +85,17 @@ export default function ContactPage() {
                 </a>
               </ContactBlock>
 
-              {/* TODO: confirm with client — commercial email if different from operations */}
+              {/* Shipping */}
+              <ContactBlock label="Shipping">
+                <a
+                  href={`mailto:${site.contact.emailShipping}`}
+                  className="flex items-center gap-2.5 text-sm text-ink hover:text-brand transition-colors"
+                >
+                  <Mail className="size-4 shrink-0 text-brand" aria-hidden />
+                  {site.contact.emailShipping}
+                </a>
+              </ContactBlock>
+
               {/* TODO: confirm with client — HSE dedicated email address */}
               {/* TODO: confirm with client — Inspection / Laboratory dedicated email */}
 
