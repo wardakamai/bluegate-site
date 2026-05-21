@@ -1,5 +1,6 @@
 import { MapPin, Mail, Phone } from 'lucide-react'
 import { site } from '@/config/site'
+import { PolicyDropdown } from './PolicyDropdown'
 
 export function TopBar() {
   const { address, contact } = site
@@ -8,10 +9,16 @@ export function TopBar() {
   return (
     <div className="hidden md:block bg-page print:hidden" role="banner">
       <div className="mx-auto max-w-7xl px-6 flex items-center justify-between py-2">
+        {/* Left — address */}
         <address className="not-italic flex items-center gap-1.5 text-xs text-muted-foreground">
           <MapPin size={11} className="shrink-0 opacity-70" aria-hidden="true" />
           {addressLine}
         </address>
+
+        {/* Centre — policy dropdown */}
+        <PolicyDropdown />
+
+        {/* Right — email + phone */}
         <div className="flex items-center gap-6 text-xs">
           <a
             href={`mailto:${contact.email}`}
