@@ -7,7 +7,7 @@ export function TopBar() {
 
   return (
     <div className="hidden md:block bg-page print:hidden" role="banner">
-      <div className="mx-auto max-w-7xl px-6 flex items-center justify-between py-2.5">
+      <div className="mx-auto max-w-7xl px-6 flex items-center justify-between py-3 my-1">
         {/* Left — address */}
         <address className="not-italic flex items-center gap-1.5 text-xs text-muted-foreground">
           <MapPin size={11} className="shrink-0 opacity-70" aria-hidden="true" />

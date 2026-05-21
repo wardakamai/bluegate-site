@@ -105,7 +105,7 @@ export function Header() {
         scrolled && 'shadow-sm backdrop-blur-sm',
       )}
     >
-      <div className="mx-auto max-w-7xl px-6 flex items-center justify-between h-16">
+      <div className="mx-auto max-w-7xl px-6 flex items-center justify-between h-16 py-3">
         <Logo variant="default" className="h-12" />
 
         {/* Desktop nav */}
