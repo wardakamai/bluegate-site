@@ -1,6 +1,5 @@
 import { MapPin, Mail, Phone } from 'lucide-react'
 import { site } from '@/config/site'
-import { PolicyDropdown } from './PolicyDropdown'
 
 export function TopBar() {
   const { address, contact } = site
@@ -14,9 +13,6 @@ export function TopBar() {
           <MapPin size={11} className="shrink-0 opacity-70" aria-hidden="true" />
           {addressLine}
         </address>
-
-        {/* Centre — policy dropdown */}
-        <PolicyDropdown />
 
         {/* Right — email + phone */}
         <div className="flex items-center gap-6 text-xs">

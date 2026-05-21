@@ -10,9 +10,13 @@ export function TopBarPopup() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
-  // Open after mount on home page, and re-open on every navigation to '/'
+  // Reset to closed then open in the next frame so the CSS transition
+  // always replays — works on first load, hard refresh, and SPA navigation
   useEffect(() => {
-    if (pathname === '/') setOpen(true)
+    if (pathname !== '/') return
+    setOpen(false)
+    const id = requestAnimationFrame(() => setOpen(true))
+    return () => cancelAnimationFrame(id)
   }, [pathname])
 
   // Close on scroll past 10 px
