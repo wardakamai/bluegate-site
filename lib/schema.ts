@@ -219,7 +219,7 @@ export function storageFaqSchema(): JsonLd {
         name: 'How do I contact Blue Gate for a petroleum storage enquiry in Fujairah?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'For petroleum storage enquiries at our Fujairah terminal, contact us at storage@bluegou.com or call +31 97005033311. Our Fujairah operations provide crude oil and refined product storage outside the Strait of Hormuz.',
+          text: 'For petroleum storage enquiries at our Fujairah terminal, contact us at storage@bluegou.com or call +31 97005033211. Our Fujairah operations provide crude oil and refined product storage outside the Strait of Hormuz.',
         },
       },
       {
