@@ -11,12 +11,10 @@ export function TopBarPopup() {
   const shouldReduceMotion = useReducedMotion() ?? false
   const pathname = usePathname()
 
-  // Re-show whenever the user arrives at the home page
   useEffect(() => {
     if (pathname === '/') setOpen(true)
   }, [pathname])
 
-  // Collapse on scroll
   useEffect(() => {
     if (pathname !== '/') return
     const onScroll = () => {
@@ -38,28 +36,35 @@ export function TopBarPopup() {
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="overflow-hidden bg-bg border-b border-border-soft"
+          className="overflow-hidden bg-page"
         >
-          <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between gap-4">
-            <p className="font-sans text-xs text-muted-foreground leading-none">
-              <span className="font-medium text-foreground">Blue Gate Refund Policy</span>
-              {' · '}
-              <Link
-                href="/docs/refund-policy.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand underline underline-offset-2 hover:text-brand-steel transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand rounded"
-              >
-                View &amp; Download →
-              </Link>
-            </p>
-            <button
-              onClick={() => setOpen(false)}
-              aria-label="Dismiss notice"
-              className="shrink-0 p-1 rounded text-muted-foreground hover:text-foreground hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          <div className="relative flex items-center justify-center px-20 py-3">
+            {/* Centred PDF link */}
+            <Link
+              href="/docs/refund-policy.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-sm text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60 rounded"
             >
-              <X size={13} aria-hidden="true" />
-            </button>
+              Blue Gate – Refund Policy
+            </Link>
+
+            {/* Dismiss controls — pinned to the right */}
+            <div className="absolute right-6 flex items-center gap-3">
+              <button
+                onClick={() => setOpen(false)}
+                className="font-sans text-sm text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60 rounded"
+              >
+                Got it!
+              </button>
+              <button
+                onClick={() => setOpen(false)}
+                aria-label="Close notice"
+                className="text-white/50 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60 rounded"
+              >
+                <X size={14} aria-hidden="true" />
+              </button>
+            </div>
           </div>
         </motion.div>
       )}
