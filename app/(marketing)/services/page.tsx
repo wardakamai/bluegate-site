@@ -8,9 +8,9 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { FinalCta } from '@/components/sections/FinalCta'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Oil Storage Services Rotterdam — Blue Gate',
+  title: 'Oil Storage Services | Blue Gate Rotterdam Terminal',
   description:
-    'Four specialist disciplines: oil storage, product inspection, on-site laboratory testing, and multi-modal shipping — delivered as one integrated chain from Rotterdam.',
+    'Four specialist services: oil tank farm storage, petroleum product inspection, on-site laboratory testing, and multi-modal shipping from Rotterdam and Houston.',
   path: 'services',
 })
 
@@ -21,9 +21,8 @@ const SERVICES = [
     title: 'Oil Storage Services',
     body: 'Dedicated tank capacity for Jet A1, Diesel EN590, D6, and Crude Oil. Fixed-roof, floating-roof, and heated configurations from 1,000 to 80,000 m³. Throughput, in-line blending, and custody transfer included.',
     href: '/services/oil-storage',
-    imageUrl:
-      'https://images.unsplash.com/photo-1581093803537-1e54f5a78ad4?auto=format&fit=crop&w=800&q=70',
-    imageAlt: 'Bulk liquid storage tanks at an oil terminal',
+    imageUrl: '/images/service-oil-storage.jpg',
+    imageAlt: 'Blue Gate oil tank farm floating roof storage tank',
   },
   {
     label: 'Inspection',
@@ -31,9 +30,8 @@ const SERVICES = [
     title: 'Product Inspection',
     body: 'Independent pre-loading, loading, and discharge inspections to ASTM D4057 and ISO 3170 protocols. Quantity surveys, sampling reports, Certificates of Quality and Quantity issued on every parcel.',
     href: '/services/product-inspection',
-    imageUrl:
-      'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=70',
-    imageAlt: 'Inspector conducting petroleum product sampling at a terminal',
+    imageUrl: '/images/service-inspection.jpg',
+    imageAlt: 'Blue Gate petroleum product inspection at Rotterdam tank farm',
   },
   {
     label: 'Laboratory',
@@ -41,9 +39,8 @@ const SERVICES = [
     title: 'Laboratory',
     body: 'On-site ASTM-grade testing facility covering distillation, flash point, sulphur content, density, viscosity, water & sediment, and nine further standard methods. Results issued same-day.',
     href: '/services/laboratory',
-    imageUrl:
-      'https://images.unsplash.com/photo-1581093803537-1e54f5a78ad4?auto=format&fit=crop&w=800&q=70',
-    imageAlt: 'Petroleum laboratory testing equipment',
+    imageUrl: '/images/service-laboratory.jpg',
+    imageAlt: 'Blue Gate petroleum testing laboratory Rotterdam',
   },
   {
     label: 'Logistics',
@@ -51,9 +48,8 @@ const SERVICES = [
     title: 'Shipping Services',
     body: 'Multi-modal product movement from Rotterdam: ADR road tankers across Benelux and DACH, ISO tank rail across the European network, containerised cargo deep-sea and feeder, and full marine tanker logistics from VLCC to coastal.',
     href: '/services/shipping',
-    imageUrl:
-      'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=70',
-    imageAlt: 'Shipping operations at Rotterdam port',
+    imageUrl: '/images/service-shipping.jpg',
+    imageAlt: 'Product tanker at Blue Gate Rotterdam marine terminal',
   },
 ] as const
 
@@ -67,8 +63,8 @@ export default function ServicesPage() {
       >
         <div className="absolute inset-0 -z-10">
           <Image
-            src="https://images.unsplash.com/photo-1581093803537-1e54f5a78ad4?auto=format&fit=crop&w=2400&q=80"
-            alt=""
+            src="/images/service-oil-storage.jpg"
+            alt="Blue Gate oil tank farm floating roof storage tank"
             fill
             quality={80}
             className="object-cover object-center"

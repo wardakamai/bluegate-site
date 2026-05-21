@@ -118,7 +118,7 @@ export function HorizontalScroll() {
             {/* Background image with parallax target */}
             <div className="h-card-img absolute inset-0">
               <Image
-                src={`/images/product-${product.slug}.jpg`}
+                src={product.heroImage}
                 alt={product.name}
                 fill
                 className="object-cover object-center"

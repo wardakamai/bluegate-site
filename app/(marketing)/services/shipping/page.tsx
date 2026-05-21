@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { pageMeta } from '@/lib/meta'
+import { serviceSchema, breadcrumbSchema } from '@/lib/schema'
 import Link from 'next/link'
 import { ServiceHero } from '@/components/sections/services/ServiceHero'
 import { ShippingTabs } from '@/components/sections/services/ShippingTabs'
@@ -7,21 +9,39 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Shipping Services — Trucking, Rail, Cargo, Tanker — Blue Gate',
+  title: 'Oil Terminal Shipping Services | Rotterdam to Houston',
   description:
-    'Multi-modal petroleum logistics from Rotterdam: ADR road tankers, ISO tank rail, containerised deep-sea cargo, and marine tanker co-ordination from VLCC to coastal.',
+    'Oil storage terminal shipping: road tankers, rail, cargo and marine tanker services. ADR-compliant. Rotterdam to Houston and Singapore. Plan a shipment today.',
   path: 'services/shipping',
 })
 
+const SERVICE_JSONLD = serviceSchema({
+  name: 'Oil Terminal Shipping Services',
+  description: 'Multi-modal petroleum shipping from Rotterdam: road tankers, rail, cargo, and marine tanker co-ordination. ADR-compliant. Rotterdam to Houston and Singapore.',
+  serviceType: 'Petroleum Shipping & Logistics',
+  path: '/services/shipping',
+})
+const BREADCRUMB_JSONLD = breadcrumbSchema([
+  { name: 'Home', url: 'https://bluegou.com' },
+  { name: 'Services', url: 'https://bluegou.com/services' },
+  { name: 'Shipping', url: 'https://bluegou.com/services/shipping' },
+])
+
 export default function ShippingPage() {
   return (
+    <>
+      <Script id="shipping-service-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_JSONLD) }} />
+      <Script id="shipping-breadcrumb-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }} />
     <main>
       <ServiceHero
         label="Shipping Services"
         headlinePlain="Move Product"
         headlineItalic="Without Friction."
         subdeck="Four transport modes — road, rail, cargo, and marine — managed from a single operations desk in Rotterdam with full documentation on every movement."
-        imageUrl="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=2400&q=80"
+        imageUrl="/images/service-shipping.jpg"
+        imageAlt="Product tanker at Blue Gate Rotterdam marine terminal"
       />
 
       {/* Tabbed mode sections */}
@@ -108,5 +128,6 @@ export default function ShippingPage() {
         </div>
       </section>
     </main>
+    </>
   )
 }

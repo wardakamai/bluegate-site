@@ -16,9 +16,9 @@ import { FinalCta } from '@/components/sections/FinalCta'
 export const revalidate = 900
 
 export const metadata: Metadata = pageMeta({
-  title: 'Oil Tank Farm Rotterdam — Blue Gate Shipping & Trade B.V.',
+  title: 'Oil Tank Farm Rotterdam | Blue Gate Storage Terminal',
   description:
-    'ISO-certified oil tank farm and storage for Jet A1, EN590, D6 and crude oil in Rotterdam. 60+ years of oil storage expertise. Request allocation in 24 hours.',
+    'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil. 60+ years expertise. Capacity available.',
   path: '',
 })
 

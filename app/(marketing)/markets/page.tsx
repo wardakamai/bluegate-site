@@ -11,9 +11,9 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 export const revalidate = 900
 
 export const metadata: Metadata = pageMeta({
-  title: 'Oil Storage Market Prices — Blue Gate Rotterdam',
+  title: 'Rotterdam Oil Storage Capacity | Market Prices & Tariffs',
   description:
-    'Live indicative pricing for Brent, WTI, Gasoil and Natural Gas. Oil storage tariffs linked to Platts and Argus benchmarks. Updated every 15 minutes.',
+    'Rotterdam oil storage capacity and live indicative market prices. Brent, WTI, Gasoil. Storage tariffs linked to Platts Rotterdam Barges and Argus NWE differentials.',
   path: 'markets',
 })
 

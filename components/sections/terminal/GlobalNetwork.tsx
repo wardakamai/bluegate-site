@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin } from 'lucide-react'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
@@ -115,51 +116,63 @@ export function GlobalNetwork() {
                     </Button>
                   </div>
 
-                  {/* Capacity / product card */}
+                  {/* Terminal image + data card */}
                   <div className={isEven ? 'lg:order-2' : 'lg:order-1'}>
-                    <div className="rounded-xl border border-border-soft bg-bg p-8">
-                      <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-muted-foreground mb-6">
-                        Terminal Profile
-                      </p>
+                    <div className="rounded-xl border border-border-soft bg-bg overflow-hidden">
+                      <div className="relative h-52">
+                        <Image
+                          src={terminal.image}
+                          alt={terminal.imageAlt}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        <div className="absolute inset-0 bg-page/40" aria-hidden="true" />
+                      </div>
+                      <div className="p-8">
+                        <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-muted-foreground mb-6">
+                          Terminal Profile
+                        </p>
 
-                      <div className="space-y-4 mb-8">
-                        <div className="flex justify-between items-center border-b border-border-soft pb-3">
-                          <span className="font-sans text-sm text-muted-foreground">
-                            Nominal capacity
-                          </span>
-                          <span className="font-mono text-sm font-medium text-ink">
-                            {new Intl.NumberFormat('en-GB').format(terminal.capacityM3)} m³
-                            <span className="text-amber-400 text-[10px] ml-1">*</span>
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-center border-b border-border-soft pb-3">
-                          <span className="font-sans text-sm text-muted-foreground">
-                            Incoterm basis
-                          </span>
-                          <span className="font-mono text-sm font-medium text-ink">
-                            {terminal.incoterm}
-                          </span>
-                        </div>
-                        <div className="flex justify-between items-start">
-                          <span className="font-sans text-sm text-muted-foreground">
-                            Products handled
-                          </span>
-                          <div className="flex flex-wrap gap-1.5 justify-end max-w-[55%]">
-                            {terminal.productTags.map((tag) => (
-                              <span
-                                key={tag}
-                                className="text-[10px] uppercase tracking-[0.06em] font-medium bg-brand/[0.12] text-brand border border-brand/20 rounded px-2 py-0.5"
-                              >
-                                {tag}
-                              </span>
-                            ))}
+                        <div className="space-y-4 mb-8">
+                          <div className="flex justify-between items-center border-b border-border-soft pb-3">
+                            <span className="font-sans text-sm text-muted-foreground">
+                              Nominal capacity
+                            </span>
+                            <span className="font-mono text-sm font-medium text-ink">
+                              {new Intl.NumberFormat('en-GB').format(terminal.capacityM3)} m³
+                              <span className="text-amber-400 text-[10px] ml-1">*</span>
+                            </span>
+                          </div>
+                          <div className="flex justify-between items-center border-b border-border-soft pb-3">
+                            <span className="font-sans text-sm text-muted-foreground">
+                              Incoterm basis
+                            </span>
+                            <span className="font-mono text-sm font-medium text-ink">
+                              {terminal.incoterm}
+                            </span>
+                          </div>
+                          <div className="flex justify-between items-start">
+                            <span className="font-sans text-sm text-muted-foreground">
+                              Products handled
+                            </span>
+                            <div className="flex flex-wrap gap-1.5 justify-end max-w-[55%]">
+                              {terminal.productTags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="text-[10px] uppercase tracking-[0.06em] font-medium bg-brand/[0.12] text-brand border border-brand/20 rounded px-2 py-0.5"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <p className="font-sans text-[10px] text-muted-foreground/60">
-                        * Capacity figures are provisional pending client confirmation.
-                      </p>
+                        <p className="font-sans text-[10px] text-muted-foreground/60">
+                          * Capacity figures are provisional pending client confirmation.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -167,6 +180,17 @@ export function GlobalNetwork() {
             )
           })}
         </div>
+
+        {/* Keyword-rich editorial paragraph for SEO */}
+        <ScrollReveal delay={0.1}>
+          <p className="mt-16 font-sans text-base text-muted-foreground leading-relaxed max-w-3xl border-t border-border-soft pt-10">
+            Blue Gate operates one of Europe&apos;s most strategically positioned oil storage terminal
+            networks. Our Rotterdam tank farm sits at the heart of the ARA corridor. Our Fujairah
+            petroleum storage terminal provides crude oil storage capacity outside the Strait of
+            Hormuz. Houston petroleum storage serves the US Gulf Coast. Jurong provides
+            Asia-Pacific oil terminal access.
+          </p>
+        </ScrollReveal>
       </div>
     </section>
   )

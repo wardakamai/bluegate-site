@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { pageMeta } from '@/lib/meta'
-import { localBusinessSchema } from '@/lib/schema'
+import { localBusinessSchema, storageFaqSchema, breadcrumbSchema } from '@/lib/schema'
 import Link from 'next/link'
 import { Flame, Shield, Activity, Waves } from 'lucide-react'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { StorageHero } from '@/components/sections/storage/Hero'
 import { SiteOverview } from '@/components/sections/storage/SiteOverview'
 import { TankInventoryTable } from '@/components/sections/storage/TankInventoryTable'
@@ -14,9 +15,9 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { FinalCta } from '@/components/sections/FinalCta'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Rotterdam Oil Tank Farm — Tank Inventory & Capacity — Blue Gate',
+  title: 'Rotterdam Oil Storage Capacity | Tank Leasing Available',
   description:
-    'Full tank inventory at our Rotterdam oil tank farm: Jet A1, EN590, Virgin Fuel Oil D6, and crude oil in dedicated matched infrastructure. Capacity from 1,000 to 80,000 m³.',
+    'Rotterdam tank farm with available storage capacity. Lease storage tanks for Jet A1, EN590, D6 and Crude Oil. View live tank inventory and request allocation.',
   path: 'storage-facility',
 })
 
@@ -46,11 +47,15 @@ const SAFETY_FEATURES: FeatureItem[] = [
 export default function StorageFacilityPage() {
   return (
     <>
-      <Script
-        id="storage-facility-jsonld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
-      />
+      <Script id="storage-facility-lb-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }} />
+      <Script id="storage-facility-faq-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(storageFaqSchema()) }} />
+      <Script id="storage-facility-bc-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+          { name: 'Home', url: 'https://bluegou.com' },
+          { name: 'Storage Facility', url: 'https://bluegou.com/storage-facility' },
+        ])) }} />
 
       <main>
         <StorageHero />
@@ -141,6 +146,73 @@ export default function StorageFacilityPage() {
         </section>
 
         <NetworkContext />
+
+        {/* FAQ section — targets long-tail storage capacity keywords */}
+        <section className="bg-grad-1 py-20 md:py-28" aria-label="Frequently asked questions">
+          <div className="mx-auto max-w-7xl px-6">
+            <ScrollReveal>
+              <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
+                Frequently Asked Questions
+              </p>
+              <h2
+                className="font-serif font-normal text-ink leading-tight mb-12"
+                style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
+              >
+                Storage Capacity &amp; <em className="text-brand">Tank Leasing.</em>
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.08}>
+              <Accordion type="single" collapsible className="space-y-3 max-w-3xl">
+                <AccordionItem value="q1" className="border border-border-soft rounded-lg px-6 bg-bg">
+                  <AccordionTrigger className="font-sans text-sm font-medium text-ink text-left py-5 hover:no-underline">
+                    What is your available Rotterdam oil storage capacity?
+                  </AccordionTrigger>
+                  <AccordionContent className="font-sans text-sm text-muted-foreground leading-relaxed pb-5">
+                    Blue Gate operates a Rotterdam oil tank farm with a total nominal capacity of
+                    approximately 2.8 million m³ across 14+ tanks. Tanks range from 10,000 m³ to
+                    80,000 m³ per unit. Available tank farm capacity depends on current lessee
+                    occupancy. Contact our operations desk at storage@bluegou.com for a live
+                    availability update.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="q2" className="border border-border-soft rounded-lg px-6 bg-bg">
+                  <AccordionTrigger className="font-sans text-sm font-medium text-ink text-left py-5 hover:no-underline">
+                    How do I lease storage tanks at your terminal?
+                  </AccordionTrigger>
+                  <AccordionContent className="font-sans text-sm text-muted-foreground leading-relaxed pb-5">
+                    Lease storage tanks at Blue Gate Rotterdam by contacting our commercial team
+                    with your product grade, required volume, and storage duration. We offer
+                    short-term spot leases and long-term agreements. We will confirm available
+                    tank farm capacity and issue a tariff proposal within one business day.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="q3" className="border border-border-soft rounded-lg px-6 bg-bg">
+                  <AccordionTrigger className="font-sans text-sm font-medium text-ink text-left py-5 hover:no-underline">
+                    What are your tank leasing rates?
+                  </AccordionTrigger>
+                  <AccordionContent className="font-sans text-sm text-muted-foreground leading-relaxed pb-5">
+                    Tank leasing rates at Blue Gate are quoted per m³ per month and linked to
+                    Platts Rotterdam Barges or Argus NWE differentials depending on product.
+                    Volume-based throughput rebates are available for high-turnover agreements.
+                    Contact us for a current tariff schedule — rates are not published online as
+                    they reflect market conditions.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="q4" className="border border-border-soft rounded-lg px-6 bg-bg">
+                  <AccordionTrigger className="font-sans text-sm font-medium text-ink text-left py-5 hover:no-underline">
+                    Is tank farm capacity available in Houston, Fujairah and Jurong?
+                  </AccordionTrigger>
+                  <AccordionContent className="font-sans text-sm text-muted-foreground leading-relaxed pb-5">
+                    Yes. Blue Gate operates oil storage terminals in Houston (US Gulf Coast),
+                    Fujairah (outside the Strait of Hormuz), and Jurong (Asia-Pacific). Available
+                    tank farm capacity and leasing rates at each location are quoted on request.
+                    Contact storage@bluegou.com for a petroleum storage inquiry at any terminal.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </ScrollReveal>
+          </div>
+        </section>
 
         {/* Downloads */}
         <section className="bg-grad-1 py-16" aria-label="Downloads">

@@ -9,11 +9,12 @@ import { WhyNetwork } from '@/components/sections/terminal/WhyNetwork'
 import { Certifications } from '@/components/sections/about/Certifications'
 import { FinalCta } from '@/components/sections/FinalCta'
 import { terminals } from '@/config/terminals'
+import { breadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Oil Terminal Rotterdam — Blue Gate Tank Farm Network',
+  title: 'Oil Storage Terminal | Rotterdam, Fujairah, Houston, Jurong',
   description:
-    'Four-terminal oil storage network anchored by Rotterdam. Strategic extensions in Fujairah, Houston, and Jurong covering Atlantic, Middle East, and Pacific product flows.',
+    'Blue Gate oil storage terminal network. Tank farm in Rotterdam, Fujairah, Houston and Jurong. 24/7 marine access, multi-product storage, vessel scheduling.',
   path: 'terminal',
 })
 
@@ -33,11 +34,13 @@ const placeJsonLd = terminals.map((t) => ({
 export default function TerminalPage() {
   return (
     <>
-      <Script
-        id="terminal-jsonld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(placeJsonLd) }}
-      />
+      <Script id="terminal-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(placeJsonLd) }} />
+      <Script id="terminal-bc-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+          { name: 'Home', url: 'https://bluegou.com' },
+          { name: 'Terminal Network', url: 'https://bluegou.com/terminal' },
+        ])) }} />
 
       <main>
         <TerminalHero />

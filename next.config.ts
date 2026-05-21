@@ -25,6 +25,54 @@ const nextConfig: NextConfig = {
       { source: '/products.html',           destination: '/products',             permanent: true },
     ]
   },
+
+  // Security and caching headers
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          { key: 'X-Content-Type-Options',  value: 'nosniff' },
+          { key: 'X-Frame-Options',         value: 'DENY' },
+          { key: 'X-XSS-Protection',        value: '1; mode=block' },
+          { key: 'Referrer-Policy',         value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy',      value: 'camera=(), microphone=(), geolocation=()' },
+        ],
+      },
+      {
+        source: '/(.*)\\.jpg',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/(.*)\\.jpeg',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/(.*)\\.png',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/(.*)\\.webp',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/(.*)\\.avif',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/(.*)\\.svg',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/(.*)\\.ico',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/(.*)\\.pdf',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400' }],
+      },
+    ]
+  },
 }
 
 export default nextConfig

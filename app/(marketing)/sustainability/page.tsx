@@ -8,13 +8,12 @@ import { Reporting } from '@/components/sections/sustainability/Reporting'
 import { FinalCta } from '@/components/sections/FinalCta'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
-const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=2400&q=80'
+const HERO_IMAGE = '/images/hero-sustainability.jpg'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Sustainability — Blue Gate Oil Tank Farm & Storage',
+  title: 'Sustainability | Blue Gate Oil Tank Farm Rotterdam',
   description:
-    'ESG commitments, scope 1–3 emissions targets, vapour recovery investments, and community programmes from Blue Gate — Rotterdam oil storage company.',
+    'ESG commitments from Blue Gate, Rotterdam oil storage company. Emissions reduction, vapour recovery upgrades, community programmes and GRI-aligned reporting.',
   path: 'sustainability',
 })
 
@@ -29,7 +28,7 @@ export default function SustainabilityPage() {
         <div className="absolute inset-0 -z-10">
           <Image
             src={HERO_IMAGE}
-            alt="Wind turbines generating renewable energy against a clear sky — industrial sustainability"
+            alt="Blue Gate oil tank farm with solar panels and green infrastructure"
             fill
             priority
             quality={85}

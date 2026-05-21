@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { notFound } from 'next/navigation'
 import { pageMeta } from '@/lib/meta'
-import { productSchema } from '@/lib/schema'
+import { productSchema, breadcrumbSchema } from '@/lib/schema'
 import { products } from '@/config/products'
 import { ProductHero } from '@/components/products/ProductHero'
 import { AtAGlanceStrip } from '@/components/products/AtAGlanceStrip'
@@ -28,21 +28,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!product) return {}
 
   const TITLES: Record<string, string> = {
-    'jet-a1':             'Jet A1 Oil Storage Rotterdam — Blue Gate Tank Farm',
-    'diesel-en590':       'Diesel EN590 Oil Storage Rotterdam — Blue Gate Tank Farm',
-    'virgin-fuel-oil-d6': 'Virgin Fuel Oil D6 Oil Storage Rotterdam — Blue Gate',
-    'crude-oil':          'Crude Oil Storage Rotterdam — Blue Gate Oil Tank Farm',
+    'jet-a1':             'Jet A1 Fuel Suppliers Rotterdam | Jet Fuel Storage',
+    'diesel-en590':       'EN590 Diesel Storage Rotterdam | Houston Petroleum Storage',
+    'virgin-fuel-oil-d6': 'Fuel Oil D6 Storage Terminal | Blue Gate Rotterdam',
+    'crude-oil':          'Crude Oil Tank Farm Rotterdam & Houston | Blue Gate',
   }
 
   const DESCRIPTIONS: Record<string, string> = {
     'jet-a1':
-      'ASTM D1655 / DEF STAN 91-091 Jet A1 oil storage at Rotterdam. Nitrogen-blanketed fixed-roof tanks in dedicated oil tank farm, 5,000–25,000 m³. Blue Gate.',
+      'Blue Gate are Jet A1 fuel suppliers in Rotterdam. ASTM D1655 specification, nitrogen-blanketed tank storage, independent inspection. Request allocation today.',
     'diesel-en590':
-      'EN 590:2022 ultra-low-sulphur diesel (ULSD) oil storage Rotterdam. Floating-roof tanks, B0 and B7 blends. Blue Gate oil storage company.',
+      'ULSD EN590 diesel storage in Rotterdam and Houston. Internal floating-roof tanks up to 50,000 m³. ISO-certified oil storage company. Enquire for availability.',
     'virgin-fuel-oil-d6':
-      'Virgin Fuel Oil D6 — ASTM D396 / ISO 8217 — heated tank oil storage at Rotterdam. 10,000–80,000 m³. Blue Gate.',
+      'Virgin Fuel Oil D6 storage at our Rotterdam fuel storage terminal. ASTM D396 heated tanks up to 80,000 m³. HSFO and LSFO. Request tank farm capacity today.',
     'crude-oil':
-      'Multi-origin crude oil storage Rotterdam — seven benchmark grades. Floating-roof tanks with VRU at Blue Gate oil tank farm, 20,000–80,000 m³.',
+      'Crude oil tank farm storage for Brent, WTI, Urals, Bonny Light and more. Rotterdam and Houston locations. Floating-roof tanks with vapour recovery. Contact us.',
   }
 
   const title = TITLES[slug] ?? `${product.name} — Blue Gate`
@@ -57,6 +57,11 @@ export default async function ProductDetail({ params }: Props) {
   if (!product) notFound()
 
   const jsonLd = productSchema(product)
+  const breadcrumb = breadcrumbSchema([
+    { name: 'Home', url: 'https://bluegou.com' },
+    { name: 'Products', url: 'https://bluegou.com/products' },
+    { name: product.name, url: `https://bluegou.com/products/${product.slug}` },
+  ])
 
   return (
     <>
@@ -65,6 +70,11 @@ export default async function ProductDetail({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <Script
+        id={`product-bc-jsonld-${product.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
 
       <main>
         {/* 1 — Hero */}
@@ -72,6 +82,21 @@ export default async function ProductDetail({ params }: Props) {
 
         {/* 2 — At a Glance Strip */}
         <AtAGlanceStrip items={product.atAGlance} />
+
+        {/* Keyword intro for crude oil */}
+        {product.slug === 'crude-oil' && (
+          <section className="bg-page py-10 md:py-14 border-b border-border-soft" aria-label="Crude oil overview">
+            <div className="mx-auto max-w-7xl px-6">
+              <p className="font-sans text-base text-ink/70 leading-relaxed max-w-3xl">
+                Blue Gate&apos;s crude oil tank farm in Rotterdam handles Brent Blend, WTI, Urals,
+                Bonny Light, CPC Blend, Forties and Murban. Our crude oil storage terminal in Houston
+                serves the US Gulf Coast market. All crude parcels are inspected on intake and
+                outturn by independent inspectors. Floating-roof tanks with vapour recovery. Contact
+                our trading desk for crude oil tank farm capacity and leasing enquiries.
+              </p>
+            </div>
+          </section>
+        )}
 
         {/* 3 — Specification table or Grade comparison */}
         {product.slug === 'crude-oil' && product.gradeComparison ? (

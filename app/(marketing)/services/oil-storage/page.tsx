@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { pageMeta } from '@/lib/meta'
+import { serviceSchema, storageFaqSchema, breadcrumbSchema } from '@/lib/schema'
 import Link from 'next/link'
 import { Layers, Waves, Shield, Thermometer } from 'lucide-react'
 import { ServiceHero } from '@/components/sections/services/ServiceHero'
@@ -10,9 +12,9 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Oil Storage Services Rotterdam — Blue Gate',
+  title: 'Oil Tank Farm Storage Services | Tank Leasing Rates',
   description:
-    'Bulk liquid tank storage for Jet A1, Diesel EN590, D6, and Crude Oil at Rotterdam. Fixed-roof, floating-roof, heated tanks from 1,000 to 80,000 m³ with throughput and blending.',
+    'Oil tank farm storage services in Rotterdam. Lease storage tanks short or long term. Transparent tank leasing rates. Throughput agreements. Request a tariff sheet.',
   path: 'services/oil-storage',
 })
 
@@ -68,16 +70,50 @@ const TELEMETRY = [
   'Electronic custody-transfer certificates issued at completion',
 ]
 
+const SERVICE_JSONLD = serviceSchema({
+  name: 'Oil Tank Farm Storage Services',
+  description: 'Bulk liquid oil tank farm storage for Jet A1, Diesel EN590, D6, and Crude Oil at Rotterdam. Fixed-roof, floating-roof, and heated tanks. Short and long-term tank leasing available.',
+  serviceType: 'Oil Storage',
+  path: '/services/oil-storage',
+})
+const BREADCRUMB_JSONLD = breadcrumbSchema([
+  { name: 'Home', url: 'https://bluegou.com' },
+  { name: 'Services', url: 'https://bluegou.com/services' },
+  { name: 'Oil Storage', url: 'https://bluegou.com/services/oil-storage' },
+])
+const FAQ_JSONLD = storageFaqSchema()
+
 export default function OilStoragePage() {
   return (
+    <>
+      <Script id="oil-storage-service-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_JSONLD) }} />
+      <Script id="oil-storage-breadcrumb-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }} />
+      <Script id="oil-storage-faq-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSONLD) }} />
     <main>
       <ServiceHero
         label="Oil Storage Services"
         headlinePlain="Bulk Liquid Storage,"
         headlineItalic="Built for Spec."
         subdeck="Dedicated tank capacity at Rotterdam for the four major petroleum grades — with throughput, in-line blending, and independent custody transfer as standard."
-        imageUrl="https://images.unsplash.com/photo-1581093803537-1e54f5a78ad4?auto=format&fit=crop&w=2400&q=80"
+        imageUrl="/images/service-oil-storage.jpg"
+        imageAlt="Blue Gate oil tank farm floating roof storage tank"
       />
+
+      {/* Keyword-rich intro paragraph */}
+      <section className="bg-page py-10 md:py-14 border-b border-border-soft" aria-label="Storage overview">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className="font-sans text-base text-ink/70 leading-relaxed max-w-3xl">
+            Blue Gate offers oil tank farm storage services on short-term and long-term lease
+            agreements. Tank leasing rates are quoted per m³ per month, linked to Platts Rotterdam
+            Barges or Argus NWE differentials. Storage companies and trading houses can access
+            our full tank terminal capacity across Rotterdam, Fujairah, Houston and Jurong.
+            Enquire about available tank farm capacity today.
+          </p>
+        </div>
+      </section>
 
       {/* Tank typology */}
       <section className="bg-page py-20 md:py-28" aria-label="Tank types">
@@ -235,5 +271,6 @@ export default function OilStoragePage() {
         </div>
       </section>
     </main>
+    </>
   )
 }

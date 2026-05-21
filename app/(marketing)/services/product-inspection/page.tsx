@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { pageMeta } from '@/lib/meta'
+import { serviceSchema, breadcrumbSchema } from '@/lib/schema'
 import Link from 'next/link'
 import {
   ClipboardList,
@@ -19,9 +21,9 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Petroleum Product Inspection — Blue Gate',
+  title: 'Petroleum Product Inspection | Blue Gate Rotterdam',
   description:
-    'Independent pre-loading, loading, discharge, and certification inspections to ASTM D4057 and ISO 3170. Quantity surveys, sampling reports, and custody certificates.',
+    'Independent petroleum product inspection at Blue Gate Rotterdam oil terminal. ASTM D4057 sampling, quantity and quality surveys, certificates issued same day.',
   path: 'services/product-inspection',
 })
 
@@ -119,15 +121,33 @@ const DOCS_ISSUED = [
   'Non-conformance notice (if applicable)',
 ]
 
+const SERVICE_JSONLD = serviceSchema({
+  name: 'Petroleum Product Inspection',
+  description: 'Independent petroleum product inspection at Blue Gate Rotterdam oil terminal. ASTM D4057 sampling, quantity surveys, quality measurements, and signed certificates.',
+  serviceType: 'Petroleum Inspection',
+  path: '/services/product-inspection',
+})
+const BREADCRUMB_JSONLD = breadcrumbSchema([
+  { name: 'Home', url: 'https://bluegou.com' },
+  { name: 'Services', url: 'https://bluegou.com/services' },
+  { name: 'Product Inspection', url: 'https://bluegou.com/services/product-inspection' },
+])
+
 export default function ProductInspectionPage() {
   return (
+    <>
+      <Script id="inspection-service-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_JSONLD) }} />
+      <Script id="inspection-breadcrumb-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }} />
     <main>
       <ServiceHero
         label="Product Inspection"
         headlinePlain="Independent Inspection."
         headlineItalic="Verifiable Outcomes."
         subdeck="Pre-loading through to certification — every parcel inspected to ASTM D4057 and ISO 3170 with quantity surveys, sampling, and signed certificates issued on completion."
-        imageUrl="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=2400&q=80"
+        imageUrl="/images/service-inspection.jpg"
+        imageAlt="Blue Gate petroleum product inspection at Rotterdam tank farm"
       />
 
       {/* Inspection workflow */}
@@ -377,5 +397,6 @@ export default function ProductInspectionPage() {
         </div>
       </section>
     </main>
+    </>
   )
 }

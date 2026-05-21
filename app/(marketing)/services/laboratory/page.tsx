@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { pageMeta } from '@/lib/meta'
+import { serviceSchema, breadcrumbSchema } from '@/lib/schema'
 import Link from 'next/link'
 import { Activity, Zap, Thermometer, Wind } from 'lucide-react'
 import { ServiceHero } from '@/components/sections/services/ServiceHero'
@@ -9,9 +11,9 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Fuel Testing Laboratory Rotterdam — Blue Gate',
+  title: 'Fuel Testing Laboratory Rotterdam | Blue Gate',
   description:
-    'On-site ASTM-grade petroleum laboratory at Rotterdam. Flash point, distillation, sulphur, density, viscosity — eleven standard test methods. Same-day results.',
+    'On-site ASTM petroleum testing laboratory at our Rotterdam oil tank farm. Flash point, distillation, sulphur, density and more. Fast turnaround, chain of custody.',
   path: 'services/laboratory',
 })
 
@@ -62,15 +64,33 @@ const CHAIN_OF_CUSTODY = [
   'Electronic copies transmitted within agreed turnaround window; originals retained on file',
 ]
 
+const SERVICE_JSONLD = serviceSchema({
+  name: 'Fuel Testing Laboratory Rotterdam',
+  description: 'On-site ASTM petroleum testing laboratory at our Rotterdam oil tank farm. Flash point, distillation, sulphur, density and more. Same-day certificates.',
+  serviceType: 'Petroleum Laboratory Testing',
+  path: '/services/laboratory',
+})
+const BREADCRUMB_JSONLD = breadcrumbSchema([
+  { name: 'Home', url: 'https://bluegou.com' },
+  { name: 'Services', url: 'https://bluegou.com/services' },
+  { name: 'Laboratory', url: 'https://bluegou.com/services/laboratory' },
+])
+
 export default function LaboratoryPage() {
   return (
+    <>
+      <Script id="lab-service-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_JSONLD) }} />
+      <Script id="lab-breadcrumb-jsonld" type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }} />
     <main>
       <ServiceHero
         label="Laboratory"
         headlinePlain="On-Site Testing."
         headlineItalic="ASTM-Grade Results."
         subdeck="Twelve standard test methods conducted in the on-site Rotterdam laboratory. Certificates of Analysis issued the same day for time-critical loading and release decisions."
-        imageUrl="https://images.unsplash.com/photo-1581093803537-1e54f5a78ad4?auto=format&fit=crop&w=2400&q=80"
+        imageUrl="/images/service-laboratory.jpg"
+        imageAlt="Blue Gate petroleum testing laboratory Rotterdam"
       />
 
       {/* Test capabilities */}
@@ -202,5 +222,6 @@ export default function LaboratoryPage() {
         </div>
       </section>
     </main>
+    </>
   )
 }

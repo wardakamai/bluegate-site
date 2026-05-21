@@ -9,9 +9,9 @@ import { ContactForm } from '@/components/forms/ContactForm'
 import { MapEmbed } from '@/components/sections/MapEmbed'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Contact — Blue Gate Shipping & Trade',
+  title: 'Contact | Crude Oil Tank Farm Houston & Rotterdam',
   description:
-    'Speak to our operations desk for storage allocation, tariffs, and site visits. 24-hour response commitment. Rotterdam, Netherlands.',
+    'Contact Blue Gate for crude oil tank farm Houston and Rotterdam enquiries. Storage allocation, tank leasing rates, petroleum inspection and vessel scheduling.',
   path: 'contact',
 })
 

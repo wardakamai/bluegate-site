@@ -8,13 +8,12 @@ import { EmergencyResponse } from '@/components/sections/hse/EmergencyResponse'
 import { FinalCta } from '@/components/sections/FinalCta'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
-const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=2400&q=80'
+const HERO_IMAGE = '/images/hero-hse.jpg'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Health, Safety & Environment — Blue Gate',
+  title: 'HSE | Blue Gate Oil Storage Terminal Rotterdam',
   description:
-    "Blue Gate's HSE framework: ISO 45001, OCIMF SIRE, zero-spill policy, documented incident response, and 24/7 emergency line at Rotterdam terminal.",
+    'Health, safety and environment at Blue Gate Rotterdam oil storage terminal. ISO 45001, OCIMF SIRE, zero-spill target, 24/7 emergency response capability.',
   path: 'hse',
 })
 
@@ -29,7 +28,7 @@ export default function HsePage() {
         <div className="absolute inset-0 -z-10">
           <Image
             src={HERO_IMAGE}
-            alt="Industrial safety — worker in full PPE inspecting terminal pipework"
+            alt="Blue Gate safety officers conducting HSE inspection at Rotterdam tank farm"
             fill
             priority
             quality={85}

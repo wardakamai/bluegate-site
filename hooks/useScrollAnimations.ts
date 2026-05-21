@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { gsap, ScrollTrigger, EASE, DUR } from '@/lib/gsap'
+import { gsap, EASE, DUR } from '@/lib/gsap'
 
 export function useScrollAnimations() {
   useEffect(() => {
