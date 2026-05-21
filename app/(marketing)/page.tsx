@@ -11,6 +11,7 @@ import { HorizontalScroll } from '@/components/sections/HorizontalScroll'
 import { StrategicLocations } from '@/components/sections/StrategicLocations'
 import { SustainabilityTriptych } from '@/components/sections/SustainabilityTriptych'
 import { FinalCta } from '@/components/sections/FinalCta'
+import { TopBarPopup } from '@/components/layout/TopBarPopup'
 
 // ISR: rebuild the home page every 15 minutes so live prices stay fresh
 export const revalidate = 900
@@ -25,6 +26,7 @@ export const metadata: Metadata = pageMeta({
 export default function HomePage() {
   return (
     <>
+      <TopBarPopup />
       <Script
         id="local-business-jsonld"
         type="application/ld+json"
