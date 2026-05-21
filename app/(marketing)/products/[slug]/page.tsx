@@ -28,21 +28,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!product) return {}
 
   const TITLES: Record<string, string> = {
-    'jet-a1':             'Jet A1 Fuel Storage Rotterdam — Blue Gate',
-    'diesel-en590':       'Diesel EN590 Storage Rotterdam — Blue Gate',
-    'virgin-fuel-oil-d6': 'Virgin Fuel Oil D6 Storage Rotterdam — Blue Gate',
-    'crude-oil':          'Crude Oil Storage Rotterdam — Blue Gate',
+    'jet-a1':             'Jet A1 Oil Storage Rotterdam — Blue Gate Tank Farm',
+    'diesel-en590':       'Diesel EN590 Oil Storage Rotterdam — Blue Gate Tank Farm',
+    'virgin-fuel-oil-d6': 'Virgin Fuel Oil D6 Oil Storage Rotterdam — Blue Gate',
+    'crude-oil':          'Crude Oil Storage Rotterdam — Blue Gate Oil Tank Farm',
   }
 
   const DESCRIPTIONS: Record<string, string> = {
     'jet-a1':
-      'ASTM D1655 / DEF STAN 91-091 Jet A1 fuel storage at Rotterdam. Nitrogen-blanketed fixed-roof tanks, 5,000–25,000 m³. Blue Gate.',
+      'ASTM D1655 / DEF STAN 91-091 Jet A1 oil storage at Rotterdam. Nitrogen-blanketed fixed-roof tanks in dedicated oil tank farm, 5,000–25,000 m³. Blue Gate.',
     'diesel-en590':
-      'EN 590:2022 ultra-low-sulphur diesel (ULSD) storage Rotterdam. Floating-roof tanks, B0 and B7 blends. Blue Gate.',
+      'EN 590:2022 ultra-low-sulphur diesel (ULSD) oil storage Rotterdam. Floating-roof tanks, B0 and B7 blends. Blue Gate oil storage company.',
     'virgin-fuel-oil-d6':
-      'Virgin Fuel Oil D6 — ASTM D396 / ISO 8217 — heated fixed-roof tank storage at Rotterdam. 10,000–80,000 m³. Blue Gate.',
+      'Virgin Fuel Oil D6 — ASTM D396 / ISO 8217 — heated tank oil storage at Rotterdam. 10,000–80,000 m³. Blue Gate.',
     'crude-oil':
-      'Multi-origin crude oil storage Rotterdam — seven benchmark grades. Floating-roof tanks with VRU, 20,000–80,000 m³. Blue Gate.',
+      'Multi-origin crude oil storage Rotterdam — seven benchmark grades. Floating-roof tanks with VRU at Blue Gate oil tank farm, 20,000–80,000 m³.',
   }
 
   const title = TITLES[slug] ?? `${product.name} — Blue Gate`

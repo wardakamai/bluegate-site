@@ -68,7 +68,7 @@ export function Services() {
             className="font-serif font-normal text-ink leading-tight mb-4"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
-            End-to-End Storage <em className="text-brand">&amp; Trade Solutions.</em>
+            End-to-End Oil Storage <em className="text-brand">&amp; Trade Solutions.</em>
           </h2>
           <p className="font-sans text-muted-foreground max-w-2xl mb-14 text-base leading-relaxed">
             Six integrated capabilities, one operations team. Blue Gate manages your product

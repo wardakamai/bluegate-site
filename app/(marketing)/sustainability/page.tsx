@@ -12,9 +12,9 @@ const HERO_IMAGE =
   'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=2400&q=80'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Sustainability — Blue Gate Shipping & Trade',
+  title: 'Sustainability — Blue Gate Oil Tank Farm & Storage',
   description:
-    'ESG commitments, scope 1–3 emissions targets, vapour recovery investments, and community programmes from Blue Gate Shipping and Trade B.V. Rotterdam.',
+    'ESG commitments, scope 1–3 emissions targets, vapour recovery investments, and community programmes from Blue Gate — Rotterdam oil storage company.',
   path: 'sustainability',
 })
 

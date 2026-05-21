@@ -46,7 +46,7 @@ export function ProductHero({ product }: ProductHeroProps) {
           <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
             <Image
               src={product.heroImage}
-              alt={`${product.name} — petroleum storage and handling`}
+              alt={`${product.name} — oil storage and handling`}
               fill
               priority
               quality={80}

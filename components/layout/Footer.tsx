@@ -18,7 +18,7 @@ export function Footer() {
         <div className="flex flex-col gap-5">
           <Logo light />
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Blue Gate has operated petroleum storage terminals since {founded}, connecting
+            Blue Gate has operated oil storage terminals and tank farms since {founded}, connecting
             European and global commodity markets from our primary base in Rotterdam.
           </p>
           {socials.linkedin && (

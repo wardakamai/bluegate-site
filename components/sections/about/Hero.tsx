@@ -13,7 +13,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-10">
         <Image
           src={ABOUT_IMAGE}
-          alt="Petroleum storage facility close-up — architectural tank structures and pipework"
+          alt="Oil tank farm close-up — architectural storage tank structures and pipework"
           fill
           priority
           quality={85}
@@ -39,7 +39,7 @@ export function Hero() {
           <em className="text-brand">Trusted Storage.</em>
         </h1>
         <p className="font-sans text-lg md:text-xl text-ink/65 max-w-2xl leading-relaxed">
-          Blue Gate Shipping and Trade B.V. has operated petroleum storage terminals since{' '}
+          Blue Gate Shipping and Trade B.V. has operated oil storage terminals since{' '}
           {site.founded}. Sixty years of handling Jet A1, diesel, fuel oil, and crude oil across
           Rotterdam&apos;s ARA network has produced something no start-up can replicate:
           accumulated technical knowledge, built one meticulous storage cycle at a time.

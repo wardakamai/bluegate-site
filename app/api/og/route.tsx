@@ -64,7 +64,7 @@ export function GET(req: NextRequest) {
               letterSpacing: '0.04em',
             }}
           >
-            Petroleum Storage. Terminal Operations. Since 1964.
+            Oil Tank Farm. Terminal Operations. Since 1964.
           </span>
         </div>
 

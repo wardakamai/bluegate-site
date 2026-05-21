@@ -9,9 +9,9 @@ import { FinalCta } from '@/components/sections/FinalCta'
 import { products } from '@/config/products'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Products — Jet A1, Diesel EN590, Fuel Oil D6, Crude Oil — Blue Gate',
+  title: 'Oil Storage Products — Jet A1, EN590, Fuel Oil D6, Crude Oil — Blue Gate',
   description:
-    'Four specification-grade petroleum products: Jet A1, Diesel EN590, Virgin Fuel Oil D6, and Crude Oil — each stored in matched, dedicated tank infrastructure.',
+    'Four specification-grade oil storage products: Jet A1, Diesel EN590, Virgin Fuel Oil D6, and Crude Oil — each stored in matched, dedicated tank farm infrastructure.',
   path: 'products',
 })
 

@@ -14,9 +14,9 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { FinalCta } from '@/components/sections/FinalCta'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Rotterdam Storage Facility — Tank Inventory & Capacity — Blue Gate',
+  title: 'Rotterdam Oil Tank Farm — Tank Inventory & Capacity — Blue Gate',
   description:
-    'Full tank inventory at our Rotterdam flagship: Jet A1, EN590, Virgin Fuel Oil D6, and crude oil in dedicated matched infrastructure. Capacity from 1,000 to 80,000 m³.',
+    'Full tank inventory at our Rotterdam oil tank farm: Jet A1, EN590, Virgin Fuel Oil D6, and crude oil in dedicated matched infrastructure. Capacity from 1,000 to 80,000 m³.',
   path: 'storage-facility',
 })
 

@@ -24,7 +24,7 @@ Rebuild the website of **Blue Gate Shipping and Trade B.V.** (legacy site: https
 | Phone | +31 97005034730 |
 | KVK | 86686607 |
 | SAFE No. | NL06152688 |
-| Sector | Bulk liquid / petroleum storage, terminal operations, shipping & trade |
+| Sector | Oil tank farm operations, oil storage, terminal operations, shipping & trade |
 | Specialisation | Storage of Jet A1 Fuel, Diesel EN590, Virgin Fuel Oil D6, Crude Oil (various origins) |
 | Terminals | Rotterdam (flagship) + Fujairah + Houston + Jurong (verify Fujairah / Houston / Jurong status before publish) |
 
@@ -81,7 +81,7 @@ Sizes:
 
 - Sticky top utility bar with address · email · phone
 - Section labels in small-caps above each H2 (e.g. `STRATEGIC TERMINALS`)
-- Headlines with italicised accent words (e.g. `Petroleum Storage. Engineered for *Reliability.*`)
+- Headlines with italicised accent words (e.g. `Oil Tank Farm. Engineered for *Reliability.*`)
 - Terminal cards as a row with flag emoji, city, country, Incoterm tag, product tags, capacity in m³
 - Stat tiles under hero (4 columns): big number + small label
 - Product cards with percentage-available bar + category pill
@@ -196,6 +196,7 @@ Every product detail page MUST include:
 - **Banned words**: world-class, cutting-edge, synergy, leverage, best-in-class, innovative (used hollowly), passionate
 - Headline pattern: `Plain Statement. *Italicised Promise.*`
 - CTAs: action verb + arrow → `Request a Quote →`
+- Preferred SEO terms: 'Oil Tank Farm', 'Oil Storage', 'Oil Storage Company', 'Tank Farm Rotterdam'. Use these in headlines and metadata where natural. 'Petroleum Storage' is accurate but has low search volume — avoid in H1s, meta titles, and hero copy. Acceptable in technical body copy and spec tables.
 
 ---
 

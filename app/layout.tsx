@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: '%s | Blue Gate',
   },
   description:
-    'Bulk liquid petroleum storage, terminal operations, and shipping. Rotterdam primary terminal. Jet A1, Diesel EN590, Fuel Oil D6, Crude Oil.',
+    'Oil tank farm and storage company. Terminal operations and shipping. Rotterdam primary terminal. Jet A1, Diesel EN590, Fuel Oil D6, Crude Oil.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bluegou.com'),
   openGraph: {
     type: 'website',
@@ -44,13 +44,13 @@ export const metadata: Metadata = {
     siteName: 'Blue Gate Shipping and Trade B.V.',
     title: 'Blue Gate Shipping and Trade B.V.',
     description:
-      'Bulk liquid petroleum storage, terminal operations, and shipping from Rotterdam since 1964.',
+      'Oil tank farm and storage company. Terminal operations and shipping from Rotterdam since 1964.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Blue Gate Shipping and Trade B.V.',
     description:
-      'Bulk liquid petroleum storage, terminal operations, and shipping from Rotterdam since 1964.',
+      'Oil tank farm and storage company. Terminal operations and shipping from Rotterdam since 1964.',
   },
   robots: {
     index: true,

@@ -12,9 +12,9 @@ import { FinalCta } from '@/components/sections/FinalCta'
 import { site } from '@/config/site'
 
 export const metadata: Metadata = pageMeta({
-  title: 'About Blue Gate — 60 Years of Bulk Liquid Storage',
+  title: 'About Blue Gate — 60 Years of Oil Tank Farm & Storage',
   description:
-    'Founded 1964 in Rotterdam. Blue Gate Shipping and Trade B.V. operates ISO-certified bulk liquid storage and terminal services with global reach.',
+    'Founded 1964 in Rotterdam. Blue Gate Shipping and Trade B.V. operates ISO-certified oil storage terminals and tank farm services with global reach.',
   path: 'about',
 })
 

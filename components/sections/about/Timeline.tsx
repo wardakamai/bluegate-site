@@ -12,7 +12,7 @@ const MILESTONES: Milestone[] = [
   {
     year: '1964',
     title: 'Founded in Rotterdam',
-    desc: 'Established as a bulk liquid storage and throughput operator serving the ARA refinery complex and the emerging European petroleum market.',
+    desc: 'Established as an oil tank farm and bulk liquid storage operator serving the ARA refinery complex and the emerging European petroleum market.',
   },
   {
     year: '1980s',

@@ -11,9 +11,9 @@ import { FinalCta } from '@/components/sections/FinalCta'
 import { terminals } from '@/config/terminals'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Terminal Network — Rotterdam, Fujairah, Houston, Jurong — Blue Gate',
+  title: 'Oil Terminal Rotterdam — Blue Gate Tank Farm Network',
   description:
-    'Four-terminal network anchored by Rotterdam. Strategic extensions in Fujairah, Houston, and Jurong covering Atlantic, Middle East, and Pacific product flows.',
+    'Four-terminal oil storage network anchored by Rotterdam. Strategic extensions in Fujairah, Houston, and Jurong covering Atlantic, Middle East, and Pacific product flows.',
   path: 'terminal',
 })
 

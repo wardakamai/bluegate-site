@@ -8,9 +8,9 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { FinalCta } from '@/components/sections/FinalCta'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Services — Blue Gate Shipping & Trade',
+  title: 'Oil Storage Services Rotterdam — Blue Gate',
   description:
-    'Four specialist disciplines: bulk liquid storage, product inspection, on-site laboratory testing, and multi-modal shipping — delivered as one integrated chain.',
+    'Four specialist disciplines: oil storage, product inspection, on-site laboratory testing, and multi-modal shipping — delivered as one integrated chain from Rotterdam.',
   path: 'services',
 })
 
@@ -23,7 +23,7 @@ const SERVICES = [
     href: '/services/oil-storage',
     imageUrl:
       'https://images.unsplash.com/photo-1581093803537-1e54f5a78ad4?auto=format&fit=crop&w=800&q=70',
-    imageAlt: 'Bulk liquid storage tanks at a petroleum terminal',
+    imageAlt: 'Bulk liquid storage tanks at an oil terminal',
   },
   {
     label: 'Inspection',

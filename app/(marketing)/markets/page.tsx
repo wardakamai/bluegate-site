@@ -11,9 +11,9 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 export const revalidate = 900
 
 export const metadata: Metadata = pageMeta({
-  title: 'Markets — Blue Gate Shipping & Trade',
+  title: 'Oil Storage Market Prices — Blue Gate Rotterdam',
   description:
-    'Live indicative pricing for Brent, WTI, Gasoil and Natural Gas. Storage tariffs linked to Platts and Argus benchmarks. Updated every 15 minutes.',
+    'Live indicative pricing for Brent, WTI, Gasoil and Natural Gas. Oil storage tariffs linked to Platts and Argus benchmarks. Updated every 15 minutes.',
   path: 'markets',
 })
 

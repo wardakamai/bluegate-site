@@ -52,7 +52,7 @@ export function FeaturedProducts() {
             className="font-serif font-normal text-ink leading-tight mb-4"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
-            Four Core Products. <em className="text-brand">Specification-Grade Storage.</em>
+            Four Core Products. <em className="text-brand">Tank Farm-Grade Storage.</em>
           </h2>
           <p className="font-sans text-muted-foreground max-w-2xl mb-14 text-base leading-relaxed">
             Every grade handled to its international standard — ASTM, EN 590, ISO 8217. Dedicated

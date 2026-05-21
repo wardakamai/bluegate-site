@@ -40,13 +40,13 @@ export function Hero() {
     <section
       ref={heroRef}
       className="relative flex flex-col min-h-[100svh]"
-      aria-label="Blue Gate — Petroleum Storage Hero"
+      aria-label="Blue Gate — Oil Tank Farm Hero"
     >
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <Image
           src={HERO_IMAGE}
-          alt="Rotterdam petroleum terminal at dusk — tank farms and vessel berths"
+          alt="Rotterdam oil tank farm at dusk — storage tanks and vessel berths"
           fill
           priority
           quality={85}
@@ -65,14 +65,14 @@ export function Hero() {
       {/* Content */}
       <div className="mx-auto max-w-7xl w-full px-6 flex flex-col justify-center flex-1 py-28 md:py-36">
         <p className="hero-label font-sans text-[11px] uppercase tracking-[0.14em] font-medium text-ink/50 mb-6">
-          Bulk Liquid Storage&nbsp;·&nbsp;Est.&nbsp;{site.founded}&nbsp;·&nbsp;Rotterdam, NL
+          Oil Tank Farm&nbsp;·&nbsp;Est.&nbsp;{site.founded}&nbsp;·&nbsp;Rotterdam, NL
         </p>
 
         <h1
           className="hero-h1 font-serif font-normal text-ink leading-none tracking-tight mb-8"
           style={{ fontSize: 'clamp(48px, 7vw, 92px)' }}
         >
-          Petroleum Storage.
+          Oil Tank Farm.
           <br />
           Engineered for{' '}
           <em className="text-brand">Reliability.</em>

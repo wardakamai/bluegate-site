@@ -17,7 +17,7 @@ const CARDS: MvvCard[] = [
   {
     label: 'Mission',
     title: 'Safe, In-Spec Storage. Every Cycle.',
-    body: 'To deliver safe, in-specification bulk liquid storage and terminal services that clients rely on without reservation — cycle after cycle, for as long as they need us.',
+    body: 'To deliver safe, in-specification oil storage and bulk liquid terminal services that clients rely on without reservation — cycle after cycle, for as long as they need us.',
   },
   {
     label: 'Vision',
