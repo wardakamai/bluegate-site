@@ -3,20 +3,20 @@
 
 /* ─── Design Tokens ──────────────────────────────────────────────────────── */
 :root {
-  /* ── Dark crimson palette ───────────────────────────────────── */
-  --page-bg:     #02060E;   /* deep space canvas                      */
-  --bg-cream:    #080C16;   /* elevated surface — cards, nav          */
-  --deep-red:    #1A0209;   /* dark red-black — gradient endpoint     */
+  /* ── Dark neutral + crimson accent palette ──────────────────── */
+  --page-bg:     #0C0C0F;   /* very dark neutral canvas               */
+  --bg-cream:    #141416;   /* elevated surface — cards, nav          */
+  --bg-raised:   #1A1A1E;   /* secondary raised surface               */
   --ink:         #F0EAE0;   /* warm white — primary text              */
-  --brand-red:   #C50337;   /* vivid crimson — primary CTAs           */
-  --brand-steel: #9A0229;   /* dark crimson — hover on brand elements */
+  --brand-red:   #D00018;   /* vivid crimson — CTAs, borders, glows   */
+  --brand-steel: #9C0012;   /* darker red — hover states              */
   --brand-gold:  #FFB830;   /* warm gold — accent / highlights        */
   --ok-green:    #22C55E;   /* success                                */
-  --alert-red:   #C50337;   /* alerts / errors                        */
-  --border-soft: rgba(197, 3, 55, 0.2); /* crimson-tinted border      */
+  --alert-red:   #D00018;   /* alerts / errors                        */
+  --border-soft: rgba(208, 0, 24, 0.16); /* crimson border tint       */
 
   /* shadcn/ui variable mappings */
-  --background:             #02060E;
+  --background:             #0C0C0F;
   --foreground:             var(--ink);
   --card:                   var(--bg-cream);
   --card-foreground:        var(--ink);
@@ -24,16 +24,16 @@
   --popover-foreground:     var(--ink);
   --primary:                var(--brand-red);
   --primary-foreground:     #ffffff;
-  --secondary:              #0E1220;
+  --secondary:              #141416;
   --secondary-foreground:   var(--ink);
-  --muted:                  #0E1220;
-  --muted-foreground:       #7A7A9A;
+  --muted:                  #141416;
+  --muted-foreground:       #8A8A9A;
   --accent:                 var(--brand-gold);
-  --accent-foreground:      #02060E;
+  --accent-foreground:      #0C0C0F;
   --destructive:            var(--alert-red);
   --destructive-foreground: #ffffff;
-  --border:                 rgba(197, 3, 55, 0.18);
-  --input:                  #0E1220;
+  --border:                 rgba(208, 0, 24, 0.14);
+  --input:                  #141416;
   --ring:                   var(--brand-red);
   --radius:                 0.375rem;
 }
@@ -41,13 +41,14 @@
 /* ─── Tailwind v4 Theme Registration ─────────────────────────────────────── */
 @theme inline {
   /* Semantic colour tokens */
-  --color-page:        var(--page-bg);     /* bg-page = deep space     */
+  --color-page:        var(--page-bg);     /* bg-page = dark neutral   */
   --color-bg:          var(--bg-cream);    /* bg-bg   = card surface   */
+  --color-bg-raised:   var(--bg-raised);   /* bg-bg-raised             */
   --color-ink:         var(--ink);         /* text-ink = warm white    */
-  --color-deep:        #02060E;            /* from-deep / to-deep      */
-  --color-deep-red:    #1A0209;            /* gradient warm-red anchor */
-  --color-brand:       var(--brand-red);   /* crimson                  */
-  --color-brand-dark:  #02060E;
+  --color-deep:        #0C0C0F;
+  --color-deep-red:    #141416;
+  --color-brand:       var(--brand-red);   /* #D00018 vivid crimson    */
+  --color-brand-dark:  #0C0C0F;
   --color-brand-steel: var(--brand-steel); /* dark crimson hover       */
   --color-accent:      var(--brand-gold);  /* gold highlights          */
   --color-ok:          var(--ok-green);
@@ -99,16 +100,33 @@ body {
   transform-style: preserve-3d;
 }
 
-/* ─── Section gradient helpers ───────────────────────────────────────────── */
-/* Gradient 1: deep-black → dark-crimson (bottom-right glow) */
+/* ─── Section background helpers ─────────────────────────────────────────── */
+/* Two subtly different darks for section alternation.                        */
+/* Crimson appears only as a faint radial glow in one corner — never as       */
+/* a dominant colour. Red is purely an accent.                                */
+
+/* Grad-1: slightly lighter neutral, faint crimson glow bottom-right corner */
 .bg-grad-1 {
-  background: linear-gradient(135deg, #02060E 0%, #02060E 55%, #3A0110 100%);
+  background:
+    radial-gradient(ellipse 55% 60% at 100% 100%, rgba(208,0,24,0.06) 0%, transparent 70%),
+    #111113;
 }
-/* Gradient 2: dark-crimson → deep-black (top-left glow, reversed direction) */
+/* Grad-2: base canvas tone, faint crimson glow top-left corner */
 .bg-grad-2 {
-  background: linear-gradient(315deg, #02060E 0%, #02060E 55%, #3A0110 100%);
+  background:
+    radial-gradient(ellipse 55% 60% at 0% 0%, rgba(208,0,24,0.06) 0%, transparent 70%),
+    #0C0C0F;
 }
 
+/* ─── Header scroll state ─────────────────────────────────────────────────── */
+.header-scrolled {
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  background-color: rgba(12, 12, 15, 0.92) !important;
+  box-shadow: 0 1px 0 rgba(208, 0, 24, 0.12);
+}
+
+/* ─── Respect reduced-motion preference ───────────────────────────────────── */
 /* Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,

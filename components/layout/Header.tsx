@@ -10,6 +10,7 @@ import { Logo } from './Logo'
 import { MobileNav } from './MobileNav'
 import { MegaMenu } from './MegaMenu'
 import { primaryNav, ctaPrimary } from '@/config/site'
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 import { cn } from '@/lib/utils'
 
 export function Header() {
@@ -26,6 +27,38 @@ export function Header() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // GSAP: hide on scroll-down, reveal on scroll-up + blur class at 60px
+  useEffect(() => {
+    if (shouldReduceMotion || !headerRef.current) return
+    const header = headerRef.current
+    let lastY = 0
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        start: 'top top',
+        onUpdate: (self) => {
+          const currentY = self.scroll()
+          const scrollingDown = currentY > lastY && currentY > 80
+          gsap.to(header, {
+            yPercent: scrollingDown ? -100 : 0,
+            duration: 0.4,
+            ease: 'power2.inOut',
+            overwrite: true,
+          })
+          lastY = currentY
+        },
+      })
+
+      ScrollTrigger.create({
+        start: 60,
+        onEnter:     () => header.classList.add('header-scrolled'),
+        onLeaveBack: () => header.classList.remove('header-scrolled'),
+      })
+    }, header)
+
+    return () => ctx.revert()
+  }, [shouldReduceMotion])
 
   // Close on Escape, close on outside click
   useEffect(() => {

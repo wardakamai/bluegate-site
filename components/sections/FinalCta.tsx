@@ -3,8 +3,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
-const DEFAULT_IMAGE =
-  'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=2400&q=80'
+const DEFAULT_IMAGE = '/images/cta-home.jpg'
 
 interface FinalCtaProps {
   heading: React.ReactNode
@@ -23,10 +22,10 @@ export function FinalCta({
 }: FinalCtaProps) {
   return (
     <section className="relative py-24 md:py-36 overflow-hidden" aria-label="Call to action">
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10" data-animate="image-reveal">
         <Image
           src={imageUrl}
-          alt="Petroleum storage tank farm at night — illuminated tanks and pipeline infrastructure"
+          alt="Blue Gate Rotterdam oil tank farm at night"
           fill
           quality={80}
           className="object-cover object-center"

@@ -5,6 +5,8 @@ import { TopBar } from '@/components/layout/TopBar'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { WhatsAppFab } from '@/components/layout/WhatsAppFab'
+import { AnimationProvider } from '@/components/layout/AnimationProvider'
+import { PageTransition } from '@/components/layout/PageTransition'
 import { organizationSchema } from '@/lib/schema'
 import './globals.css'
 
@@ -88,13 +90,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
         />
-        <TopBar />
-        <Header />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <WhatsAppFab />
+        <AnimationProvider>
+          <TopBar />
+          <Header />
+          <main id="main-content" className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <Footer />
+          <WhatsAppFab />
+        </AnimationProvider>
       </body>
 
       {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (

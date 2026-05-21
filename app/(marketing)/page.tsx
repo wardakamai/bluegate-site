@@ -7,7 +7,7 @@ import { HeroStats } from '@/components/sections/HeroStats'
 import { TerminalNetwork } from '@/components/sections/TerminalNetwork'
 import { MarketTicker } from '@/components/sections/MarketTicker'
 import { Services } from '@/components/sections/Services'
-import { FeaturedProducts } from '@/components/sections/FeaturedProducts'
+import { HorizontalScroll } from '@/components/sections/HorizontalScroll'
 import { StrategicLocations } from '@/components/sections/StrategicLocations'
 import { SustainabilityTriptych } from '@/components/sections/SustainabilityTriptych'
 import { FinalCta } from '@/components/sections/FinalCta'
@@ -47,8 +47,8 @@ export default function HomePage() {
         <Services />
       </section>
 
-      <section id="products" aria-label="Products" className="scroll-mt-24">
-        <FeaturedProducts />
+      <section id="products" aria-label="Products">
+        <HorizontalScroll />
       </section>
 
       <section id="locations" aria-label="Locations" className="scroll-mt-24">
