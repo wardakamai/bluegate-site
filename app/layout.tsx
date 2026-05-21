@@ -7,6 +7,7 @@ import { Footer } from '@/components/layout/Footer'
 import { WhatsAppFab } from '@/components/layout/WhatsAppFab'
 import { AnimationProvider } from '@/components/layout/AnimationProvider'
 import { PageTransition } from '@/components/layout/PageTransition'
+import { TopBarPopup } from '@/components/layout/TopBarPopup'
 import { organizationSchema } from '@/lib/schema'
 import './globals.css'
 
@@ -90,6 +91,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
         />
         <AnimationProvider>
+          <TopBarPopup />
           <TopBar />
           <Header />
           <main id="main-content" className="flex-1">
