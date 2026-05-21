@@ -16,7 +16,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-10 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
         {/* Col 1 — Brand */}
         <div className="flex flex-col gap-5">
-          <Logo variant="white" className="h-9 mb-4" />
+          <Logo variant="white" className="h-10 mb-4" />
           <p className="text-sm text-muted-foreground leading-relaxed">
             Blue Gate has operated oil storage terminals and tank farms since {founded}, connecting
             European and global commodity markets from our primary base in Rotterdam.

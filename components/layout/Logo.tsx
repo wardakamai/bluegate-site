@@ -15,10 +15,10 @@ export function Logo({ variant = 'default', className }: LogoProps) {
       <Image
         src={src}
         alt="Blue Gate Shipping and Trade B.V."
-        width={160}
-        height={60}
+        width={512}
+        height={512}
         priority
-        className={cn('h-10 w-auto', className)}
+        className={cn('h-12 w-auto', className)}
       />
     </Link>
   )

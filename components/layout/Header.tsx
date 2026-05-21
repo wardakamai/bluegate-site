@@ -73,7 +73,7 @@ export function Header() {
       )}
     >
       <div className="mx-auto max-w-7xl px-6 flex items-center justify-between h-16">
-        <Logo variant="default" className="h-10" />
+        <Logo variant="default" className="h-12" />
 
         {/* Desktop nav */}
         <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-0.5">
