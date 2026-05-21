@@ -14,10 +14,10 @@ export const site = {
   },
   contact: {
     email: 'storage@bluegou.com',
-    phone: '+31 97005034730',
-    phoneLink: 'tel:+3197005034730',
+    phone: '+31 97005033311',
+    phoneLink: 'tel:+3197005033311',
     whatsapp:
-      'https://wa.me/3197005034730?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20storage%20capacity.',
+      'https://wa.me/3197005033311?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20storage%20capacity.',
   },
   legal: {
     kvk: '86686607',
