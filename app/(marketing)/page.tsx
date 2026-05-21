@@ -3,6 +3,7 @@ import Script from 'next/script'
 import { pageMeta } from '@/lib/meta'
 import { localBusinessSchema } from '@/lib/schema'
 import { Hero } from '@/components/sections/Hero'
+import { HeroStats } from '@/components/sections/HeroStats'
 import { TerminalNetwork } from '@/components/sections/TerminalNetwork'
 import { MarketTicker } from '@/components/sections/MarketTicker'
 import { Services } from '@/components/sections/Services'
@@ -31,6 +32,7 @@ export default function HomePage() {
       />
       <section id="hero" aria-label="Hero" className="scroll-mt-24">
         <Hero />
+        <HeroStats />
       </section>
 
       <section id="terminals" aria-label="Terminal network" className="scroll-mt-24">
