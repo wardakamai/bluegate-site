@@ -154,17 +154,20 @@ const TABS: TabData[] = [
 export function ShippingTabs() {
   return (
     <Tabs defaultValue="trucking" className="w-full">
-      <TabsList className="h-auto flex flex-wrap gap-1 bg-bg border border-brand/[0.14] rounded-xl p-1 mb-10 w-full sm:w-auto">
-        {TABS.map((tab) => (
-          <TabsTrigger
-            key={tab.value}
-            value={tab.value}
-            className="font-sans text-sm px-5 py-2 rounded-lg data-[state=active]:bg-brand data-[state=active]:text-white"
-          >
-            {tab.label}
-          </TabsTrigger>
-        ))}
-      </TabsList>
+      {/* Scroll wrapper keeps rounded corners off the clipping boundary */}
+      <div className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden mb-10">
+        <TabsList className="h-auto inline-flex gap-1 bg-bg border border-brand/[0.14] rounded-xl p-1 w-max">
+          {TABS.map((tab) => (
+            <TabsTrigger
+              key={tab.value}
+              value={tab.value}
+              className="font-sans text-sm px-5 py-2 rounded-lg whitespace-nowrap flex-none data-[state=active]:bg-brand data-[state=active]:text-white"
+            >
+              {tab.label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </div>
 
       {TABS.map((tab) => (
         <TabsContent key={tab.value} value={tab.value} className="space-y-10 mt-0">

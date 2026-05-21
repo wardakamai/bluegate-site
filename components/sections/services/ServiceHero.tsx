@@ -7,6 +7,7 @@ interface ServiceHeroProps {
   headlineItalic: string
   subdeck: string
   imageUrl: string
+  imageAlt: string
 }
 
 export function ServiceHero({
@@ -15,6 +16,7 @@ export function ServiceHero({
   headlineItalic,
   subdeck,
   imageUrl,
+  imageAlt,
 }: ServiceHeroProps) {
   return (
     <section
@@ -24,7 +26,7 @@ export function ServiceHero({
       <div className="absolute inset-0 -z-10">
         <Image
           src={imageUrl}
-          alt=""
+          alt={imageAlt}
           fill
           quality={80}
           className="object-cover object-center"

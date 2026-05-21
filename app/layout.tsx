@@ -41,14 +41,6 @@ export const metadata: Metadata = {
     'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil. 60+ years expertise.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bluegou.com'),
   icons: {
-    icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
     other: [
       { rel: 'manifest', url: '/site.webmanifest' },
     ],

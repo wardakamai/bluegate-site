@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=2400&q=80'
+const HERO_IMAGE = '/images/hero-storage-facility.jpg'
 
 export function StorageHero() {
   return (
@@ -13,7 +12,7 @@ export function StorageHero() {
       <div className="absolute inset-0 -z-10">
         <Image
           src={HERO_IMAGE}
-          alt="Aerial view of Rotterdam petroleum tank farm — rows of fixed and floating roof tanks"
+          alt="Blue Gate Rotterdam oil tank farm storage facility"
           fill
           priority
           quality={85}

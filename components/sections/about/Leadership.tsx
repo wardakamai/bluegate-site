@@ -1,9 +1,29 @@
-import { User } from 'lucide-react'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import { GlowCard } from '@/components/ui/GlowCard'
 
-// TODO: confirm with client — leadership team details and headshots
-const PLACEHOLDERS = [0, 1, 2, 3] as const
+// TODO: confirm with client — confirm remaining team names, titles, and biographies
+const team = [
+  {
+    name: 'Hendrik Gerrit',
+    title: 'Chief Operating Officer',
+    bio: 'Leads terminal operations across the Blue Gate network, overseeing storage, logistics, and regulatory compliance.',
+  },
+  {
+    name: 'Johann Müller',
+    title: 'Maintenance Supervisor',
+    bio: 'Responsible for the integrity and upkeep of tank infrastructure, pipelines, and mechanical systems across the Rotterdam facility.',
+  },
+  {
+    name: 'Wagner Alfons',
+    title: 'HSE Manager / Coordinator',
+    bio: 'Manages health, safety, and environmental programmes, ensuring full regulatory compliance and continuous improvement across all terminals.',
+  },
+  {
+    name: 'John West',
+    title: 'Tank Farm / Terminal Manager',
+    bio: 'Oversees day-to-day terminal operations, product receipts, transfers, and customer coordination at the Rotterdam tank farm.',
+  },
+]
 
 export function Leadership() {
   return (
@@ -26,25 +46,33 @@ export function Leadership() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {PLACEHOLDERS.map((i) => (
+          {team.map((member, i) => (
             <ScrollReveal key={i} delay={i * 0.08}>
-              <GlowCard className="rounded-xl bg-bg p-6 flex flex-col items-center text-center">
-                {/* Avatar placeholder */}
-                <div className="w-20 h-20 rounded-full bg-brand/[0.1] border border-brand/20 flex items-center justify-center mb-5">
-                  <User size={32} className="text-brand/40" aria-hidden="true" />
-                </div>
-
-                {/* TODO: confirm with client — name */}
-                <p className="font-sans font-medium text-ink mb-1">Name TBC</p>
-
-                {/* TODO: confirm with client — title */}
-                <p className="font-sans text-sm text-brand/60 mb-4">Title TBC</p>
-
-                {/* TODO: confirm with client — biography */}
-                <p className="font-sans text-xs text-muted-foreground leading-relaxed">
-                  Professional background and biography to be confirmed with client before
-                  publication.
-                </p>
+              <GlowCard className="rounded-xl bg-bg p-6 flex flex-col text-center items-center">
+                {member.name ? (
+                  <>
+                    {/* Initials block */}
+                    <div className="w-14 h-14 rounded-full bg-brand/[0.12] border border-brand/25 flex items-center justify-center mb-5 shrink-0">
+                      <span className="font-serif italic text-brand text-lg leading-none select-none">
+                        {member.name.split(' ').map((n) => n[0]).join('')}
+                      </span>
+                    </div>
+                    <p className="font-sans font-semibold text-ink text-base mb-1">{member.name}</p>
+                    <p className="font-sans text-sm text-brand mb-4">{member.title}</p>
+                    <p className="font-sans text-xs text-muted-foreground leading-relaxed">
+                      {member.bio}
+                    </p>
+                  </>
+                ) : (
+                  /* Pending placeholder — no avatar, minimal treatment */
+                  <div className="flex flex-col items-center gap-3 py-4 opacity-30">
+                    <div className="w-14 h-14 rounded-full border border-dashed border-ink/20" />
+                    <p className="font-sans text-xs text-muted-foreground">
+                      {/* TODO: confirm with client */}
+                      To be confirmed
+                    </p>
+                  </div>
+                )}
               </GlowCard>
             </ScrollReveal>
           ))}

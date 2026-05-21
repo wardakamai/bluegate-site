@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import { site } from '@/config/site'
 
-const ABOUT_IMAGE =
-  'https://images.unsplash.com/photo-1581093803537-1e54f5a78ad4?auto=format&fit=crop&w=2400&q=80'
+const ABOUT_IMAGE = '/images/hero-about.jpg'
 
 export function Hero() {
   return (
@@ -13,7 +12,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-10">
         <Image
           src={ABOUT_IMAGE}
-          alt="Oil tank farm close-up — architectural storage tank structures and pipework"
+          alt="Blue Gate oil storage tank exterior detail"
           fill
           priority
           quality={85}

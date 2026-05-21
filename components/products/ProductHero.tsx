@@ -46,12 +46,12 @@ export function ProductHero({ product }: ProductHeroProps) {
           <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
             <Image
               src={product.heroImage}
-              alt={`${product.name} — oil storage and handling`}
+              alt={product.heroImageAlt}
               fill
               priority
               quality={80}
               className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 40vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-page/30" aria-hidden="true" />
           </div>

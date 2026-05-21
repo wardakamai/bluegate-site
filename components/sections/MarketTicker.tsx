@@ -41,7 +41,7 @@ function PriceCard({ quote }: { quote: Quote }) {
         <span
           className="shrink-0 inline-flex items-center gap-1 font-mono text-[11px] font-medium px-2 py-1 rounded"
           style={{
-            background: up ? 'rgba(34,197,94,0.15)' : 'rgba(197,3,55,0.20)',
+            background: up ? 'rgba(34,197,94,0.15)' : 'rgba(208,0,24,0.20)',
             color: up ? 'var(--ok-green)' : 'var(--alert-red)',
           }}
           aria-label={`${pctLabel} change`}
@@ -70,12 +70,12 @@ function PriceCard({ quote }: { quote: Quote }) {
 
 function EmptyState() {
   return (
-    <div className="col-span-full rounded-xl bg-bg p-8 text-center" style={{ boxShadow: '0 0 0 1px rgba(197,3,55,0.22)' }}>
+    <div className="col-span-full rounded-xl bg-bg p-8 text-center" style={{ boxShadow: '0 0 0 1px rgba(208,0,24,0.22)' }}>
       <AlertCircle size={28} className="mx-auto mb-3 text-muted-foreground" aria-hidden="true" />
       <p className="font-sans text-sm text-muted-foreground max-w-sm mx-auto">
         Market data temporarily unavailable — please contact our trading desk for indicative pricing.
       </p>
-      <Link href={ctaPrimary.href} className="inline-flex mt-5 text-sm font-medium text-accent hover:text-ink transition-colors">
+      <Link href={ctaPrimary.href} className="inline-flex mt-5 text-sm font-medium text-ink hover:text-brand transition-colors">
         Contact Operations →
       </Link>
     </div>
@@ -140,7 +140,7 @@ export async function MarketTicker() {
             with throughput rebates, linked to Platts Rotterdam Barges, Argus NWE, or agreed
             differentials. For binding pricing contact our trading desk.
           </p>
-          <Link href={ctaPrimary.href} className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-ink transition-colors">
+          <Link href={ctaPrimary.href} className="inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-brand transition-colors">
             Get a Storage Quote →
           </Link>
         </ScrollReveal>

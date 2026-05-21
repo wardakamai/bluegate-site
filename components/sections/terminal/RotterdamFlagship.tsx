@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { Anchor, GitBranch, Train, Truck } from 'lucide-react'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
@@ -76,6 +77,20 @@ export function RotterdamFlagship() {
               Pipeline) give our clients unmatched redistribution optionality. Road, rail, and
               barge modes complete a full multi-modal logistics offer.
             </p>
+          </div>
+        </ScrollReveal>
+
+        {/* Rotterdam terminal image */}
+        <ScrollReveal>
+          <div className="relative rounded-xl overflow-hidden h-72 mb-16">
+            <Image
+              src="/images/terminal-rotterdam.jpg"
+              alt="Aerial view of Blue Gate Rotterdam flagship oil terminal"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-page/30" aria-hidden="true" />
           </div>
         </ScrollReveal>
 

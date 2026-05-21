@@ -68,7 +68,7 @@ export function Policy() {
         <ScrollReveal>
           <Link
             href="/specs/hse-policy.pdf"
-            className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-ink transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-brand transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >

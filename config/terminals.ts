@@ -12,6 +12,8 @@ export type Terminal = {
   description: string;
   flagship: boolean;
   status: TerminalStatus;
+  image: string;
+  imageAlt: string;
 };
 
 export const terminals: Terminal[] = [
@@ -25,10 +27,12 @@ export const terminals: Terminal[] = [
     productTags: ['Jet A1', 'EN590', 'D6', 'Crude'],
     capacityM3: 2_800_000, // TODO: confirm with client
     description:
-      'Our flagship terminal at the Port of Rotterdam — Europe’s largest energy hub. ' +
+      "Our flagship terminal at the Port of Rotterdam — Europe's largest energy hub. " +
       'Deep-water marine access, dedicated jetties, and pipeline interconnection across the ARA blending corridor.',
     flagship: true,
     status: 'active',
+    image: '/images/terminal-rotterdam.jpg',
+    imageAlt: 'Aerial view of Blue Gate Rotterdam flagship oil terminal',
   },
   {
     id: 'fujairah',
@@ -44,6 +48,8 @@ export const terminals: Terminal[] = [
       'World-class bunkering and crude-blending hub serving Middle East and Indian Ocean flows.',
     flagship: false,
     status: 'tbc', // TODO: confirm with client
+    image: '/images/terminal-fujairah.jpg',
+    imageAlt: 'Blue Gate Fujairah oil terminal and Arabian Sea anchorage',
   },
   {
     id: 'houston',
@@ -58,6 +64,8 @@ export const terminals: Terminal[] = [
       'Gulf Coast position with direct pipeline connectivity to US refineries and extensive marine export infrastructure.',
     flagship: false,
     status: 'tbc', // TODO: confirm with client
+    image: '/images/terminal-houston.jpg',
+    imageAlt: 'Blue Gate Houston Ship Channel petroleum terminal',
   },
   {
     id: 'jurong',
@@ -72,6 +80,8 @@ export const terminals: Terminal[] = [
       'Asia-Pacific bunkering and bulk-liquid specialist with direct access to the Strait of Malacca trade routes.',
     flagship: false,
     status: 'tbc', // TODO: confirm with client
+    image: '/images/terminal-jurong.jpg',
+    imageAlt: 'Blue Gate Jurong Island petroleum terminal Singapore',
   },
 ];
 

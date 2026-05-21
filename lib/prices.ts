@@ -48,7 +48,7 @@ export type Quote = {
 export async function fetchQuotes(): Promise<Quote[]> {
   const symbols = instruments.map((i) => i.symbol)
   try {
-    const results = await yahooFinance.quote(symbols)
+    const results = await yahooFinance.quote(symbols, {}, { validateResult: false })
     const raw = Array.isArray(results) ? results : [results]
     const quoteMap = new Map(raw.map((q) => [q.symbol, q]))
 

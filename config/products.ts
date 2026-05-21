@@ -23,7 +23,8 @@ export type Product = {
   category: ProductCategory;
   tankCompatTag: TankCompatTag; // maps this product to config/tanks.ts compatible array
   shortPositioning: string;
-  heroImage: string; // Unsplash URL
+  heroImage: string;
+  heroImageAlt: string;
   atAGlance: { label: string; value: string }[];
   specifications: SpecRow[];
   gradeComparison?: GradeRow[]; // crude oil only
@@ -51,8 +52,8 @@ export const products: Product[] = [
     tankCompatTag: 'Jet A1',
     shortPositioning:
       'Aviation-grade kerosene compliant with ASTM D1655 and DEF STAN 91-091. Stored in dedicated tanks with nitrogen blanketing where required.',
-    heroImage:
-      'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/images/product-jet-a1.jpg',
+    heroImageAlt: 'Jet A1 aviation fuel sampling at Blue Gate laboratory',
     atAGlance: [
       { label: 'Density @15°C', value: '775–840 kg/m³' },
       { label: 'Flash Point', value: '≥38°C' },
@@ -105,8 +106,8 @@ export const products: Product[] = [
     tankCompatTag: 'EN590',
     shortPositioning:
       'Ultra-low-sulphur diesel (ULSD) compliant with EN 590:2022. Available in B0 and B7 FAME blends. Suitable for all European climate classes.',
-    heroImage:
-      'https://images.unsplash.com/photo-1545259742-bb25de11c8b6?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/images/product-diesel-en590.jpg',
+    heroImageAlt: 'EN590 diesel fuel loading at Blue Gate Rotterdam terminal',
     atAGlance: [
       { label: 'Sulphur', value: '≤10 ppm (ULSD)' },
       { label: 'Cetane Number', value: '≥51' },
@@ -158,8 +159,8 @@ export const products: Product[] = [
     tankCompatTag: 'D6',
     shortPositioning:
       'Heavy residual fuel oil graded to ASTM D396 and ISO 8217 RMG-RMK. Stored in thermally maintained heated tanks with steam or thermal-oil coil systems.',
-    heroImage:
-      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/images/product-d6-fuel-oil.jpg',
+    heroImageAlt: 'Virgin Fuel Oil D6 heated storage tank at Blue Gate',
     atAGlance: [
       { label: 'Density @15°C', value: '950–1010 kg/m³' },
       { label: 'Viscosity @50°C', value: 'Up to 380 cSt' },
@@ -210,8 +211,8 @@ export const products: Product[] = [
     tankCompatTag: 'Crude',
     shortPositioning:
       'Multi-origin crude storage across seven benchmark grades. Floating-roof tanks with vapour recovery systems, scaled from 20,000 to 80,000 m³ per tank.',
-    heroImage:
-      'https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/images/product-crude-oil.jpg',
+    heroImageAlt: 'Crude oil transfer at Blue Gate Rotterdam tank farm',
     atAGlance: [
       { label: 'API Gravity Range', value: '~31–46°API' },
       { label: 'Sulphur Range', value: '0.16–1.30% m/m' },

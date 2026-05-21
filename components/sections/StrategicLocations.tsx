@@ -64,29 +64,29 @@ export function StrategicLocations() {
           <ScrollReveal delay={0.15}>
             <div
               className="rounded-xl overflow-hidden p-2"
-              style={{ boxShadow: '0 0 0 1px rgba(197,3,55,0.22), 0 8px 40px rgba(197,3,55,0.1)' }}
+              style={{ boxShadow: '0 0 0 1px rgba(208,0,24,0.22), 0 8px 40px rgba(208,0,24,0.1)' }}
             >
               <svg
                 viewBox="0 0 1000 500"
                 aria-label="World map highlighting Blue Gate terminal locations"
                 role="img"
                 className="w-full h-auto"
-                style={{ background: '#02060E' }}
+                style={{ background: '#0C0C0F' }}
               >
-                {/* Continent fills — subtle warm-dark on near-black */}
-                <path d="M100 75 L290 68 L310 130 L295 200 L240 260 L180 280 L120 250 L85 175 Z" fill="#1A0209" />
-                <path d="M175 285 L295 275 L310 345 L290 435 L210 455 L160 390 Z" fill="#1A0209" />
-                <path d="M430 70 L530 68 L545 130 L510 160 L460 170 L435 140 Z" fill="#1A0209" />
-                <path d="M435 175 L580 172 L575 395 L490 415 L440 360 L430 270 Z" fill="#1A0209" />
-                <path d="M535 60 L880 55 L885 175 L830 280 L720 305 L620 290 L555 220 L535 140 Z" fill="#1A0209" />
-                <path d="M760 315 L920 308 L935 415 L800 430 L760 390 Z" fill="#1A0209" />
-                <path d="M250 30 L360 28 L355 75 L265 80 Z" fill="#110106" />
+                {/* Continent fills — dark neutral elevated on canvas */}
+                <path d="M100 75 L290 68 L310 130 L295 200 L240 260 L180 280 L120 250 L85 175 Z" fill="#1C1C20" />
+                <path d="M175 285 L295 275 L310 345 L290 435 L210 455 L160 390 Z" fill="#1C1C20" />
+                <path d="M430 70 L530 68 L545 130 L510 160 L460 170 L435 140 Z" fill="#1C1C20" />
+                <path d="M435 175 L580 172 L575 395 L490 415 L440 360 L430 270 Z" fill="#1C1C20" />
+                <path d="M535 60 L880 55 L885 175 L830 280 L720 305 L620 290 L555 220 L535 140 Z" fill="#1C1C20" />
+                <path d="M760 315 L920 308 L935 415 L800 430 L760 390 Z" fill="#1C1C20" />
+                <path d="M250 30 L360 28 L355 75 L265 80 Z" fill="#161618" />
 
                 {/* Terminal markers */}
                 {TERMINALS.map((t) => {
                   const { cx, cy } = toSvg(t.lon, t.lat)
-                  const colour = t.primary ? '#C50337' : '#6B3040'
-                  const glowColour = t.primary ? 'rgba(197,3,55,0.25)' : 'rgba(107,48,64,0.2)'
+                  const colour = t.primary ? '#D00018' : '#6B1A1A'
+                  const glowColour = t.primary ? 'rgba(208,0,24,0.28)' : 'rgba(107,26,26,0.2)'
                   return (
                     <g key={t.name}>
                       <circle cx={cx} cy={cy} r={t.primary ? 20 : 14} fill={glowColour} />

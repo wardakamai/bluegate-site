@@ -5,9 +5,9 @@ import gsap from 'gsap'
 import { cn } from '@/lib/utils'
 
 const SHADOW_DEFAULT =
-  '0 0 0 1px rgba(197,3,55,0.22), 0 4px 24px rgba(197,3,55,0.08), 0 8px 32px rgba(0,0,0,0.6)'
+  '0 0 0 1px rgba(208,0,24,0.22), 0 4px 24px rgba(208,0,24,0.08), 0 8px 32px rgba(0,0,0,0.6)'
 const SHADOW_HOVER =
-  '0 0 0 1px rgba(197,3,55,0.55), 0 8px 40px rgba(197,3,55,0.3), 0 20px 60px rgba(0,0,0,0.7)'
+  '0 0 0 1px rgba(208,0,24,0.55), 0 8px 40px rgba(208,0,24,0.3), 0 20px 60px rgba(0,0,0,0.7)'
 
 interface GlowCardProps {
   children: React.ReactNode
@@ -84,7 +84,7 @@ export function GlowCard({ children, className, tilt = 6 }: GlowCardProps) {
         aria-hidden="true"
         className="absolute top-0 left-0 w-60 h-60 rounded-full pointer-events-none opacity-0"
         style={{
-          background: 'radial-gradient(circle, rgba(197,3,55,0.22) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(208,0,24,0.22) 0%, transparent 70%)',
         }}
       />
       {children}

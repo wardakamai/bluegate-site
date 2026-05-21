@@ -14,80 +14,87 @@ export function HorizontalScroll() {
   useEffect(() => {
     if (!sectionRef.current || !trackRef.current) return
 
-    const section = sectionRef.current
-    const track   = trackRef.current
-    const cards   = gsap.utils.toArray<HTMLElement>('.h-card')
+    const mm = gsap.matchMedia()
 
-    const totalWidth = track.scrollWidth - window.innerWidth
+    mm.add('(min-width: 768px)', () => {
+      const section = sectionRef.current
+      const track   = trackRef.current
+      if (!section || !track) return
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: () => `+=${totalWidth + window.innerHeight * 0.5}`,
-          pin: true,
-          scrub: 1.2,
-          anticipatePin: 1,
-          onUpdate: (self) => {
-            if (progressRef.current) {
-              progressRef.current.style.width = `${self.progress * 100}%`
-            }
-          },
-        },
-      })
+      const cards      = gsap.utils.toArray<HTMLElement>('.h-card')
+      const totalWidth = track.scrollWidth - window.innerWidth
 
-      tl.to(track, { x: () => -totalWidth, ease: 'none' })
-
-      cards.forEach((card, i) => {
-        gsap.from(card, {
-          opacity: 0,
-          y: 60,
-          duration: DUR.slow,
-          ease: EASE.smooth,
-          delay: i * 0.08,
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: card,
-            containerAnimation: tl,
-            start: 'left 85%',
-            toggleActions: 'play none none reverse',
+            trigger: section,
+            start: 'top top',
+            end: () => `+=${totalWidth + window.innerHeight * 0.5}`,
+            pin: true,
+            scrub: 1.2,
+            anticipatePin: 1,
+            onUpdate: (self) => {
+              if (progressRef.current) {
+                progressRef.current.style.width = `${self.progress * 100}%`
+              }
+            },
           },
         })
 
-        const img = card.querySelector('.h-card-img')
-        if (img) {
-          gsap.to(img, {
-            x: -30,
-            ease: 'none',
+        tl.to(track, { x: () => -totalWidth, ease: 'none' })
+
+        cards.forEach((card, i) => {
+          gsap.from(card, {
+            opacity: 0,
+            y: 60,
+            duration: DUR.slow,
+            ease: EASE.smooth,
+            delay: i * 0.08,
             scrollTrigger: {
               trigger: card,
               containerAnimation: tl,
-              start: 'left right',
-              end: 'right left',
-              scrub: true,
+              start: 'left 85%',
+              toggleActions: 'play none none reverse',
             },
           })
-        }
-      })
-    }, section)
 
-    const onResize = () => ScrollTrigger.refresh()
-    window.addEventListener('resize', onResize)
+          const img = card.querySelector('.h-card-img')
+          if (img) {
+            gsap.to(img, {
+              x: -30,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: card,
+                containerAnimation: tl,
+                start: 'left right',
+                end: 'right left',
+                scrub: true,
+              },
+            })
+          }
+        })
+      }, section)
 
-    return () => {
-      ctx.revert()
-      window.removeEventListener('resize', onResize)
-    }
+      const onResize = () => ScrollTrigger.refresh()
+      window.addEventListener('resize', onResize)
+
+      return () => {
+        ctx.revert()
+        window.removeEventListener('resize', onResize)
+      }
+    })
+
+    return () => mm.revert()
   }, [])
 
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-page will-change-transform"
+      className="relative bg-page md:overflow-hidden"
       aria-label="Products horizontal scroll"
     >
-      {/* Fixed header */}
-      <div className="absolute left-0 top-0 z-10 px-6 pt-16 md:px-12 lg:px-20">
+      {/* Header — static on mobile, absolute on desktop */}
+      <div className="px-6 pt-14 pb-6 md:absolute md:left-0 md:top-0 md:z-10 md:pt-16 md:pb-0 md:px-12 lg:px-20">
         <p className="mb-2 font-sans text-[11px] uppercase tracking-[0.14em] font-medium text-brand/70">
           Our Products
         </p>
@@ -100,33 +107,60 @@ export function HorizontalScroll() {
         </h2>
       </div>
 
-      {/* Scrolling track */}
+      {/* Card track
+          Mobile  → CSS horizontal scroll-snap, natural document flow
+          Desktop → flex row, translated by GSAP */}
       <div
         ref={trackRef}
-        className="flex h-screen items-center gap-6 pt-28"
-        style={{
-          width: 'max-content',
-          paddingLeft: 'max(5rem, 10vw)',
-          paddingRight: '20vw',
-        }}
+        data-hscroll-track
+        className={[
+          'flex items-stretch gap-4 md:gap-6',
+          'overflow-x-auto md:overflow-visible',
+          'pb-8 md:pb-0',
+          'px-6 md:px-0',
+          'md:h-screen md:items-center md:pt-28',
+          'md:will-change-transform',
+        ].join(' ')}
+        style={{ scrollSnapType: 'x mandatory' }}
       >
+        <style>{`
+          [data-hscroll-track] {
+            scrollbar-width: none;
+          }
+          [data-hscroll-track]::-webkit-scrollbar {
+            display: none;
+          }
+          @media (min-width: 768px) {
+            [data-hscroll-track] {
+              width: max-content;
+              padding-left: max(5rem, 10vw) !important;
+              padding-right: 20vw !important;
+            }
+          }
+        `}</style>
+
         {products.map((product, i) => (
           <div
             key={product.slug}
-            className="h-card group relative flex h-[65vh] w-[min(420px,85vw)] flex-shrink-0 flex-col justify-end overflow-hidden border border-border-soft"
+            className="h-card group relative flex flex-col justify-end overflow-hidden border border-border-soft flex-shrink-0"
+            style={{
+              width: 'min(340px, 80vw)',
+              height: 'clamp(340px, 65vh, 600px)',
+              scrollSnapAlign: 'start',
+            }}
           >
-            {/* Background image with parallax target */}
+            {/* Background image */}
             <div className="h-card-img absolute inset-0">
               <Image
                 src={product.heroImage}
                 alt={product.name}
                 fill
                 className="object-cover object-center"
-                sizes="420px"
+                sizes="(max-width: 767px) 80vw, 420px"
               />
             </div>
 
-            {/* Dark overlay — matches site dark-to-transparent gradient style */}
+            {/* Overlays */}
             <div
               className="absolute inset-0"
               style={{
@@ -134,7 +168,6 @@ export function HorizontalScroll() {
                   'linear-gradient(to top, #0C0C0F 0%, rgba(12,12,15,0.75) 45%, rgba(12,12,15,0.20) 100%)',
               }}
             />
-            {/* Crimson glow bottom-left */}
             <div
               className="absolute inset-0"
               style={{
@@ -144,23 +177,23 @@ export function HorizontalScroll() {
             />
 
             {/* Card content */}
-            <div className="relative z-10 p-8">
+            <div className="relative z-10 p-6 md:p-8">
               <span className="mb-3 inline-block border border-brand/30 bg-brand/[0.12] px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.15em] text-brand">
                 {product.category}
               </span>
 
               <h3
                 className="mb-2 font-serif font-normal text-ink"
-                style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.75rem)' }}
+                style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}
               >
                 {product.name}
               </h3>
 
-              <p className="mb-6 font-sans text-sm leading-relaxed text-ink/55">
+              <p className="mb-4 font-sans text-sm leading-relaxed text-ink/55">
                 {product.shortPositioning}
               </p>
 
-              <div className="mb-6 grid grid-cols-2 gap-3 border-t border-ink/10 pt-5">
+              <div className="mb-5 grid grid-cols-2 gap-3 border-t border-ink/10 pt-4">
                 {product.atAGlance.slice(0, 2).map((spec) => (
                   <div key={spec.label}>
                     <p className="font-sans text-[10px] uppercase tracking-wider text-ink/35">
@@ -183,31 +216,42 @@ export function HorizontalScroll() {
               </Link>
             </div>
 
-            <div className="absolute right-6 top-6 font-mono text-[11px] text-ink/20">
+            <div className="absolute right-4 top-4 font-mono text-[11px] text-ink/20 md:right-6 md:top-6">
               {String(i + 1).padStart(2, '0')}
             </div>
           </div>
         ))}
 
         {/* Final CTA card */}
-        <div className="h-card flex h-[65vh] w-[min(320px,75vw)] flex-shrink-0 flex-col items-center justify-center gap-6 border border-border-soft bg-bg p-8 text-center">
+        <div className="h-card flex flex-col items-center justify-center gap-5 border border-border-soft bg-bg p-6 text-center flex-shrink-0"
+          style={{ width: 'min(280px, 75vw)', height: 'clamp(340px, 65vh, 600px)', scrollSnapAlign: 'start' }}
+        >
           <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-ink/35">
             Full Product Range
           </p>
-          <h3 className="font-serif text-2xl font-normal text-ink">
+          <h3 className="font-serif text-xl md:text-2xl font-normal text-ink">
             Request Storage Allocation
           </h3>
           <Link
             href="/contact?intent=quote"
-            className="mt-2 inline-flex items-center justify-center gap-2 bg-brand px-6 py-3 font-sans text-sm font-medium text-white transition-colors duration-200 hover:bg-brand-steel"
+            className="mt-1 inline-flex items-center justify-center gap-2 bg-brand px-5 py-3 font-sans text-sm font-medium text-white transition-colors duration-200 hover:bg-brand-steel"
           >
             Request a Quote →
           </Link>
         </div>
       </div>
 
-      {/* Progress bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-ink/10">
+      {/* Swipe hint — mobile only */}
+      <div className="flex items-center justify-end gap-2 px-6 pb-4 font-sans text-ink/30 md:hidden">
+        <span className="text-[10px] uppercase tracking-widest">Swipe</span>
+        <svg width="20" height="10" viewBox="0 0 24 12" fill="none"
+          stroke="currentColor" strokeWidth="1" aria-hidden="true">
+          <path d="M0 6h22M16 1l6 5-6 5" />
+        </svg>
+      </div>
+
+      {/* Progress bar — desktop only */}
+      <div className="absolute bottom-0 left-0 right-0 hidden h-px bg-ink/10 md:block">
         <div
           ref={progressRef}
           className="h-full bg-brand transition-none"
@@ -215,8 +259,8 @@ export function HorizontalScroll() {
         />
       </div>
 
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 right-8 flex items-center gap-3 font-sans text-ink/30">
+      {/* Scroll hint — desktop only */}
+      <div className="absolute bottom-8 right-8 hidden items-center gap-3 font-sans text-ink/30 md:flex">
         <span className="text-[11px] uppercase tracking-widest">Scroll</span>
         <svg width="24" height="12" viewBox="0 0 24 12" fill="none"
           stroke="currentColor" strokeWidth="1" aria-hidden="true">
