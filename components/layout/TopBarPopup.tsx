@@ -29,7 +29,7 @@ export function TopBarPopup() {
   if (pathname !== '/') return null
 
   return (
-    <AnimatePresence initial={false}>
+    <AnimatePresence>
       {open && (
         <motion.div
           role="region"
@@ -37,13 +37,13 @@ export function TopBarPopup() {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: shouldReduceMotion ? 0 : 0.3, ease: 'easeInOut' }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="overflow-hidden bg-bg border-b border-border-soft"
         >
-          <div className="mx-auto max-w-7xl px-6 py-2 flex items-center justify-between gap-4">
+          <div className="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between gap-4">
             <p className="font-sans text-xs text-muted-foreground leading-none">
               <span className="font-medium text-foreground">Blue Gate Refund Policy</span>
-              {' '}is now available.{' '}
+              {' · '}
               <Link
                 href="/docs/refund-policy.pdf"
                 target="_blank"
