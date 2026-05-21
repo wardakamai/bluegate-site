@@ -73,7 +73,7 @@ export function Header() {
       )}
     >
       <div className="mx-auto max-w-7xl px-6 flex items-center justify-between h-16">
-        <Logo />
+        <Logo variant="default" className="h-10" />
 
         {/* Desktop nav */}
         <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-0.5">
@@ -121,7 +121,7 @@ export function Header() {
                   'px-3 py-2 text-sm font-medium rounded-md transition-colors',
                   'hover:text-brand hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring/50 outline-none',
                   active
-                    ? 'text-brand underline underline-offset-4 decoration-accent'
+                    ? 'text-brand underline underline-offset-4 decoration-brand'
                     : 'text-ink',
                 )}
               >

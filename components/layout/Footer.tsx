@@ -16,7 +16,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-10 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
         {/* Col 1 — Brand */}
         <div className="flex flex-col gap-5">
-          <Logo light />
+          <Logo variant="white" className="h-9 mb-4" />
           <p className="text-sm text-muted-foreground leading-relaxed">
             Blue Gate has operated oil storage terminals and tank farms since {founded}, connecting
             European and global commodity markets from our primary base in Rotterdam.
@@ -37,7 +37,7 @@ export function Footer() {
 
         {/* Col 2 — Navigation */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-[11px] uppercase tracking-[0.08em] font-medium text-accent/70">
+          <h3 className="text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70">
             Navigation
           </h3>
           <ul className="space-y-2">
@@ -56,7 +56,7 @@ export function Footer() {
 
         {/* Col 3 — Services & Products */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-[11px] uppercase tracking-[0.08em] font-medium text-accent/70">
+          <h3 className="text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70">
             Services
           </h3>
           <ul className="space-y-2">
@@ -71,7 +71,7 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <h3 className="mt-4 text-[11px] uppercase tracking-[0.08em] font-medium text-accent/70">
+          <h3 className="mt-4 text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70">
             Products
           </h3>
           <ul className="space-y-2">
@@ -90,7 +90,7 @@ export function Footer() {
 
         {/* Col 4 — Contact */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-[11px] uppercase tracking-[0.08em] font-medium text-accent/70">
+          <h3 className="text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70">
             Contact
           </h3>
           <address className="not-italic text-sm text-muted-foreground space-y-2 leading-relaxed">
@@ -124,14 +124,14 @@ export function Footer() {
             <MessageCircle size={15} aria-hidden="true" />
             WhatsApp Enquiry
           </a>
-          <Link href={ctaPrimary.href} className="inline-flex items-center text-sm font-medium text-accent hover:text-ink transition-colors w-fit">
+          <Link href={ctaPrimary.href} className="inline-flex items-center text-sm font-medium text-ink hover:text-brand transition-colors w-fit">
             {ctaPrimary.label}
           </Link>
         </div>
       </div>
 
       {/* Sub-footer */}
-      <div className="border-t border-white/[0.06] mx-auto max-w-7xl px-6 py-5">
+      <div className="border-t border-border-soft mx-auto max-w-7xl px-6 py-5">
         <p className="text-xs text-muted-foreground flex flex-wrap gap-x-3 gap-y-1">
           <span>© {new Date().getFullYear()} {name}</span>
           <span aria-hidden="true">·</span>

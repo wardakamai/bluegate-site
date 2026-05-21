@@ -1,37 +1,25 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
-interface LogoProps {
+type LogoProps = {
+  variant?: 'default' | 'white'
   className?: string
-  /** Render in light (cream) colours for dark backgrounds */
-  light?: boolean
 }
 
-export function Logo({ className, light = false }: LogoProps) {
+export function Logo({ variant = 'default', className }: LogoProps) {
+  const src = variant === 'white' ? '/logo-white.svg' : '/logo.svg'
+
   return (
-    <Link
-      href="/"
-      aria-label="Blue Gate Shipping and Trade B.V. — Home"
-      className={cn('group inline-flex flex-col leading-none gap-0.5', className)}
-    >
-      <span
-        className={cn(
-          'font-serif italic text-xl tracking-tight transition-colors',
-          light
-            ? 'text-ink group-hover:text-accent'
-            : 'text-brand group-hover:text-brand-steel',
-        )}
-      >
-        Blue Gate
-      </span>
-      <span
-        className={cn(
-          'font-sans text-[9px] uppercase tracking-[0.15em] font-medium transition-colors',
-          light ? 'text-muted-foreground' : 'text-muted-foreground',
-        )}
-      >
-        Shipping &amp; Trade B.V.
-      </span>
+    <Link href="/" aria-label="Blue Gate Shipping and Trade B.V. — Home">
+      <Image
+        src={src}
+        alt="Blue Gate Shipping and Trade B.V."
+        width={160}
+        height={60}
+        priority
+        className={cn('h-10 w-auto', className)}
+      />
     </Link>
   )
 }

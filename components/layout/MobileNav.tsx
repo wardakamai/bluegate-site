@@ -41,7 +41,7 @@ export function MobileNav() {
       <SheetContent side="right" className="bg-bg border-border-soft w-80 flex flex-col p-0">
         <SheetHeader className="border-b border-border-soft px-6 py-4">
           <SheetTitle asChild>
-            <Logo />
+            <Logo variant="white" />
           </SheetTitle>
         </SheetHeader>
 
