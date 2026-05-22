@@ -47,7 +47,7 @@ export function TopBarPopup() {
         className="relative flex items-center justify-center px-20 py-3 bg-page border-b border-white/[0.08]"
       >
         <Link
-          href="/docs/refund-policy.pdf"
+          href="/docs/refund-policy-v2.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="font-sans text-sm text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60 rounded"
