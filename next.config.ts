@@ -25,6 +25,10 @@ const nextConfig: NextConfig = {
       { source: '/contact-us.html',          destination: '/contact',              permanent: true },
       { source: '/products.html',            destination: '/products',             permanent: true },
 
+      // ── Legacy root index files ───────────────────────────────────────
+      { source: '/index.html',               destination: '/',                     permanent: true },
+      { source: '/index.php',                destination: '/',                     permanent: true },
+
       // ── WordPress system paths (old site residue in Google index) ─────
       { source: '/wp-content/:path*',        destination: '/',                     permanent: true },
       { source: '/wp-admin/:path*',          destination: '/',                     permanent: true },
