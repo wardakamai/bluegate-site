@@ -110,7 +110,7 @@ export function PolicyDropdown() {
           {/* Footer */}
           <div className="px-6 py-4 border-t border-white/[0.08] flex items-center justify-between">
             <p className="font-sans text-[10px] text-white/30">
-              Blue Gate Shipping and Trade B.V. · KVK 86686607
+              Blue Gate Shipping and Trade B.V. · KVK 98572695
             </p>
             <Link
               href="/terms"

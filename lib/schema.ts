@@ -235,7 +235,7 @@ export function storageFaqSchema(): JsonLd {
         name: 'Is Blue Gate a listed oil and gas storage company?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Blue Gate Shipping and Trade B.V. is an independent oil and gas storage company registered in the Netherlands (KVK 86686607, SAFE NL06152688). We operate oil tank farms in Rotterdam, Fujairah, Houston and Jurong.',
+          text: 'Blue Gate Shipping and Trade B.V. is an independent oil and gas storage company registered in the Netherlands (KVK 98572695, SAFE NL868552227B01). We operate oil tank farms in Rotterdam, Fujairah, Houston and Jurong.',
         },
       },
     ],

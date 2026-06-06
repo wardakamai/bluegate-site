@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         {/* TODO: confirm with client — insert final approved privacy policy text */}
         <div className="space-y-4 font-sans text-sm text-muted-foreground leading-relaxed">
           <p>
-            This privacy policy applies to Blue Gate Shipping and Trade B.V. (KVK 86686607),
+            This privacy policy applies to Blue Gate Shipping and Trade B.V. (KVK 98572695),
             Prinsenlaan 450, 3066 KD Rotterdam, Netherlands.
           </p>
           <p>

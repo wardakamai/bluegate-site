@@ -21,8 +21,8 @@ export const site = {
       'https://wa.me/3197005033211?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20storage%20capacity.',
   },
   legal: {
-    kvk: '86686607',
-    safe: 'NL06152688',
+    kvk: '98572695',
+    safe: 'NL868552227B01',
   },
   socials: {
     linkedin: '', // TODO: confirm with client

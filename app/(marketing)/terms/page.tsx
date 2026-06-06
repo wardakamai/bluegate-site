@@ -23,7 +23,7 @@ export default function TermsPage() {
         {/* TODO: confirm with client — insert final approved terms and conditions text */}
         <div className="space-y-4 font-sans text-sm text-muted-foreground leading-relaxed">
           <p>
-            These terms and conditions apply to Blue Gate Shipping and Trade B.V. (KVK 86686607),
+            These terms and conditions apply to Blue Gate Shipping and Trade B.V. (KVK 98572695),
             Prinsenlaan 450, 3066 KD Rotterdam, Netherlands.
           </p>
           <p>
