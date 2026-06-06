@@ -22,7 +22,7 @@ export const site = {
   },
   legal: {
     kvk: '98572695',
-    safe: 'NL868552227B01',
+    vestigingsnummer: '000063726912',
   },
   socials: {
     linkedin: '', // TODO: confirm with client

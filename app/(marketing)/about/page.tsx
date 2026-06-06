@@ -37,7 +37,7 @@ export default function AboutPage() {
       <div className="bg-page py-8 border-t border-brand/[0.1]">
         <div className="mx-auto max-w-7xl px-6">
           <p className="font-mono text-xs text-muted-foreground">
-            {site.name}&nbsp;·&nbsp;KVK {site.legal.kvk}&nbsp;·&nbsp;SAFE {site.legal.safe}
+            {site.name}&nbsp;·&nbsp;KVK {site.legal.kvk}&nbsp;·&nbsp;Vestigingsnummer {site.legal.vestigingsnummer}
             &nbsp;·&nbsp;Prinsenlaan 450, 3066 KD Rotterdam, Netherlands
           </p>
         </div>

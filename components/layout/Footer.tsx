@@ -137,7 +137,7 @@ export function Footer() {
           <span aria-hidden="true">·</span>
           <span>KVK {legal.kvk}</span>
           <span aria-hidden="true">·</span>
-          <span>SAFE {legal.safe}</span>
+          <span>Vestigingsnummer {legal.vestigingsnummer}</span>
           <span aria-hidden="true">·</span>
           <Link href="/privacy" className="hover:text-ink transition-colors">Privacy Policy</Link>
           <span aria-hidden="true">·</span>
