@@ -69,9 +69,8 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  // TODO: replace with real code from Google Search Console
   verification: {
-    google: 'PASTE_GOOGLE_VERIFICATION_CODE_HERE',
+    google: '6733e5f94c4405b8',
   },
 }
 
