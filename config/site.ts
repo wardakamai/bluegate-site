@@ -5,7 +5,7 @@ export const site = {
   name: 'Blue Gate Shipping and Trade B.V.',
   shortName: 'Blue Gate',
   blurb: 'Oil storage company and tank farm operator headquartered in Rotterdam. ISO-certified storage of Jet A1, EN590, D6, and crude oil.',
-  founded: 1964,
+  founded: 2010,
   address: {
     street: 'Prinsenlaan 450',
     postcode: '3066 KD',

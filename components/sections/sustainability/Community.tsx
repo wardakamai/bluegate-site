@@ -29,8 +29,8 @@ export function Community() {
           <ScrollReveal>
             <div className="space-y-5 font-sans text-base text-muted-foreground leading-relaxed">
               <p>
-                Blue Gate has operated from the Port of Rotterdam for over sixty years. That
-                longevity carries a responsibility — to the port community, to the city, and to the
+                Blue Gate has operated from the Port of Rotterdam for over a decade. That
+                tenure carries a responsibility — to the port community, to the city, and to the
                 people who choose careers in bulk liquid logistics.
               </p>
               <p>

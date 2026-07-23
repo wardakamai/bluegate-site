@@ -12,9 +12,9 @@ import { terminals } from '@/config/terminals'
 import { breadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = pageMeta({
-  title: 'Oil Storage Terminal | Rotterdam, Fujairah, Houston, Jurong',
+  title: 'Oil Storage Terminal | Rotterdam, Fujairah, Houston, Jurong, Zhoushan',
   description:
-    'Blue Gate oil storage terminal network. Tank farm in Rotterdam, Fujairah, Houston and Jurong. 24/7 marine access, multi-product storage, vessel scheduling.',
+    'Blue Gate oil storage terminal network. Tank farm in Rotterdam, Fujairah, Houston, Jurong and Zhoushan. 24/7 marine access, multi-product storage, vessel scheduling.',
   path: 'terminal',
 })
 
@@ -53,7 +53,7 @@ export default function TerminalPage() {
         <div>
           <Certifications />
           <p className="text-center font-sans text-xs text-muted-foreground py-3 bg-brand/[0.04]">
-            All four terminals operate under a unified HSE framework.{' '}
+            All five terminals operate under a unified HSE framework.{' '}
             {/* TODO: confirm with client */}
           </p>
         </div>

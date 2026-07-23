@@ -62,7 +62,7 @@ export function GET(req: NextRequest) {
               letterSpacing: '0.04em',
             }}
           >
-            Oil Tank Farm. Terminal Operations. Since 1964.
+            Oil Tank Farm. Terminal Operations. Since 2010.
           </span>
         </div>
 

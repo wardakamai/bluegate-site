@@ -21,7 +21,7 @@ export function organizationSchema(): JsonLd {
     },
     foundingDate: String(site.founded),
     description:
-      'Independent oil tank farm operator and oil storage terminal company based in Rotterdam, Netherlands. Providing ISO-certified storage for Jet A1, EN590 Diesel, Virgin Fuel Oil D6 and Crude Oil across four global terminals.',
+      'Independent oil tank farm operator and oil storage terminal company based in Rotterdam, Netherlands. Providing ISO-certified storage for Jet A1, EN590 Diesel, Virgin Fuel Oil D6 and Crude Oil across five global terminals.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,
@@ -98,6 +98,7 @@ export function localBusinessSchema(): JsonLd {
       { '@type': 'Country', name: 'United States' },
       { '@type': 'Country', name: 'United Arab Emirates' },
       { '@type': 'Country', name: 'Singapore' },
+      { '@type': 'Country', name: 'China' },
     ],
   }
 }
@@ -161,7 +162,7 @@ export function serviceSchema(service: {
       name: 'Blue Gate Shipping and Trade B.V.',
       url: SITE_URL,
     },
-    areaServed: ['Rotterdam', 'Houston', 'Fujairah', 'Jurong', 'Worldwide'],
+    areaServed: ['Rotterdam', 'Houston', 'Fujairah', 'Jurong', 'Zhoushan', 'Worldwide'],
     availableChannel: {
       '@type': 'ServiceChannel',
       serviceUrl: `${SITE_URL}/contact`,
@@ -224,6 +225,14 @@ export function storageFaqSchema(): JsonLd {
       },
       {
         '@type': 'Question',
+        name: 'Does Blue Gate operate a storage terminal in Zhoushan, China?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Blue Gate operates a bonded bulk-liquid storage terminal in Zhoushan, China, serving East Asian crude and refined product flows. Contact our operations desk to enquire about available tank farm capacity in Zhoushan.',
+        },
+      },
+      {
+        '@type': 'Question',
         name: 'What products does Blue Gate store at its oil tank farm?',
         acceptedAnswer: {
           '@type': 'Answer',
@@ -235,7 +244,7 @@ export function storageFaqSchema(): JsonLd {
         name: 'Is Blue Gate a listed oil and gas storage company?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Blue Gate Shipping and Trade B.V. is an independent oil and gas storage company registered in the Netherlands (KVK 98572695, Vestigingsnummer 000063726912). We operate oil tank farms in Rotterdam, Fujairah, Houston and Jurong.',
+          text: 'Blue Gate Shipping and Trade B.V. is an independent oil and gas storage company registered in the Netherlands (KVK 98572695, Vestigingsnummer 000063726912). We operate oil tank farms in Rotterdam, Fujairah, Houston, Jurong and Zhoushan.',
         },
       },
     ],

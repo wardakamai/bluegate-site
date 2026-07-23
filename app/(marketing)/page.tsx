@@ -18,7 +18,7 @@ export const revalidate = 900
 export const metadata: Metadata = pageMeta({
   title: 'Oil Tank Farm Rotterdam | Blue Gate Storage Terminal',
   description:
-    'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil. 60+ years expertise. Capacity available.',
+    'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil. Capacity available.',
   path: '',
 })
 

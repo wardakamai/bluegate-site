@@ -38,13 +38,13 @@ export function TerminalHero() {
         >
           Rotterdam Flagship.
           <br />
-          <em className="text-brand">Three Global Extensions.</em>
+          <em className="text-brand">Four Global Extensions.</em>
         </h1>
 
         <p className="font-sans text-lg md:text-xl text-ink/65 max-w-2xl leading-relaxed mb-10">
           Blue Gate operates from a Rotterdam flagship terminal in the heart of the ARA corridor,
-          with extensions in Fujairah, Houston, and Jurong. Together the network spans Europe, the
-          Middle East, the US Gulf, and Asia-Pacific.
+          with extensions in Fujairah, Houston, Jurong, and Zhoushan. Together the network spans
+          Europe, the Middle East, the US Gulf, and Asia-Pacific.
         </p>
 
         <div className="flex flex-wrap gap-4">

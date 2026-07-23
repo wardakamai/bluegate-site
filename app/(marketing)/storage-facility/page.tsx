@@ -135,7 +135,7 @@ export default function StorageFacilityPage() {
                   </p>
                   <p>
                     {/* TODO: confirm with client */}
-                    The same inspection regime and standards are applied across all four network
+                    The same inspection regime and standards are applied across all five network
                     terminals. Clients operating across multiple sites receive a unified inspection
                     summary on request.
                   </p>
@@ -200,13 +200,14 @@ export default function StorageFacilityPage() {
                 </AccordionItem>
                 <AccordionItem value="q4" className="border border-border-soft rounded-lg px-6 bg-bg">
                   <AccordionTrigger className="font-sans text-sm font-medium text-ink text-left py-5 hover:no-underline">
-                    Is tank farm capacity available in Houston, Fujairah and Jurong?
+                    Is tank farm capacity available in Houston, Fujairah, Jurong and Zhoushan?
                   </AccordionTrigger>
                   <AccordionContent className="font-sans text-sm text-muted-foreground leading-relaxed pb-5">
                     Yes. Blue Gate operates oil storage terminals in Houston (US Gulf Coast),
-                    Fujairah (outside the Strait of Hormuz), and Jurong (Asia-Pacific). Available
-                    tank farm capacity and leasing rates at each location are quoted on request.
-                    Contact storage@bluegou.com for a petroleum storage inquiry at any terminal.
+                    Fujairah (outside the Strait of Hormuz), Jurong (Southeast Asia), and Zhoushan
+                    (East Asia). Available tank farm capacity and leasing rates at each location
+                    are quoted on request. Contact storage@bluegou.com for a petroleum storage
+                    inquiry at any terminal.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -242,7 +243,7 @@ export default function StorageFacilityPage() {
                     href="/contact?intent=quote&topic=facility-sheets"
                     className="font-sans text-xs text-brand hover:text-brand-steel transition-colors"
                   >
-                    Request facility sheets for Fujairah, Houston, or Jurong →
+                    Request facility sheets for Fujairah, Houston, Jurong, or Zhoushan →
                   </Link>
                 </div>
               </div>

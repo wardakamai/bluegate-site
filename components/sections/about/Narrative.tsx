@@ -25,11 +25,10 @@ export function Narrative() {
           <ScrollReveal delay={0.15}>
             <div className="space-y-6 font-sans text-base text-muted-foreground leading-relaxed">
               <p>
-                Founded in Rotterdam in 1964, Blue Gate has grown from a single-terminal operation
-                to a multi-hub storage and throughput business spanning three continents. Our
-                foundations were laid in an era when petroleum logistics demanded absolute
-                precision: contamination meant product loss, and product loss meant client trust —
-                once lost, rarely recovered.
+                Founded in Rotterdam in 2010, Blue Gate has grown from a single-terminal operation
+                to a multi-hub storage and throughput business spanning four continents. From day
+                one, our operating discipline has demanded absolute precision: contamination meant
+                product loss, and product loss meant client trust — once lost, rarely recovered.
               </p>
               <p>
                 The tanks have changed. Floating roofs replaced fixed covers where vapour control
@@ -51,7 +50,7 @@ export function Narrative() {
                 rarely the headline. But storage done wrong is where margins disappear — in
                 off-spec product, failed custody transfers, and regulatory non-compliance. Storage
                 done well is invisible: the product arrives on schedule, in spec, with full
-                documentation. That invisibility is what Blue Gate has delivered for six decades.
+                documentation. That invisibility is what Blue Gate has delivered for over a decade.
               </p>
             </div>
           </ScrollReveal>

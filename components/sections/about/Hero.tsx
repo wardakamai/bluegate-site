@@ -34,12 +34,12 @@ export function Hero() {
           className="font-serif font-normal text-ink leading-none tracking-tight mb-8"
           style={{ fontSize: 'clamp(48px, 7vw, 92px)' }}
         >
-          Six Decades of{' '}
+          Over a Decade of{' '}
           <em className="text-brand">Trusted Storage.</em>
         </h1>
         <p className="font-sans text-lg md:text-xl text-ink/65 max-w-2xl leading-relaxed">
           Blue Gate Shipping and Trade B.V. has operated oil storage terminals since{' '}
-          {site.founded}. Sixty years of handling Jet A1, diesel, fuel oil, and crude oil across
+          {site.founded}. Over a decade of handling Jet A1, diesel, fuel oil, and crude oil across
           Rotterdam&apos;s ARA network has produced something no start-up can replicate:
           accumulated technical knowledge, built one meticulous storage cycle at a time.
         </p>

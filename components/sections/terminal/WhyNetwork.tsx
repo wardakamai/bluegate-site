@@ -26,15 +26,21 @@ const CARDS = [
     city: 'Jurong',
     body: 'Gateway to Asia-Pacific supply and bunkering. The Strait of Malacca carries over 40% of global seaborne trade. Jurong positions Blue Gate at the heart of Asian energy redistribution.',
   },
+  {
+    flag: '🇨🇳',
+    label: 'East Asia Gateway',
+    city: 'Zhoushan',
+    body: "China's largest bonded bulk-liquid storage hub, off the Yangtze River Delta. Zhoushan gives Blue Gate direct deep-water access to East Asian crude and product blending flows.",
+  },
 ]
 
 export function WhyNetwork() {
   return (
-    <section className="bg-grad-2 py-20 md:py-28" aria-label="Why four terminals">
+    <section className="bg-grad-2 py-20 md:py-28" aria-label="Why five terminals">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
           <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
-            Why Four Terminals
+            Why Five Terminals
           </p>
           <h2
             className="font-serif font-normal text-ink leading-tight mb-16"
@@ -44,7 +50,7 @@ export function WhyNetwork() {
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6">
           {CARDS.map((card, i) => (
             <ScrollReveal key={card.city} delay={i * 0.08}>
               <GlowCard className="rounded-xl bg-bg p-7 h-full flex flex-col">

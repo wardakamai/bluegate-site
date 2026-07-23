@@ -47,7 +47,7 @@ export function StorageHero() {
 
         {/* Network note */}
         <p className="font-sans text-sm text-ink/50 border-l-2 border-brand/40 pl-4">
-          Facility sheets for Fujairah, Houston, and Jurong available on request —{' '}
+          Facility sheets for Fujairah, Houston, Jurong, and Zhoushan available on request —{' '}
           <Link
             href="/contact?intent=quote&topic=facility-sheets"
             className="text-brand hover:text-brand-steel transition-colors"

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: '%s | Blue Gate',
   },
   description:
-    'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil. 60+ years expertise.',
+    'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bluegou.com'),
   manifest: '/site.webmanifest',
   openGraph: {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     siteName: 'Blue Gate Shipping and Trade B.V.',
     title: 'Oil Tank Farm Rotterdam | Blue Gate Storage Terminal',
     description:
-      'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil. 60+ years expertise.',
+      'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil.',
     images: [
       {
         url: '/og/og-default.jpg',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Oil Tank Farm Rotterdam | Blue Gate Storage Terminal',
     description:
-      'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil. 60+ years expertise.',
+      'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil.',
     images: ['/og/og-default.jpg'],
   },
   robots: {

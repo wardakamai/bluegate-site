@@ -22,7 +22,7 @@ const slides = [
     id: 1,
     image: '/images/hero-home.jpg',
     fallbackGradient: 'linear-gradient(135deg, #0C0C0F 0%, #1a0608 60%, #0C0C0F 100%)',
-    label: 'OIL TANK FARM · EST. 1964 · ROTTERDAM, NL',
+    label: 'OIL TANK FARM · EST. 2010 · ROTTERDAM, NL',
     headlinePlain: 'Oil Tank Farm.',
     headlineItalic: 'Engineered for Reliability.',
     subdeck:
@@ -34,11 +34,11 @@ const slides = [
     id: 2,
     image: '/images/hero-terminal.jpg',
     fallbackGradient: 'linear-gradient(135deg, #0C0C0F 0%, #1a0608 60%, #0C0C0F 100%)',
-    label: 'FOUR TERMINALS · ROTTERDAM · FUJAIRAH · HOUSTON · JURONG',
-    headlinePlain: 'Four Global Terminals.',
+    label: 'FIVE TERMINALS · ROTTERDAM · FUJAIRAH · HOUSTON · JURONG · ZHOUSHAN',
+    headlinePlain: 'Five Global Terminals.',
     headlineItalic: 'One Operating Standard.',
     subdeck:
-      "From our Rotterdam flagship to Fujairah, Houston, and Jurong — Blue Gate delivers 24/7 marine terminal access across the world's most critical energy corridors.",
+      "From our Rotterdam flagship to Fujairah, Houston, Jurong, and Zhoushan — Blue Gate delivers 24/7 marine terminal access across the world's most critical energy corridors.",
     primaryCta:   { label: 'View Terminal Network →', href: '/terminal' },
     secondaryCta: { label: 'View Storage Facility',   href: '/storage-facility' },
   },

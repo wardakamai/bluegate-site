@@ -2,8 +2,10 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 const TERMINALS = [
   { name: 'Rotterdam', lon: 4.5, lat: 51.9, primary: true },
+  { name: 'Fujairah', lon: 56.3, lat: 25.1, primary: false },
   { name: 'Houston', lon: -95.4, lat: 29.7, primary: false },
-  { name: 'Singapore', lon: 103.8, lat: 1.35, primary: false },
+  { name: 'Jurong', lon: 103.7, lat: 1.32, primary: false },
+  { name: 'Zhoushan', lon: 122.1, lat: 30.0, primary: false },
 ]
 
 function toSvg(lon: number, lat: number) {
@@ -38,12 +40,13 @@ export function StrategicLocations() {
                 VLCC-class vessels.
               </p>
               <p>
-                Our strategic outposts in Houston and Singapore — positioned pending final client
-                confirmation — extend the same storage and throughput capabilities to the Gulf
-                Coast refining complex and the world&apos;s busiest bunkering hub respectively.
+                Our strategic outposts in Fujairah, Houston, Jurong, and Zhoushan — capacities
+                positioned pending final client confirmation — extend the same storage and
+                throughput capabilities to the Middle East, the Gulf Coast refining complex, and
+                two of Asia&apos;s busiest bunkering hubs.
               </p>
               <p>
-                Three time zones, one operations standard. Every terminal runs the same HSE
+                Five time zones, one operations standard. Every terminal runs the same HSE
                 protocols, the same documentation chain, and the same 24-hour response commitment.
               </p>
             </div>

@@ -24,6 +24,12 @@ const HIGHLIGHTS: Record<string, string[]> = {
     'Multi-modal connectivity into ASEAN inland markets',
     'Aviation fuel capability serving regional aviation growth',
   ],
+  zhoushan: [
+    'China\'s largest bonded bulk-liquid storage hub, off the Yangtze River Delta',
+    'Direct deep-water tanker access for crude and product cargoes',
+    'East Asian blending and re-supply position',
+    'Bonded storage status for duty-deferred crude and product handling',
+  ],
 }
 
 export function GlobalNetwork() {
@@ -42,11 +48,11 @@ export function GlobalNetwork() {
             className="font-serif font-normal text-ink leading-tight mb-4"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
-            Three Strategic <em className="text-brand">Extensions.</em>
+            Four Strategic <em className="text-brand">Extensions.</em>
           </h2>
           <p className="font-sans text-base text-muted-foreground max-w-2xl mb-16 leading-relaxed">
-            Beyond Rotterdam, our network reaches three of the world&apos;s most consequential
-            energy crossroads — Fujairah, Houston, and Jurong.
+            Beyond Rotterdam, our network reaches four of the world&apos;s most consequential
+            energy crossroads — Fujairah, Houston, Jurong, and Zhoushan.
           </p>
         </ScrollReveal>
 
@@ -187,8 +193,8 @@ export function GlobalNetwork() {
             Blue Gate operates one of Europe&apos;s most strategically positioned oil storage terminal
             networks. Our Rotterdam tank farm sits at the heart of the ARA corridor. Our Fujairah
             petroleum storage terminal provides crude oil storage capacity outside the Strait of
-            Hormuz. Houston petroleum storage serves the US Gulf Coast. Jurong provides
-            Asia-Pacific oil terminal access.
+            Hormuz. Houston petroleum storage serves the US Gulf Coast. Jurong and Zhoushan
+            provide East and Southeast Asian oil terminal access.
           </p>
         </ScrollReveal>
       </div>

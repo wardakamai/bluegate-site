@@ -1,7 +1,7 @@
 export type TerminalStatus = 'active' | 'tbc';
 
 export type Terminal = {
-  id: 'rotterdam' | 'fujairah' | 'houston' | 'jurong';
+  id: 'rotterdam' | 'fujairah' | 'houston' | 'jurong' | 'zhoushan';
   flag: string;
   city: string;
   country: string;
@@ -82,6 +82,23 @@ export const terminals: Terminal[] = [
     status: 'tbc', // TODO: confirm with client
     image: '/images/terminal-jurong.jpg',
     imageAlt: 'Blue Gate Jurong Island petroleum terminal Singapore',
+  },
+  {
+    id: 'zhoushan',
+    flag: '🇨🇳',
+    city: 'Zhoushan',
+    country: 'China',
+    region: 'East Asia',
+    incoterm: 'Storage & Throughput',
+    productTags: ['Crude', 'D6', 'EN590'],
+    capacityM3: 1_000_000, // TODO: confirm with client
+    description:
+      "Positioned in China's largest bonded bulk-liquid storage hub off the Yangtze River Delta. " +
+      'Serves East Asian crude and product blending flows with direct deep-water tanker access.',
+    flagship: false,
+    status: 'tbc', // TODO: confirm with client
+    image: '/images/terminal-jurong.jpg', // TODO: replace with real Zhoushan facility photo
+    imageAlt: 'Blue Gate Zhoushan bonded storage terminal, China',
   },
 ];
 

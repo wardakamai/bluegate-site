@@ -7,33 +7,32 @@ interface Milestone {
   desc: string
 }
 
-// TODO: confirm with client — verify Houston and Singapore founding dates and active status
+// TODO: confirm with client — exact onboarding dates for Houston, Fujairah, Jurong and Zhoushan
 const MILESTONES: Milestone[] = [
   {
-    year: '1964',
+    year: '2010',
     title: 'Founded in Rotterdam',
-    desc: 'Established as an oil tank farm and bulk liquid storage operator serving the ARA refinery complex and the emerging European petroleum market.',
+    desc: 'Established as an oil tank farm and bulk liquid storage operator serving the ARA refinery complex and the European petroleum market.',
   },
   {
-    year: '1980s',
-    title: 'European Expansion',
-    desc: 'Expanded fixed-roof and floating-roof tank infrastructure; commissioned first dedicated Jet A1 storage bays to meet rising aviation-fuel demand across European airports.',
-  },
-  {
-    year: '2000s',
-    title: 'Houston Operations Established', // TODO: confirm with client — founding date and operational scope
+    year: '2010s',
+    title: 'Houston Operations Established', // TODO: confirm with client — exact date and operational scope
     desc: 'Extended throughput and custody-transfer services to the Gulf Coast refining complex, deepening Blue Gate\'s reach into North American commodity flows.',
   },
   {
-    // TODO: confirm with client — Fujairah onboarding date
     year: '2010s',
-    title: 'Fujairah Hub Onboarded',
+    title: 'Fujairah Hub Onboarded', // TODO: confirm with client — exact date
     desc: 'Extended network reach to Fujairah on the Arabian Sea — a strategic bunkering and crude-blending position outside the Strait of Hormuz, serving Middle East and Indian Ocean petroleum flows.',
   },
   {
     year: '2010s',
-    title: 'Jurong / Singapore Expansion', // TODO: confirm with client — founding date and operational scope
-    desc: 'Opened Asia-Pacific capability at the Jurong terminal in Singapore — the world\'s leading bunkering hub — connecting Blue Gate to Asian petroleum trade flows and Strait of Malacca supply chains.',
+    title: 'Jurong / Singapore Expansion', // TODO: confirm with client — exact date
+    desc: 'Opened Asia-Pacific capability at the Jurong terminal in Singapore — connecting Blue Gate to Asian petroleum trade flows and Strait of Malacca supply chains.',
+  },
+  {
+    year: '2020s',
+    title: 'Zhoushan Terminal Onboarded', // TODO: confirm with client — exact date
+    desc: "Extended East Asian reach with a bonded bulk-liquid storage position in Zhoushan, China, serving crude and refined product flows off the Yangtze River Delta.",
   },
   {
     year: '2020s',
@@ -77,7 +76,7 @@ export function Timeline() {
             className="font-serif font-normal text-ink leading-tight mb-16"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
-            Built Over <em className="text-brand">Six Decades.</em>
+            Built Over <em className="text-brand">15+ Years.</em>
           </h2>
         </ScrollReveal>
 

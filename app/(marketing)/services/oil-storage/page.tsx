@@ -109,7 +109,7 @@ export default function OilStoragePage() {
             Blue Gate offers oil tank farm storage services on short-term and long-term lease
             agreements. Tank leasing rates are quoted per m³ per month, linked to Platts Rotterdam
             Barges or Argus NWE differentials. Storage companies and trading houses can access
-            our full tank terminal capacity across Rotterdam, Fujairah, Houston and Jurong.
+            our full tank terminal capacity across Rotterdam, Fujairah, Houston, Jurong and Zhoushan.
             Enquire about available tank farm capacity today.
           </p>
         </div>

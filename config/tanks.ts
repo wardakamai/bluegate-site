@@ -3,7 +3,7 @@ export type TankStatus = 'Available' | 'Leased' | 'Maintenance';
 
 export type Tank = {
   id: string;
-  terminalId: 'rotterdam' | 'fujairah' | 'houston' | 'jurong';
+  terminalId: 'rotterdam' | 'fujairah' | 'houston' | 'jurong' | 'zhoushan';
   capacityM3: number;
   type:
     | 'Internal Floating Roof'

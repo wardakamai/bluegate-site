@@ -48,9 +48,9 @@ const TERRITORIES: Territory[] = [
   {
     tag: 'ASIA',
     region: 'Asian Re-Supply',
-    positioning: 'East–West product arbitrage via Jurong and Fujairah relay nodes.',
+    positioning: 'East–West product arbitrage via Jurong, Zhoushan, and Fujairah relay nodes.',
     bullets: [
-      'Coordination with the Jurong (Singapore) terminal for South-East Asian bunker and refined product flows.',
+      'Coordination with the Jurong (Singapore) and Zhoushan (China) terminals for South-East and East Asian bunker and refined product flows.',
       'Fujairah hub bridges Middle East crude origination with Asian refinery demand and European re-export.',
     ],
   },

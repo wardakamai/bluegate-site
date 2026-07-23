@@ -18,12 +18,12 @@ export function NetworkContext() {
             The Wider <em className="text-brand">Network.</em>
           </h2>
           <p className="font-sans text-sm text-muted-foreground max-w-xl mb-10 leading-relaxed">
-            Facility specification sheets for Fujairah, Houston, and Jurong are available on
-            request. The table below summarises headline capacities.
+            Facility specification sheets for Fujairah, Houston, Jurong, and Zhoushan are available
+            on request. The table below summarises headline capacities.
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {secondaryTerminals.map((terminal, i) => (
             <ScrollReveal key={terminal.id} delay={i * 0.08}>
               <div className="rounded-xl border border-border-soft bg-bg p-6 flex flex-col gap-4">
