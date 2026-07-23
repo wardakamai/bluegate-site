@@ -1,8 +1,8 @@
 import { StatTile } from './StatTile'
 
 const STATS = [
-  { value: 60, suffix: '+', label: 'Years Experience' },
-  { value: 4,  suffix: '',  label: 'Terminal Hubs' },
+  { value: 16, suffix: '',  label: 'Years Experience' },
+  { value: 5,  suffix: '',  label: 'Terminal Hubs' },
   { value: 4,  suffix: '',  label: 'Core Products' },
   { value: 24, suffix: '/7', label: 'Operations' },
 ] as const
