@@ -3,6 +3,12 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   output: 'standalone',
   serverExternalPackages: ['yahoo-finance2'],
+  // Shared hosting (LVE) restricts process spawning — cap build workers to 1
+  // to avoid EAGAIN when Next.js tries to fork its static-generation pool.
+  experimental: {
+    cpus: 1,
+    workerThreads: false,
+  },
 
   images: {
     dangerouslyAllowSVG: true,
