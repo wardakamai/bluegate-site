@@ -1,33 +1,35 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-import { X } from 'lucide-react'
-import Link from 'next/link'
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { X } from 'lucide-react';
+import Link from 'next/link';
 
 export function TopBarPopup() {
   // Start closed so SSR and client initial render agree (no hydration mismatch)
-  const [open, setOpen] = useState(false)
-  const pathname = usePathname()
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   // Reset to closed then open in the next frame so the CSS transition
   // always replays — works on first load, hard refresh, and SPA navigation
   useEffect(() => {
-    if (pathname !== '/') return
-    setOpen(false)
-    const id = requestAnimationFrame(() => setOpen(true))
-    return () => cancelAnimationFrame(id)
-  }, [pathname])
+    if (pathname !== '/') return;
+    setOpen(false);
+    const id = requestAnimationFrame(() => setOpen(true));
+    return () => cancelAnimationFrame(id);
+  }, [pathname]);
 
   // Close on scroll past 10 px
   useEffect(() => {
-    if (pathname !== '/') return
-    const onScroll = () => { if (window.scrollY > 10) setOpen(false) }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [pathname])
+    if (pathname !== '/') return;
+    const onScroll = () => {
+      if (window.scrollY > 10) setOpen(false);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [pathname]);
 
-  if (pathname !== '/') return null
+  if (pathname !== '/') return null;
 
   return (
     // CSS max-height transition — works reliably after SSR hydration unlike
@@ -44,13 +46,13 @@ export function TopBarPopup() {
       <div
         role="region"
         aria-label="Refund Policy Notice"
-        className="relative flex items-center justify-center px-20 py-3 bg-page border-b border-white/[0.08]"
+        className="bg-page relative flex items-center justify-center border-b border-white/[0.08] px-20 py-3"
       >
         <Link
           href="/docs/refund-policy-v2.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-sans text-sm text-white underline underline-offset-4 decoration-white/40 hover:decoration-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60 rounded"
+          className="rounded font-sans text-sm text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white focus-visible:ring-1 focus-visible:ring-white/60 focus-visible:outline-none"
         >
           Blue Gate – Refund Policy
         </Link>
@@ -58,19 +60,19 @@ export function TopBarPopup() {
         <div className="absolute right-6 flex items-center gap-3">
           <button
             onClick={() => setOpen(false)}
-            className="font-sans text-sm text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60 rounded"
+            className="rounded font-sans text-sm text-white/70 transition-colors hover:text-white focus-visible:ring-1 focus-visible:ring-white/60 focus-visible:outline-none"
           >
             Got it!
           </button>
           <button
             onClick={() => setOpen(false)}
             aria-label="Close notice"
-            className="text-white/50 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/60 rounded"
+            className="rounded text-white/50 transition-colors hover:text-white focus-visible:ring-1 focus-visible:ring-white/60 focus-visible:outline-none"
           >
             <X size={14} aria-hidden="true" />
           </button>
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 import {
   Database,
   Anchor,
@@ -7,9 +7,9 @@ import {
   Truck,
   ShieldCheck,
   ArrowRight,
-} from 'lucide-react'
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { GlowCard } from '@/components/ui/GlowCard'
+} from 'lucide-react';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { GlowCard } from '@/components/ui/GlowCard';
 
 const SERVICE_CARDS = [
   {
@@ -54,65 +54,65 @@ const SERVICE_CARDS = [
       'Rigorous health, safety, and environmental controls applied across every link of the storage and throughput chain.',
     href: '/hse',
   },
-] as const
+] as const;
 
 export function Services() {
   return (
     <section className="bg-grad-1 py-20 md:py-28" aria-label="Our services">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
+          <p className="text-brand/70 mb-4 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
             What We Do
           </p>
           <h2
-            className="font-serif font-normal text-ink leading-tight mb-4"
+            className="text-ink mb-4 font-serif leading-tight font-normal"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
             End-to-End Oil Storage <em className="text-brand">&amp; Trade Solutions.</em>
           </h2>
-          <p className="font-sans text-muted-foreground max-w-2xl mb-14 text-base leading-relaxed">
-            Six integrated capabilities, one operations team. Blue Gate manages your product
-            from first inspection through to final delivery.
+          <p className="text-muted-foreground mb-14 max-w-2xl font-sans text-base leading-relaxed">
+            Six integrated capabilities, one operations team. Blue Gate manages your product from
+            first inspection through to final delivery.
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICE_CARDS.map((card, i) => {
-            const Icon = card.icon
+            const Icon = card.icon;
             return (
               <ScrollReveal key={card.title} delay={i * 0.07}>
-                <GlowCard className="group rounded-xl bg-bg p-6 h-full flex flex-col">
-                  <Link href={card.href} className="flex flex-col h-full outline-none">
+                <GlowCard className="group bg-bg flex h-full flex-col rounded-xl p-6">
+                  <Link href={card.href} className="flex h-full flex-col outline-none">
                     <Icon
                       size={22}
-                      className="text-brand mb-4 group-hover:text-brand-steel transition-colors"
+                      className="text-brand group-hover:text-brand-steel mb-4 transition-colors"
                       aria-hidden="true"
                     />
-                    <h3 className="font-sans font-medium text-ink text-base mb-2 group-hover:text-brand transition-colors">
+                    <h3 className="text-ink group-hover:text-brand mb-2 font-sans text-base font-medium transition-colors">
                       {card.title}
                     </h3>
-                    <p className="font-sans text-sm text-muted-foreground leading-relaxed flex-1">
+                    <p className="text-muted-foreground flex-1 font-sans text-sm leading-relaxed">
                       {card.description}
                     </p>
-                    <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-brand opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-brand mt-4 inline-flex items-center gap-1 text-xs font-medium opacity-0 transition-opacity group-hover:opacity-100">
                       Learn more <ArrowRight size={11} aria-hidden="true" />
                     </span>
                   </Link>
                 </GlowCard>
               </ScrollReveal>
-            )
+            );
           })}
         </div>
 
         <ScrollReveal>
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:text-brand-steel transition-colors"
+            className="text-brand hover:text-brand-steel inline-flex items-center gap-2 text-sm font-medium transition-colors"
           >
             View All Services →
           </Link>
         </ScrollReveal>
       </div>
     </section>
-  )
+  );
 }

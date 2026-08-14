@@ -1,114 +1,54 @@
-import Link from 'next/link'
-import { ArrowRight, MapPin } from 'lucide-react'
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { GlowCard } from '@/components/ui/GlowCard'
-import { terminals } from '@/config/terminals'
-import { cn } from '@/lib/utils'
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { GlowCard } from '@/components/ui/GlowCard';
+import { markets } from '@/config/markets';
+import { MapPin } from 'lucide-react';
 
 export function TerminalNetwork() {
   return (
-    <section className="bg-grad-1 py-20 md:py-28" aria-label="Terminal network">
+    <section className="bg-grad-1 py-20 md:py-28" aria-label="Energy markets">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
-            Strategic Terminals
+          <p className="text-brand/70 mb-4 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
+            Energy Markets
           </p>
           <h2
-            className="font-serif font-normal text-ink leading-tight mb-4"
+            className="text-ink mb-4 font-serif leading-tight font-normal"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
-            Four Hubs. <em className="text-brand">One Trusted Partner.</em>
+            Markets We Work <em className="text-brand">Across.</em>
           </h2>
-          <p className="font-sans text-muted-foreground max-w-2xl mb-14 text-base leading-relaxed">
-            From Europe&apos;s premier cargo port to strategic extensions in the Middle East, the US
-            Gulf, and Asia-Pacific, Blue Gate positions product at the heart of global energy flows.
+          <p className="text-muted-foreground mb-14 max-w-2xl font-sans text-base leading-relaxed">
+            Blue Gate Tank Farm provides petroleum logistics and commercial support services for
+            clients active across the following energy markets.
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {terminals.map((terminal, i) => (
-            <ScrollReveal key={terminal.id} delay={i * 0.1}>
-              <GlowCard
-                className={cn(
-                  'group flex flex-col h-full rounded-xl bg-bg p-7 relative',
-                  terminal.flagship && 'border-t-2 border-t-accent',
-                )}
-              >
-                {/* Flagship pill */}
-                {terminal.flagship && (
-                  <span className="absolute top-4 right-4 inline-flex items-center text-[10px] uppercase tracking-[0.08em] font-medium text-accent bg-accent/10 border border-accent/25 rounded px-2 py-0.5">
-                    Flagship
-                  </span>
-                )}
-
-                {/* TBC badge */}
-                {terminal.status === 'tbc' && (
-                  <span className="absolute top-4 right-4 inline-flex items-center text-[10px] uppercase tracking-[0.08em] font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded px-2 py-0.5">
-                    Status: TBC
-                  </span>
-                )}
-
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {markets.map((market, i) => (
+            <ScrollReveal key={market.id} delay={i * 0.1}>
+              <GlowCard className="group bg-bg flex h-full flex-col rounded-xl p-7">
                 <div className="mb-5">
                   <span className="text-5xl leading-none" aria-hidden="true">
-                    {terminal.flag}
+                    {market.flag}
                   </span>
                 </div>
 
-                <h3
-                  className={cn(
-                    'font-serif font-normal text-ink mb-1',
-                    terminal.flagship ? 'text-3xl' : 'text-2xl',
-                  )}
-                >
-                  {terminal.city}
-                </h3>
-                <p className="font-sans text-sm text-muted-foreground mb-4">{terminal.country}</p>
+                <h3 className="text-ink mb-1 font-serif text-2xl font-normal">{market.city}</h3>
+                <p className="text-muted-foreground mb-4 font-sans text-sm">{market.country}</p>
 
-                <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.08em] font-medium text-muted-foreground bg-muted rounded px-2 py-1 w-fit mb-4">
+                <span className="text-muted-foreground bg-muted mb-5 inline-flex w-fit items-center gap-1.5 rounded px-2 py-1 text-[10px] font-medium tracking-[0.08em] uppercase">
                   <MapPin size={9} aria-hidden="true" />
-                  {terminal.region}
+                  {market.region}
                 </span>
 
-                <div className="flex flex-wrap gap-1.5 mb-5">
-                  {terminal.productTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] uppercase tracking-[0.06em] font-medium bg-brand/[0.12] text-brand border border-brand/20 rounded px-2 py-0.5"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {terminal.capacityM3 > 0 ? (
-                  <p className="font-mono text-sm text-ink mb-2">
-                    <span className="text-lg font-medium">
-                      {new Intl.NumberFormat('en-GB').format(terminal.capacityM3)}
-                    </span>{' '}
-                    m³ nominal capacity
-                  </p>
-                ) : (
-                  <p className="font-mono text-sm text-muted-foreground mb-2">Capacity TBC</p>
-                )}
-
-                <p className="font-sans text-xs text-muted-foreground leading-relaxed mb-6 flex-1">
-                  {terminal.description}
+                <p className="text-muted-foreground flex-1 font-sans text-xs leading-relaxed">
+                  {market.description}
                 </p>
-
-                <Link
-                  href="/terminal"
-                  className={cn(
-                    'inline-flex items-center gap-1.5 text-sm font-medium text-brand',
-                    'hover:text-brand-steel transition-colors group-hover:gap-2.5',
-                  )}
-                >
-                  Details <ArrowRight size={14} aria-hidden="true" />
-                </Link>
               </GlowCard>
             </ScrollReveal>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

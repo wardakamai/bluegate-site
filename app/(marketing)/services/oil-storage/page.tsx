@@ -1,276 +1,166 @@
-import type { Metadata } from 'next'
-import Script from 'next/script'
-import { pageMeta } from '@/lib/meta'
-import { serviceSchema, storageFaqSchema, breadcrumbSchema } from '@/lib/schema'
-import Link from 'next/link'
-import { Layers, Waves, Shield, Thermometer } from 'lucide-react'
-import { ServiceHero } from '@/components/sections/services/ServiceHero'
-import { ServiceFeatureGrid } from '@/components/sections/services/ServiceFeatureGrid'
-import { SpecTable } from '@/components/sections/services/SpecTable'
-import { OilStorageAccordion } from '@/components/sections/services/OilStorageAccordion'
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { Button } from '@/components/ui/button'
+import type { Metadata } from 'next';
+import Script from 'next/script';
+import { pageMeta } from '@/lib/meta';
+import { serviceSchema, breadcrumbSchema } from '@/lib/schema';
+import Link from 'next/link';
+import { Layers, Waves, Shield, Thermometer } from 'lucide-react';
+import { ServiceHero } from '@/components/sections/services/ServiceHero';
+import { ServiceFeatureGrid } from '@/components/sections/services/ServiceFeatureGrid';
+import { OilStorageAccordion } from '@/components/sections/services/OilStorageAccordion';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = pageMeta({
-  title: 'Oil Tank Farm Storage Services | Tank Leasing Rates',
+  title: 'Petroleum Storage Capacity & Tank Leasing | Blue Gate Tank Farm',
   description:
-    'Oil tank farm storage services in Rotterdam. Lease storage tanks short or long term. Transparent tank leasing rates. Throughput agreements. Request a tariff sheet.',
+    'Blue Gate Tank Farm supports petroleum storage capacity enquiries and tank leasing for EN590, Jet A1, D6 and crude oil, for short and long-term requirements.',
   path: 'services/oil-storage',
-})
+});
 
 const TANK_TYPES = [
   {
     icon: Layers,
     title: 'Fixed-Roof Tanks',
-    body: 'Suitable for low-vapour-pressure products and aviation-grade fuels requiring nitrogen blanketing. Available in 1,000 – 25,000 m³ configurations with stainless or epoxy-lined interiors.',
+    body: 'Commonly used for low-vapour-pressure products and aviation-grade fuels requiring nitrogen blanketing.',
   },
   {
     icon: Waves,
     title: 'Floating-Roof Tanks',
-    body: 'External floating-roof tanks with pontoon seals for diesel, gasoline-component, and crude storage. Vapour recovery systems installed across all floating-roof units.',
+    body: 'External floating-roof tanks with pontoon seals are a common configuration for diesel and crude storage.',
   },
   {
     icon: Shield,
     title: 'Internal Floating-Roof Tanks',
-    body: 'Fixed outer shell with internal floating pan — dual vapour barrier for sensitive distillate and blendstock grades. Preferred configuration for Diesel EN590 storage.',
+    body: 'A fixed outer shell with an internal floating pan is a common configuration for sensitive distillate and blendstock grades.',
   },
   {
     icon: Thermometer,
     title: 'Heated Tanks',
-    body: 'Steam and thermal-oil heated fixed-roof tanks for high-viscosity fuel oils and heavy crude. Operating temperatures maintained to ±2°C. Capacity: 10,000 – 80,000 m³.',
+    body: 'Steam or thermal-oil heated fixed-roof tanks are typically used for high-viscosity fuel oils and heavy crude.',
   },
-]
-
-const THROUGHPUT_SPECS = [
-  { property: 'Max throughput', value: '4,500 m³/hr' },
-  { property: 'Manifold connections', value: '12 (product-segregated)' },
-  { property: 'Blending tolerance', value: '±0.5% v/v' },
-  { property: 'Pipeline interconnects', value: 'ARA grid + Rhine barge' },
-  { property: 'Marine berth draft', value: '22.5 m (VLCC-capable)' },
-]
-
-const TANK_SPECS = [
-  { property: 'Tank sizes available', value: '1,000 – 80,000 m³' },
-  { property: 'Product compatibility', value: 'Jet A1, EN590, D6, Crude Oil' },
-  { property: 'Jetty draft', value: '22.5 m' },
-  { property: 'Manifold connections', value: '12' },
-  { property: 'Pipeline interconnects', value: 'ARA pipeline grid, Rhine inland waterways' },
-  { property: 'Blending capability', value: 'In-line, ±0.5% tolerance' },
-  { property: 'Heated tanks', value: 'Yes (steam / thermal-oil coils)' },
-  { property: 'Vapour recovery', value: 'Installed on all floating-roof units' },
-  { property: 'Nitrogen blanketing', value: 'Available on fixed-roof Jet A1 tanks' },
-]
-
-const TELEMETRY = [
-  '24/7 continuous tank gauging (servo-gauge and radar)',
-  'Mass-flow metering on all product lines',
-  'Automated inventory reporting via API (JSON / XML)',
-  'Daily and weekly stock reports by email',
-  'Third-party inspector access with advance notification',
-  'Electronic custody-transfer certificates issued at completion',
-]
+];
 
 const SERVICE_JSONLD = serviceSchema({
-  name: 'Oil Tank Farm Storage Services',
-  description: 'Bulk liquid oil tank farm storage for Jet A1, Diesel EN590, D6, and Crude Oil at Rotterdam. Fixed-roof, floating-roof, and heated tanks. Short and long-term tank leasing available.',
-  serviceType: 'Oil Storage',
+  name: 'Petroleum Storage Services',
+  description:
+    'Blue Gate Tank Farm coordinates petroleum storage access and related commercial support for clients working with Jet A1, Diesel EN590, D6, and Crude Oil.',
+  serviceType: 'Petroleum Storage Coordination',
   path: '/services/oil-storage',
-})
+});
 const BREADCRUMB_JSONLD = breadcrumbSchema([
   { name: 'Home', url: 'https://bluegou.com' },
   { name: 'Services', url: 'https://bluegou.com/services' },
   { name: 'Oil Storage', url: 'https://bluegou.com/services/oil-storage' },
-])
-const FAQ_JSONLD = storageFaqSchema()
+]);
 
 export default function OilStoragePage() {
   return (
     <>
-      <Script id="oil-storage-service-jsonld" type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_JSONLD) }} />
-      <Script id="oil-storage-breadcrumb-jsonld" type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }} />
-      <Script id="oil-storage-faq-jsonld" type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSONLD) }} />
-    <main>
-      <ServiceHero
-        label="Oil Storage Services"
-        headlinePlain="Bulk Liquid Storage,"
-        headlineItalic="Built for Spec."
-        subdeck="Dedicated tank capacity at Rotterdam for the four major petroleum grades — with throughput, in-line blending, and independent custody transfer as standard."
-        imageUrl="/images/service-oil-storage.jpg"
-        imageAlt="Blue Gate oil tank farm floating roof storage tank"
+      <Script
+        id="oil-storage-service-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_JSONLD) }}
       />
+      <Script
+        id="oil-storage-breadcrumb-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_JSONLD) }}
+      />
+      <main>
+        <ServiceHero
+          label="Petroleum Storage Services"
+          headlinePlain="Petroleum Storage Capacity for"
+          headlineItalic="Short and Long-Term Requirements."
+          subdeck="Blue Gate Tank Farm supports petroleum storage capacity enquiries and tank leasing for EN590, Jet A1, D6 and crude oil, coordinating access and commercial terms for each requirement."
+          imageUrl="/images/service-oil-storage.jpg"
+          imageAlt="Oil tank farm and petroleum storage infrastructure"
+        />
 
-      {/* Keyword-rich intro paragraph */}
-      <section className="bg-page py-10 md:py-14 border-b border-border-soft" aria-label="Storage overview">
-        <div className="mx-auto max-w-7xl px-6">
-          <p className="font-sans text-base text-ink/70 leading-relaxed max-w-3xl">
-            Blue Gate offers oil tank farm storage services on short-term and long-term lease
-            agreements. Tank leasing rates are quoted per m³ per month, linked to Platts Rotterdam
-            Barges or Argus NWE differentials. Storage companies and trading houses can access
-            our full tank terminal capacity across Rotterdam, Fujairah, Houston, Jurong and Zhoushan.
-            Enquire about available tank farm capacity today.
-          </p>
-        </div>
-      </section>
-
-      {/* Tank typology */}
-      <section className="bg-page py-20 md:py-28" aria-label="Tank types">
-        <div className="mx-auto max-w-7xl px-6">
-          <ScrollReveal>
-            <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
-              Tank Infrastructure
+        {/* Intro paragraph */}
+        <section
+          className="bg-page border-border-soft border-b py-10 md:py-14"
+          aria-label="Storage overview"
+        >
+          <div className="mx-auto max-w-7xl px-6">
+            <p className="text-ink/70 max-w-3xl font-sans text-base leading-relaxed">
+              Blue Gate Tank Farm provides commercial support and coordination for clients seeking
+              petroleum storage access. Service scope, available capacity and commercial terms are
+              confirmed case by case and set out in the applicable executed agreement. Make an
+              enquiry to discuss your product, volume and timeline.
             </p>
-            <h2
-              className="font-serif font-normal text-ink leading-tight mb-12"
-              style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
-            >
-              Four Tank Types. <em className="text-brand">One Grade Each.</em>
-            </h2>
-          </ScrollReveal>
-          <ServiceFeatureGrid items={TANK_TYPES} />
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Throughput & blending */}
-      <section className="bg-grad-1 py-20 md:py-28" aria-label="Throughput and blending">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+        {/* Tank typology — general industry information */}
+        <section className="bg-page py-20 md:py-28" aria-label="Tank types">
+          <div className="mx-auto max-w-7xl px-6">
             <ScrollReveal>
-              <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
-                Throughput & Blending
+              <p className="text-brand/70 mb-4 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
+                Tank Infrastructure
               </p>
               <h2
-                className="font-serif font-normal text-ink leading-tight mb-6"
-                style={{ fontSize: 'clamp(28px, 3.5vw, 48px)' }}
+                className="text-ink mb-4 font-serif leading-tight font-normal"
+                style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
               >
-                High-Volume Throughput. <em className="text-brand">Precise Blending.</em>
+                Common Tank <em className="text-brand">Configurations.</em>
               </h2>
-              <div className="space-y-4 font-sans text-base text-muted-foreground leading-relaxed">
-                <p>
-                  The Rotterdam terminal handles up to 4,500 m³/hr peak throughput across twelve
-                  product-segregated manifold connections. Pipeline feeds from the ARA grid and Rhine
-                  barge berths allow continuous receipt without interrupting active storage.
-                </p>
-                <p>
-                  In-line blending is available for grade production and specification adjustment.
-                  Blending tolerance is held to ±0.5% v/v across all components. Products are
-                  blended in the line or in dedicated blend tanks, with mass-flow metering on every
-                  outlet.
-                </p>
-              </div>
+              <p className="text-muted-foreground mb-12 max-w-2xl font-sans text-sm leading-relaxed">
+                General information on tank types commonly used for petroleum storage across the
+                industry. This describes typical infrastructure characteristics, not a specific
+                facility operated by Blue Gate Tank Farm.
+              </p>
             </ScrollReveal>
-            <ScrollReveal delay={0.12}>
-              <SpecTable rows={THROUGHPUT_SPECS} showMethod={false} />
-            </ScrollReveal>
+            <ServiceFeatureGrid items={TANK_TYPES} />
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Tank leasing terms */}
-      <section className="bg-page py-20 md:py-28" aria-label="Leasing terms">
-        <div className="mx-auto max-w-7xl px-6">
-          <ScrollReveal>
-            <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
-              Commercial Terms
-            </p>
-            <h2
-              className="font-serif font-normal text-ink leading-tight mb-12"
-              style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
-            >
-              Leasing Structures. <em className="text-brand">Built Around Your Programme.</em>
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal delay={0.08}>
-            <OilStorageAccordion />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Custody transfer & telemetry */}
-      <section className="bg-grad-2 py-20 md:py-28" aria-label="Custody transfer and telemetry">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+        {/* Access arrangements */}
+        <section className="bg-page py-20 md:py-28" aria-label="Access arrangements">
+          <div className="mx-auto max-w-7xl px-6">
             <ScrollReveal>
-              <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
-                Measurement & Reporting
+              <p className="text-brand/70 mb-4 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
+                Commercial Terms
               </p>
               <h2
-                className="font-serif font-normal text-ink leading-tight mb-6"
-                style={{ fontSize: 'clamp(28px, 3.5vw, 48px)' }}
+                className="text-ink mb-12 font-serif leading-tight font-normal"
+                style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
               >
-                Real-time Custody Transfer. <em className="text-brand">Zero Ambiguity.</em>
+                Access Arrangements. <em className="text-brand">Discussed Case by Case.</em>
               </h2>
-              <p className="font-sans text-base text-muted-foreground leading-relaxed">
-                Every tank movement is measured and documented under a continuous chain of custody.
-                Clients and their nominated inspectors have access to live inventory data, movement
-                logs, and custody-transfer certificates as transactions complete.
-              </p>
             </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <ul className="space-y-3" aria-label="Telemetry and reporting features">
-                {TELEMETRY.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span
-                      className="mt-1 w-1.5 h-1.5 rounded-full bg-brand shrink-0"
-                      aria-hidden="true"
-                    />
-                    <span className="font-sans text-sm text-muted-foreground leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+            <ScrollReveal delay={0.08}>
+              <OilStorageAccordion />
             </ScrollReveal>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Full spec table */}
-      <section className="bg-page py-20 md:py-28" aria-label="Terminal specifications">
-        <div className="mx-auto max-w-7xl px-6">
-          <ScrollReveal>
-            <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
-              Terminal Specifications
-            </p>
-            <h2
-              className="font-serif font-normal text-ink leading-tight mb-12"
-              style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
-            >
-              Capacity & <em className="text-brand">Capabilities.</em>
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal delay={0.08}>
-            <SpecTable rows={TANK_SPECS} showMethod={false} />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* CTA band */}
-      <section className="bg-grad-1 py-16 md:py-20 border-t border-brand/[0.10]" aria-label="Request allocation">
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <ScrollReveal>
-            <h2
-              className="font-serif font-normal text-ink leading-tight mb-4"
-              style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}
-            >
-              Ready to Secure <em className="text-brand">Tank Capacity?</em>
-            </h2>
-            <p className="font-sans text-base text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
-              Provide your product grade, volume requirement, and storage duration. Our team will
-              confirm available allocation and commercial terms within one business day.
-            </p>
-            <Button
-              asChild
-              className="bg-brand text-white hover:bg-brand-steel h-11 px-8 text-sm font-medium"
-            >
-              <Link href="/contact?intent=quote">Request Tank Allocation →</Link>
-            </Button>
-          </ScrollReveal>
-        </div>
-      </section>
-    </main>
+        {/* CTA band */}
+        <section
+          className="bg-grad-1 border-brand/[0.10] border-t py-16 md:py-20"
+          aria-label="Make an enquiry"
+        >
+          <div className="mx-auto max-w-7xl px-6 text-center">
+            <ScrollReveal>
+              <h2
+                className="text-ink mb-4 font-serif leading-tight font-normal"
+                style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}
+              >
+                Ready to Discuss <em className="text-brand">Your Requirements?</em>
+              </h2>
+              <p className="text-muted-foreground mx-auto mb-8 max-w-xl font-sans text-base leading-relaxed">
+                Provide your product grade, volume requirement, and storage duration. Our team will
+                respond within one business day to discuss available options and commercial terms.
+              </p>
+              <Button
+                asChild
+                className="bg-brand hover:bg-brand-steel h-11 px-8 text-sm font-medium text-white"
+              >
+                <Link href="/contact?intent=quote">Submit Storage Requirement →</Link>
+              </Button>
+            </ScrollReveal>
+          </div>
+        </section>
+      </main>
     </>
-  )
+  );
 }

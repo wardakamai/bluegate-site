@@ -23,6 +23,7 @@ Use Next.js dynamic segment with `generateStaticParams` returning the 4 known sl
 Structure of each detail page (use this order strictly):
 
 #### 2.1 ProductHero — `components/products/ProductHero.tsx`
+
 - Category pill (top, small-caps)
 - H1: product name (serif)
 - Short positioning line (~15 words)
@@ -30,11 +31,13 @@ Structure of each detail page (use this order strictly):
 - Layout: image right (40%), text left (60%) on desktop; stacked on mobile
 
 #### 2.2 AtAGlanceStrip — `components/products/AtAGlanceStrip.tsx`
+
 - 4 key specs from `product.atAGlance` rendered as side-by-side stat blocks
 - Each block: small label uppercase + large mono value
 - Full-bleed dark band background (`var(--ink)`, cream text)
 
 #### 2.3 SpecificationTable — `components/products/SpecificationTable.tsx`
+
 - Columns: Property · Value · Method (test standard, where given)
 - Mono font for value column
 - Hairline rows
@@ -42,9 +45,11 @@ Structure of each detail page (use this order strictly):
 - Section label above table: `FULL SPECIFICATION` (or `GRADE COMPARISON` for crude)
 
 #### 2.4 MatchingStorageCard — `components/products/MatchingStorageCard.tsx`
+
 **This is the critical product↔storage match.**
 
 Render a prominent card linking the product to its matching tank infrastructure. Content:
+
 - Section label: `MATCHING STORAGE FACILITY`
 - H3 (serif): `Storage Specification for [Product Name]`
 - Two-column body:
@@ -55,18 +60,22 @@ Render a prominent card linking the product to its matching tank infrastructure.
 To make this work, **promote the tank array to a config file**: move the placeholder tank list from prompt 07's `TankInventoryTable.tsx` into `config/tanks.ts`, exported as a typed array. Both the storage facility page and product detail pages import from there.
 
 #### 2.5 Origins and uses — `components/products/OriginsUses.tsx`
+
 - Two-column: left narrative paragraph (from `product.origins`), right small infographic listing 3 typical end-users (aviation operators / road transport / power generation / refinery feedstock — vary by product).
 
 #### 2.6 Handling and safety — `components/products/HandlingSafety.tsx`
+
 - 4 inline stat blocks: UN Number · Hazard Class · Packing Group · SDS download
 - SDS shown as a button: `Download Safety Data Sheet →` linking to `product.handlingSafety.sdsUrl`
 - Create empty placeholder PDFs at `public/specs/<slug>-sds.pdf` and `<slug>-spec.pdf` (zero-byte is fine — note as `// TODO: produce real PDFs`).
 
 #### 2.7 Inspection and laboratory note — `components/products/InspectionNote.tsx`
+
 - Small section: short paragraph explaining that every parcel of this product is inspected per the Product Inspection service and tested by the on-site Laboratory.
 - Two inline links: `Product Inspection →` and `Laboratory →`.
 
 #### 2.8 CTAs — final block on each detail page
+
 - Two prominent buttons: `Request Allocation →` (primary, links to `/contact?intent=quote&product=<slug>`) and `Download Spec Sheet (PDF)` (secondary, links to `product.specSheetUrl`).
 
 ### 3. Compose detail page
@@ -77,19 +86,21 @@ import { notFound } from 'next/navigation';
 import { products } from '@/config/products';
 
 export function generateStaticParams() {
-  return products.map(p => ({ slug: p.slug }));
+  return products.map((p) => ({ slug: p.slug }));
 }
 
 export default function ProductDetail({ params }: { params: { slug: string } }) {
-  const product = products.find(p => p.slug === params.slug);
+  const product = products.find((p) => p.slug === params.slug);
   if (!product) notFound();
   return (
     <main>
       <ProductHero product={product} />
       <AtAGlanceStrip items={product.atAGlance} />
-      {product.slug === 'crude-oil'
-        ? <GradeComparisonTable rows={product.gradeComparison} />
-        : <SpecificationTable rows={product.specifications} />}
+      {product.slug === 'crude-oil' ? (
+        <GradeComparisonTable rows={product.gradeComparison} />
+      ) : (
+        <SpecificationTable rows={product.specifications} />
+      )}
       <MatchingStorageCard product={product} />
       <OriginsUses product={product} />
       <HandlingSafety product={product} />
@@ -98,7 +109,10 @@ export default function ProductDetail({ params }: { params: { slug: string } }) 
         heading="Request"
         headingItalic="Allocation."
         subline="Our trading desk replies within 24 hours."
-        primary={{ label: 'Request Allocation →', href: `/contact?intent=quote&product=${product.slug}` }}
+        primary={{
+          label: 'Request Allocation →',
+          href: `/contact?intent=quote&product=${product.slug}`,
+        }}
         secondary={{ label: 'Download Spec Sheet (PDF)', href: product.specSheetUrl }}
       />
     </main>

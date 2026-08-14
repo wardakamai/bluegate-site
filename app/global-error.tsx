@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
 export default function GlobalError({
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   return (
     <html lang="en">
@@ -44,8 +44,7 @@ export default function GlobalError({
               margin: '0 0 1.25rem',
             }}
           >
-            Something went{' '}
-            <em style={{ color: '#D00018', fontStyle: 'italic' }}>wrong.</em>
+            Something went <em style={{ color: '#D00018', fontStyle: 'italic' }}>wrong.</em>
           </h1>
 
           <p
@@ -56,8 +55,7 @@ export default function GlobalError({
               fontSize: 16,
             }}
           >
-            An unexpected error occurred. For urgent storage or trading requests, please
-            contact{' '}
+            An unexpected error occurred. For urgent storage or trading requests, please contact{' '}
             <a
               href="mailto:storage@bluegou.com"
               style={{ color: '#D00018', textDecoration: 'none' }}
@@ -86,5 +84,5 @@ export default function GlobalError({
         </div>
       </body>
     </html>
-  )
+  );
 }

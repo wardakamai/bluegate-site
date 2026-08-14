@@ -1,16 +1,16 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
-const DEFAULT_IMAGE = '/images/cta-home.jpg'
+const DEFAULT_IMAGE = '/images/cta-home.jpg';
 
 interface FinalCtaProps {
-  heading: React.ReactNode
-  subline: string
-  primaryCta: { label: string; href: string }
-  secondaryCta: { label: string; href: string }
-  imageUrl?: string
+  heading: React.ReactNode;
+  subline: string;
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
+  imageUrl?: string;
 }
 
 export function FinalCta({
@@ -21,7 +21,7 @@ export function FinalCta({
   imageUrl = DEFAULT_IMAGE,
 }: FinalCtaProps) {
   return (
-    <section className="relative py-24 md:py-36 overflow-hidden" aria-label="Call to action">
+    <section className="relative overflow-hidden py-24 md:py-36" aria-label="Call to action">
       <div className="absolute inset-0 -z-10" data-animate="image-reveal">
         <Image
           src={imageUrl}
@@ -31,9 +31,9 @@ export function FinalCta({
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-page/86" aria-hidden="true" />
+        <div className="bg-page/86 absolute inset-0" aria-hidden="true" />
         <div
-          className="absolute inset-0 bg-gradient-to-tr from-brand/[0.18] via-transparent to-transparent"
+          className="from-brand/[0.18] absolute inset-0 bg-gradient-to-tr via-transparent to-transparent"
           aria-hidden="true"
         />
       </div>
@@ -41,12 +41,12 @@ export function FinalCta({
       <div className="mx-auto max-w-7xl px-6 text-center">
         <ScrollReveal>
           <h2
-            className="font-serif font-normal text-ink leading-tight mb-6"
+            className="text-ink mb-6 font-serif leading-tight font-normal"
             style={{ fontSize: 'clamp(36px, 5vw, 72px)' }}
           >
             {heading}
           </h2>
-          <p className="font-sans text-lg text-ink/65 max-w-xl mx-auto leading-relaxed mb-10">
+          <p className="text-ink/65 mx-auto mb-10 max-w-xl font-sans text-lg leading-relaxed">
             {subline}
           </p>
 
@@ -60,7 +60,7 @@ export function FinalCta({
             <Button
               asChild
               variant="outline"
-              className="border-ink/25 text-ink hover:bg-ink/[0.08] hover:border-ink/40 h-11 px-7 text-sm font-medium bg-transparent"
+              className="border-ink/25 text-ink hover:bg-ink/[0.08] hover:border-ink/40 h-11 bg-transparent px-7 text-sm font-medium"
             >
               <Link href={secondaryCta.href}>{secondaryCta.label}</Link>
             </Button>
@@ -68,5 +68,5 @@ export function FinalCta({
         </ScrollReveal>
       </div>
     </section>
-  )
+  );
 }

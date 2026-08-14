@@ -1,5 +1,5 @@
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { GlowCard } from '@/components/ui/GlowCard'
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { GlowCard } from '@/components/ui/GlowCard';
 
 const CARDS = [
   {
@@ -20,44 +20,44 @@ const CARDS = [
     body: 'As a long-standing operator in the Port of Rotterdam, Blue Gate invests in local employment, vocational training partnerships with the Albeda College network, and supply-chain engagement with regional businesses. We measure social value alongside financial performance.',
     pillars: ['Local Employment', 'Vocational Training', 'Port Partnerships'],
   },
-] as const
+] as const;
 
 export function SustainabilityTriptych() {
   return (
     <section className="bg-grad-2 py-20 md:py-28" aria-label="Sustainability">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
+          <p className="text-brand/70 mb-4 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
             Sustainability
           </p>
           <h2
-            className="font-serif font-normal text-ink leading-tight mb-4"
+            className="text-ink mb-4 font-serif leading-tight font-normal"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
             Storage Today. <em className="text-brand">Stewardship Tomorrow.</em>
           </h2>
-          <p className="font-sans text-muted-foreground max-w-2xl mb-14 text-base leading-relaxed">
-            Responsible operations are not a differentiator — they are the baseline. Blue Gate
-            holds itself accountable across three pillars.
+          <p className="text-muted-foreground mb-14 max-w-2xl font-sans text-base leading-relaxed">
+            Responsible operations are not a differentiator — they are the baseline. Blue Gate holds
+            itself accountable across three pillars.
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {CARDS.map((card, i) => (
             <ScrollReveal key={card.title} delay={i * 0.1}>
-              <GlowCard className="flex flex-col h-full rounded-xl bg-bg p-7">
-                <span className="text-4xl mb-5 leading-none" aria-hidden="true">
+              <GlowCard className="bg-bg flex h-full flex-col rounded-xl p-7">
+                <span className="mb-5 text-4xl leading-none" aria-hidden="true">
                   {card.emoji}
                 </span>
-                <h3 className="font-sans font-medium text-ink text-base mb-3">{card.title}</h3>
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
+                <h3 className="text-ink mb-3 font-sans text-base font-medium">{card.title}</h3>
+                <p className="text-muted-foreground mb-6 flex-1 font-sans text-sm leading-relaxed">
                   {card.body}
                 </p>
                 <ul className="flex flex-wrap gap-2" aria-label={`${card.title} pillars`}>
                   {card.pillars.map((pillar) => (
                     <li
                       key={pillar}
-                      className="text-[10px] uppercase tracking-[0.07em] font-medium font-sans bg-brand/[0.1] text-brand/80 border border-brand/20 rounded px-2 py-1"
+                      className="bg-brand/[0.1] text-brand/80 border-brand/20 rounded border px-2 py-1 font-sans text-[10px] font-medium tracking-[0.07em] uppercase"
                     >
                       {pillar}
                     </li>
@@ -69,5 +69,5 @@ export function SustainabilityTriptych() {
         </div>
       </div>
     </section>
-  )
+  );
 }

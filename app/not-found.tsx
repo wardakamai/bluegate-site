@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
-import { site } from '@/config/site'
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
+import { site } from '@/config/site';
 
 export default function NotFound() {
   return (
     <div className="bg-page flex min-h-[70vh] items-center justify-center px-6">
-      <div className="max-w-xl w-full text-center space-y-8">
-        <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-brand">404</p>
+      <div className="w-full max-w-xl space-y-8 text-center">
+        <p className="text-brand font-mono text-[11px] tracking-[0.08em] uppercase">404</p>
 
-        <h1 className="font-serif text-5xl font-normal leading-tight text-ink md:text-6xl">
+        <h1 className="text-ink font-serif text-5xl leading-tight font-normal md:text-6xl">
           Page not <em className="text-brand">found.</em>
         </h1>
 
@@ -16,32 +16,32 @@ export default function NotFound() {
           That page doesn&apos;t exist or has moved. Use the links below to reach the right desk.
         </p>
 
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-medium text-white hover:bg-brand-steel transition-colors focus-visible:outline-2 focus-visible:outline-brand"
+            className="bg-brand hover:bg-brand-steel focus-visible:outline-brand inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white transition-colors focus-visible:outline-2"
           >
             <ArrowLeft className="size-4" aria-hidden />
             Return home
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg border border-brand/30 px-6 py-3 text-sm font-medium text-ink hover:border-brand/60 transition-colors focus-visible:outline-2 focus-visible:outline-brand"
+            className="border-brand/30 text-ink hover:border-brand/60 focus-visible:outline-brand inline-flex items-center gap-2 rounded-lg border px-6 py-3 text-sm font-medium transition-colors focus-visible:outline-2"
           >
             Contact operations →
           </Link>
         </div>
 
         <nav aria-label="Quick links" className="space-y-2">
-          <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-muted-foreground">
+          <p className="text-muted-foreground font-mono text-[10px] tracking-[0.08em] uppercase">
             Quick links
           </p>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center text-sm text-brand">
+          <div className="text-brand flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
             {[
               ['Services', '/services'],
               ['Terminal', '/terminal'],
               ['Products', '/products'],
-              ['Storage Facility', '/storage-facility'],
+              ['Contact', '/contact'],
             ].map(([label, href]) => (
               <Link key={href} href={href} className="hover:text-brand-steel transition-colors">
                 {label}
@@ -50,7 +50,7 @@ export default function NotFound() {
           </div>
         </nav>
 
-        <p className="font-mono text-xs text-muted-foreground">
+        <p className="text-muted-foreground font-mono text-xs">
           Urgent?{' '}
           <a href={`mailto:${site.contact.email}`} className="text-brand hover:underline">
             {site.contact.email}
@@ -62,5 +62,5 @@ export default function NotFound() {
         </p>
       </div>
     </div>
-  )
+  );
 }

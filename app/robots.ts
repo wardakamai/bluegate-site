@@ -1,6 +1,6 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bluegou.com'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bluegou.com';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -13,5 +13,5 @@ export default function robots(): MetadataRoute.Robots {
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,
-  }
+  };
 }

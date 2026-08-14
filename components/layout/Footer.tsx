@@ -1,25 +1,25 @@
-import Link from 'next/link'
-import { Linkedin, MessageCircle } from 'lucide-react'
-import { Logo } from './Logo'
-import { site, primaryNav, ctaPrimary } from '@/config/site'
-import { services } from '@/config/services'
-import { products } from '@/config/products'
+import Link from 'next/link';
+import { Linkedin, MessageCircle } from 'lucide-react';
+import { Logo } from './Logo';
+import { site, primaryNav, ctaPrimary } from '@/config/site';
+import { services } from '@/config/services';
+import { products } from '@/config/products';
 
-const productLinks = products.map((p) => ({ label: p.name, href: `/products/${p.slug}` }))
+const productLinks = products.map((p) => ({ label: p.name, href: `/products/${p.slug}` }));
 
 export function Footer() {
-  const { address, contact, legal, socials, founded, name } = site
+  const { address, contact, legal, socials, founded, name } = site;
 
   return (
     <footer className="bg-page text-ink print:hidden" aria-label="Site footer">
       {/* 4-column grid */}
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-10 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 pt-16 pb-10 md:grid-cols-2 lg:grid-cols-4">
         {/* Col 1 — Brand */}
         <div className="flex flex-col gap-5">
-          <Logo variant="white" className="h-10 mb-4" />
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            Blue Gate has operated oil storage terminals and tank farms since {founded}, connecting
-            European and global commodity markets from our primary base in Rotterdam.
+          <Logo variant="white" className="mb-4 h-10" />
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Blue Gate Tank Farm, established in {founded}, provides specialist petroleum logistics
+            and commercial support services for energy-sector clients from our base in Rotterdam.
           </p>
           {socials.linkedin && (
             <a
@@ -27,7 +27,7 @@ export function Footer() {
               aria-label="Blue Gate on LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-ink text-sm transition-colors w-fit"
+              className="text-muted-foreground hover:text-ink inline-flex w-fit items-center gap-2 text-sm transition-colors"
             >
               <Linkedin size={16} aria-hidden="true" />
               LinkedIn
@@ -37,7 +37,7 @@ export function Footer() {
 
         {/* Col 2 — Navigation */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70">
+          <h3 className="text-brand/70 text-[11px] font-medium tracking-[0.08em] uppercase">
             Navigation
           </h3>
           <ul className="space-y-2">
@@ -45,7 +45,7 @@ export function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-muted-foreground hover:text-ink transition-colors"
+                  className="text-muted-foreground hover:text-ink text-sm transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -56,7 +56,7 @@ export function Footer() {
 
         {/* Col 3 — Services & Products */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70">
+          <h3 className="text-brand/70 text-[11px] font-medium tracking-[0.08em] uppercase">
             Services
           </h3>
           <ul className="space-y-2">
@@ -64,14 +64,14 @@ export function Footer() {
               <li key={s.slug}>
                 <Link
                   href={s.href}
-                  className="text-sm text-muted-foreground hover:text-ink transition-colors"
+                  className="text-muted-foreground hover:text-ink text-sm transition-colors"
                 >
                   {s.title}
                 </Link>
               </li>
             ))}
           </ul>
-          <h3 className="mt-4 text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70">
+          <h3 className="text-brand/70 mt-4 text-[11px] font-medium tracking-[0.08em] uppercase">
             Products
           </h3>
           <ul className="space-y-2">
@@ -79,21 +79,34 @@ export function Footer() {
               <li key={p.href}>
                 <Link
                   href={p.href}
-                  className="text-sm text-muted-foreground hover:text-ink transition-colors"
+                  className="text-muted-foreground hover:text-ink text-sm transition-colors"
                 >
                   {p.label}
                 </Link>
               </li>
             ))}
           </ul>
+          <h3 className="text-brand/70 mt-4 text-[11px] font-medium tracking-[0.08em] uppercase">
+            Guides
+          </h3>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/guides/what-is-an-oil-tank-farm"
+                className="text-muted-foreground hover:text-ink text-sm transition-colors"
+              >
+                What Is an Oil Tank Farm?
+              </Link>
+            </li>
+          </ul>
         </div>
 
         {/* Col 4 — Contact */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70">
+          <h3 className="text-brand/70 text-[11px] font-medium tracking-[0.08em] uppercase">
             Contact
           </h3>
-          <address className="not-italic text-sm text-muted-foreground space-y-2 leading-relaxed">
+          <address className="text-muted-foreground space-y-2 text-sm leading-relaxed not-italic">
             <p>
               {address.street}
               <br />
@@ -102,10 +115,7 @@ export function Footer() {
               {address.country}
             </p>
             <p>
-              <a
-                href={`mailto:${contact.email}`}
-                className="hover:text-ink transition-colors"
-              >
+              <a href={`mailto:${contact.email}`} className="hover:text-ink transition-colors">
                 {contact.email}
               </a>
             </p>
@@ -119,35 +129,40 @@ export function Footer() {
             href={contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-ok hover:text-ink transition-colors w-fit"
+            className="text-ok hover:text-ink inline-flex w-fit items-center gap-2 text-sm transition-colors"
           >
             <MessageCircle size={15} aria-hidden="true" />
             WhatsApp Enquiry
           </a>
-          <Link href={ctaPrimary.href} className="inline-flex items-center text-sm font-medium text-ink hover:text-brand transition-colors w-fit">
+          <Link
+            href={ctaPrimary.href}
+            className="text-ink hover:text-brand inline-flex w-fit items-center text-sm font-medium transition-colors"
+          >
             {ctaPrimary.label}
           </Link>
         </div>
       </div>
 
       {/* Sub-footer */}
-      <div className="border-t border-border-soft mx-auto max-w-7xl px-6 py-5">
-        <p className="text-xs text-muted-foreground flex flex-wrap gap-x-3 gap-y-1">
-          <span>© {new Date().getFullYear()} {name}</span>
+      <div className="border-border-soft mx-auto max-w-7xl border-t px-6 py-5">
+        <p className="text-muted-foreground flex flex-wrap gap-x-3 gap-y-1 text-xs">
+          <span>
+            © {new Date().getFullYear()} {name}
+          </span>
           <span aria-hidden="true">·</span>
           <span>KVK {legal.kvk}</span>
           <span aria-hidden="true">·</span>
           <span>Vestigingsnummer {legal.vestigingsnummer}</span>
           <span aria-hidden="true">·</span>
-          <Link href="/privacy" className="hover:text-ink transition-colors">Privacy Policy</Link>
+          <Link href="/privacy" className="hover:text-ink transition-colors">
+            Privacy Policy
+          </Link>
           <span aria-hidden="true">·</span>
-          <Link href="/terms" className="hover:text-ink transition-colors">Terms</Link>
-          <span aria-hidden="true">·</span>
-          <a href="/specs/refund-guarantee-policy.pdf" className="hover:text-ink transition-colors">
-            Refund Guarantee Policy (PDF)
-          </a>
+          <Link href="/terms" className="hover:text-ink transition-colors">
+            Terms
+          </Link>
         </p>
       </div>
     </footer>
-  )
+  );
 }

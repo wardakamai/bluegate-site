@@ -169,7 +169,11 @@ export const products: Product[] = [
     ],
     specifications: [
       { property: 'Standard', value: 'ASTM D396 / ISO 8217 RMG-RMK' },
-      { property: 'Sulphur', value: '0.5–3.5% m/m (HSFO; LSFO variants available)', method: 'ISO 8754' },
+      {
+        property: 'Sulphur',
+        value: '0.5–3.5% m/m (HSFO; LSFO variants available)',
+        method: 'ISO 8754',
+      },
       { property: 'Density @15°C', value: '950–1010 kg/m³', method: 'ISO 3675' },
       { property: 'Viscosity @50°C', value: 'Up to 380 cSt', method: 'ISO 3104' },
       { property: 'Flash Point', value: '≥60°C', method: 'ISO 2719' },
@@ -229,13 +233,13 @@ export const products: Product[] = [
       { property: 'Murban', value: 'API ~40 · Sulphur 0.78%', method: 'UAE' },
     ],
     gradeComparison: [
-      { grade: 'Brent Blend', api: '~38',   sulphurPct: 0.40, origin: 'UK / Norway'  },
-      { grade: 'WTI',         api: '~39.6', sulphurPct: 0.24, origin: 'USA'          },
-      { grade: 'Urals',       api: '~31',   sulphurPct: 1.30, origin: 'Russia'       },
-      { grade: 'Bonny Light', api: '~33',   sulphurPct: 0.16, origin: 'Nigeria'      },
-      { grade: 'CPC Blend',   api: '~46',   sulphurPct: 0.55, origin: 'Kazakhstan'   },
-      { grade: 'Forties',     api: '~40',   sulphurPct: 0.56, origin: 'UK'           },
-      { grade: 'Murban',      api: '~40',   sulphurPct: 0.78, origin: 'UAE'          },
+      { grade: 'Brent Blend', api: '~38', sulphurPct: 0.4, origin: 'UK / Norway' },
+      { grade: 'WTI', api: '~39.6', sulphurPct: 0.24, origin: 'USA' },
+      { grade: 'Urals', api: '~31', sulphurPct: 1.3, origin: 'Russia' },
+      { grade: 'Bonny Light', api: '~33', sulphurPct: 0.16, origin: 'Nigeria' },
+      { grade: 'CPC Blend', api: '~46', sulphurPct: 0.55, origin: 'Kazakhstan' },
+      { grade: 'Forties', api: '~40', sulphurPct: 0.56, origin: 'UK' },
+      { grade: 'Murban', api: '~40', sulphurPct: 0.78, origin: 'UAE' },
     ],
     matchingStorage: {
       tankType: 'External Floating Roof tank with vapour recovery system',

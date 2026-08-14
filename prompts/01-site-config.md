@@ -23,7 +23,8 @@ export const site = {
     email: 'storage@bluegou.com',
     phone: '+31 97005034730',
     phoneLink: 'tel:+31970050347​30',
-    whatsapp: 'https://wa.me/31970050347​30?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20storage%20capacity.',
+    whatsapp:
+      'https://wa.me/31970050347​30?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20storage%20capacity.',
   },
   legal: {
     kvk: '86686607',
@@ -36,7 +37,9 @@ export const site = {
 
 export type NavItem = { label: string; href: string; children?: NavItem[] };
 
-export const primaryNav: NavItem[] = [ /* 10 items per CLAUDE.md §5.1, with Services children per §5.2 */ ];
+export const primaryNav: NavItem[] = [
+  /* 10 items per CLAUDE.md §5.1, with Services children per §5.2 */
+];
 
 export const ctaPrimary = { label: 'Request a Quote →', href: '/contact?intent=quote' };
 ```
@@ -56,7 +59,7 @@ type Product = {
   slug: 'jet-a1' | 'diesel-en590' | 'virgin-fuel-oil-d6' | 'crude-oil';
   name: string;
   category: 'AVIATION' | 'DIESEL' | 'FUEL OIL' | 'CRUDE';
-  shortPositioning: string;     // one line
+  shortPositioning: string; // one line
   atAGlance: { label: string; value: string }[]; // 4 entries
   specifications: { property: string; value: string; method?: string }[];
   matchingStorage: {
@@ -64,14 +67,14 @@ type Product = {
     capacityRange: string;
     features: string[];
   };
-  origins: string;              // narrative paragraph
+  origins: string; // narrative paragraph
   handlingSafety: {
     unNumber: string;
     class: string;
     packingGroup: string;
-    sdsUrl: string;             // '/specs/<slug>-sds.pdf'
+    sdsUrl: string; // '/specs/<slug>-sds.pdf'
   };
-  specSheetUrl: string;         // '/specs/<slug>-spec.pdf'
+  specSheetUrl: string; // '/specs/<slug>-spec.pdf'
 };
 ```
 

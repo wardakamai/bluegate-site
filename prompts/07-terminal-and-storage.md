@@ -49,14 +49,34 @@ Sections:
    Columns: **Tank ID · Capacity (m³) · Type · Product Compatibility · Status**
 
    Generate a placeholder data array of 14 tanks covering the realistic range, e.g.:
+
    ```ts
    const tanks = [
-     { id: 'T-101', capacityM3: 25000, type: 'Internal Floating Roof', compatible: ['EN590', 'Jet A1'], status: 'Available' },
-     { id: 'T-102', capacityM3: 50000, type: 'External Floating Roof', compatible: ['Crude'],            status: 'Leased' },
-     { id: 'T-103', capacityM3: 80000, type: 'Heated Fixed Roof',      compatible: ['D6'],               status: 'Available' },
+     {
+       id: 'T-101',
+       capacityM3: 25000,
+       type: 'Internal Floating Roof',
+       compatible: ['EN590', 'Jet A1'],
+       status: 'Available',
+     },
+     {
+       id: 'T-102',
+       capacityM3: 50000,
+       type: 'External Floating Roof',
+       compatible: ['Crude'],
+       status: 'Leased',
+     },
+     {
+       id: 'T-103',
+       capacityM3: 80000,
+       type: 'Heated Fixed Roof',
+       compatible: ['D6'],
+       status: 'Available',
+     },
      // ... 11 more
    ];
    ```
+
    Add a `// TODO: confirm with client — actual tank inventory` comment above the array.
 
    The table should:
@@ -81,6 +101,7 @@ Sections:
 8. **Final CTA** — H2: `Book a` italic `Site Visit.` CTA: `Book a Site Visit →` (links to `/contact?intent=visit`).
 
 ### 3. SEO metadata
+
 - `/terminal` — Title: `Terminal Operations Rotterdam — Blue Gate`, description on 24/7 operations and jetty access.
 - `/storage-facility` — Title: `Rotterdam Storage Facility — Tank Inventory & Capacity — Blue Gate`.
 

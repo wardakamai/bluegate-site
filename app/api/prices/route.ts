@@ -1,9 +1,9 @@
-import { fetchQuotes } from '@/lib/prices'
+import { fetchQuotes } from '@/lib/prices';
 
-export const revalidate = 900 // 15 minutes
+export const revalidate = 900; // 15 minutes
 
 export async function GET() {
-  const quotes = await fetchQuotes()
+  const quotes = await fetchQuotes();
   return Response.json(
     { quotes, asOf: new Date().toISOString() },
     {
@@ -11,5 +11,5 @@ export async function GET() {
         'Cache-Control': 's-maxage=900, stale-while-revalidate=1800',
       },
     },
-  )
+  );
 }

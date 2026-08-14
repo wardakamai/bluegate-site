@@ -26,6 +26,7 @@ Read `CLAUDE.md`. Build the services hub at `/services` and four sub-pages: oil-
 Per `CLAUDE.md` §6.3.1.
 
 Sections:
+
 1. **Hero** — label `OIL STORAGE SERVICES`, H1: `Bulk Liquid Storage,` italic `Built for Spec.`
 2. **Tank typology** — `ServiceFeatureGrid` with 4 items: Fixed-roof tanks · Floating-roof tanks · Internal-floating-roof tanks · Heated tanks. Each: lucide icon + 2-sentence description.
 3. **Throughput & blending** — two-column block: left text on throughput rates, manifold flexibility, in-line blending; right `SpecTable` showing example throughput specs (`Max throughput: 4,500 m³/hr`, `Manifold connections: 12`, `Blending tolerance: ±0.5%`).
@@ -39,6 +40,7 @@ Sections:
 Per `CLAUDE.md` §6.3.2.
 
 Sections:
+
 1. Hero — label `PRODUCT INSPECTION`, H1: `Independent Inspection.` italic `Verifiable Outcomes.`
 2. **Inspection workflow** — visual numbered steps: Pre-loading → Loading → In-transit → Discharge → Certification. Use icons + connecting line on desktop.
 3. **Sampling protocols** — text block referencing ASTM D4057 and ISO 3170. List of sampling techniques: bottom-running, all-levels, spot, composite.
@@ -53,6 +55,7 @@ Sections:
 Per `CLAUDE.md` §6.3.3.
 
 Sections:
+
 1. Hero — label `LABORATORY`, H1: `On-Site Testing.` italic `ASTM-Grade Results.`
 2. **Test capabilities** — `SpecTable` with rows like:
    - Distillation — ASTM D86
@@ -74,6 +77,7 @@ Sections:
 Per `CLAUDE.md` §6.3.4. This page uses a **tabbed sub-section pattern**.
 
 Sections:
+
 1. Hero — label `SHIPPING SERVICES`, H1: `Move Product` italic `Without Friction.`
 2. **Tabs** (shadcn `Tabs`): Trucking · Rail · Cargo · Tanker (Marine). Each tab renders:
    - Headline + short positioning line
@@ -84,6 +88,7 @@ Sections:
 4. CTA: `Plan a Shipment →`.
 
 ### 7. SEO metadata for each page
+
 - `/services` — Title: `Services — Blue Gate Shipping & Trade`, description summarising the 4 pillars
 - `/services/oil-storage` — Title: `Oil Storage Services Rotterdam — Blue Gate`
 - `/services/product-inspection` — Title: `Petroleum Product Inspection — Blue Gate`

@@ -1,67 +1,60 @@
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
-const HIGHLIGHTS = [
-  'Annual apprenticeship intake in partnership with Rotterdam port vocational networks',
-  'Port skills training programme for gauging, sampling, and terminal safety operations',
-  'STEM outreach partnerships with secondary schools in the Rotterdam–Dordrecht corridor',
-  'Supplier development: preference for regional contractors and SME service providers',
-  'Bursary scheme for terminal technician qualifications and operator certifications',
-]
+const PRINCIPLES = [
+  'Preference for partners and facilities with sound safety and environmental practices',
+  'Efficient coordination that minimises unnecessary movements and delays',
+  'Paperless documentation wherever the counterparty and process allow it',
+  'Support for regional contractors and SME service providers where practical',
+];
 
 export function Community() {
   return (
-    <section className="bg-grad-2 py-20 md:py-28" aria-label="Community programmes">
+    <section className="bg-grad-2 py-20 md:py-28" aria-label="Our principles">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
-            Community
+          <p className="text-brand/70 mb-4 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
+            Our Principles
           </p>
           <h2
-            className="font-serif font-normal text-ink leading-tight mb-12"
+            className="text-ink mb-12 font-serif leading-tight font-normal"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
             Rooted in <em className="text-brand">Rotterdam.</em>
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left — narrative */}
           <ScrollReveal>
-            <div className="space-y-5 font-sans text-base text-muted-foreground leading-relaxed">
+            <div className="text-muted-foreground space-y-5 font-sans text-base leading-relaxed">
               <p>
-                Blue Gate has operated from the Port of Rotterdam for over a decade. That
-                tenure carries a responsibility — to the port community, to the city, and to the
-                people who choose careers in bulk liquid logistics.
+                Blue Gate Tank Farm is based in Rotterdam, a working port with a long history in
+                energy logistics. As a newly established business, we are building our practices
+                around a straightforward principle: work responsibly, and work with partners who do
+                the same.
               </p>
               <p>
-                Through the port&apos;s vocational training networks and direct partnerships with
-                Rotterdam&apos;s maritime educational institutions, Blue Gate funds competency
-                development for the next generation of terminal operators, gaugers, and logistics
-                professionals. We track apprenticeship outcomes and publish intake numbers in our
-                annual ESG report.
-              </p>
-              <p>
-                Community is not a CSR box to tick. For a facility of our scale — operating within
-                a living, working port — good-neighbour practice is part of the social licence that
-                lets us operate at all.
+                We prioritise coordinating with terminals, service providers and counterparties that
+                maintain sound safety and environmental standards, and we aim to keep our own
+                documentation and communication practices efficient and paperless wherever possible.
               </p>
             </div>
           </ScrollReveal>
 
-          {/* Right — programme highlights */}
+          {/* Right — principles */}
           <ScrollReveal delay={0.1}>
-            <div className="rounded-xl border border-brand/[0.14] bg-bg p-7">
-              <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-5">
-                Programme Highlights
+            <div className="border-brand/[0.14] bg-bg rounded-xl border p-7">
+              <p className="text-brand/70 mb-5 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
+                What We Prioritise
               </p>
               <ul className="space-y-4">
-                {HIGHLIGHTS.map((item) => (
+                {PRINCIPLES.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span
-                      className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-brand"
+                      className="bg-brand mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
                       aria-hidden="true"
                     />
-                    <span className="font-sans text-sm text-muted-foreground leading-relaxed">
+                    <span className="text-muted-foreground font-sans text-sm leading-relaxed">
                       {item}
                     </span>
                   </li>
@@ -72,5 +65,5 @@ export function Community() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -9,12 +9,14 @@ Read `CLAUDE.md` §6.11. Build `/contact` with a robust form that handles intent
 Two-column layout on desktop, stacked on mobile.
 
 **Left column (60% width):**
+
 - Section label: `CONTACT`
 - H1: `Speak to the` italic `Operations Desk.`
 - Sub-deck (~30 words): briefing on 24-hour response commitment.
 - `<ContactForm />` component.
 
 **Right column (40% width):**
+
 - Section label: `DETAILS`
 - Operations email + phone (clickable)
 - Commercial email block (if different) — `// TODO: confirm with client`
@@ -49,6 +51,7 @@ export const contactSchema = z.object({
 ```
 
 UI requirements:
+
 - Use shadcn `Form`, `Input`, `Textarea`, `Select`, `Label`
 - Group fields in pairs where appropriate (Name + Company; Email + Phone; Country + Product; Capacity + Period)
 - Honeypot field hidden via CSS (not `display: none`; offscreen positioning is fine — must remain in DOM)
@@ -100,11 +103,14 @@ Place `contactSchema` in `components/forms/contact-schema.ts` so both the client
 - Error: show inline errors per field + a top alert: `Something went wrong — please email storage@bluegou.com directly.`
 
 ### 6. SEO metadata
+
 - Title: `Contact — Blue Gate Shipping & Trade`
 - Description: `Speak to our operations desk for storage allocation, tariffs, and site visits. 24-hour response.`
 
 ### 7. Documentation
+
 Add a short section to the project `README.md`:
+
 - How to set `RESEND_API_KEY` and `CONTACT_EMAIL` in Vercel env vars
 - Note on verified domain setup in Resend
 - Note on rate limiting upgrade path

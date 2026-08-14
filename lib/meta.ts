@@ -1,6 +1,6 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bluegou.com'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bluegou.com';
 
 /**
  * Builds a complete, consistent Metadata object for a page.
@@ -14,12 +14,12 @@ export function pageMeta({
   description,
   path,
 }: {
-  title: string
-  description: string
-  path: string
+  title: string;
+  description: string;
+  path: string;
 }): Metadata {
-  const url = path ? `${SITE_URL}/${path}` : SITE_URL
-  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(title)}`
+  const url = path ? `${SITE_URL}/${path}` : SITE_URL;
+  const ogImage = `${SITE_URL}/api/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -38,5 +38,5 @@ export function pageMeta({
       description,
       images: [ogImage],
     },
-  }
+  };
 }

@@ -19,7 +19,7 @@ This bundle is designed for **Claude Code** running inside VS Code. It splits th
 3. Copy `CLAUDE.md` into that folder.
 4. Open the folder in VS Code.
 5. Open the Claude Code panel (`Cmd/Ctrl+Esc` or via the sidebar).
-6. Verify Claude Code has read `CLAUDE.md` by asking: *"What project are we building and what is the design system?"* — it should summarise from the file.
+6. Verify Claude Code has read `CLAUDE.md` by asking: _"What project are we building and what is the design system?"_ — it should summarise from the file.
 
 ---
 
@@ -39,31 +39,31 @@ For each prompt file in `prompts/`:
 
 ## Prompt order
 
-| # | File | What it does |
-|---|---|---|
-| 00 | `prompts/00-scaffold.md` | Next.js + Tailwind + shadcn project scaffold and design tokens |
-| 01 | `prompts/01-site-config.md` | Central `site.ts` config (nav, brand, contact details) |
-| 02 | `prompts/02-layout-and-nav.md` | Root layout, top utility bar, main nav with mega-menu, footer |
-| 03 | `prompts/03-home-page.md` | Home page in full (hero, terminals, ticker, services, products, sustainability, CTA) |
-| 04 | `prompts/04-market-ticker.md` | Live market-price API route and `<MarketTicker />` component |
-| 05 | `prompts/05-about-page.md` | About page with timeline, mission/vision/values |
-| 06 | `prompts/06-services-pages.md` | Services hub + 4 sub-pages (storage, inspection, lab, shipping) |
-| 07 | `prompts/07-terminal-and-storage.md` | Terminal and Storage Facility pages |
-| 08 | `prompts/08-products.md` | Products hub + 4 detail pages with spec tables & matching tanks |
-| 09 | `prompts/09-markets-page.md` | Markets page with extended ticker and commentary |
-| 10 | `prompts/10-sustainability-and-hse.md` | Sustainability and HSE pages |
-| 11 | `prompts/11-contact-form.md` | Contact page, form, serverless email handler |
-| 12 | `prompts/12-seo-and-deploy.md` | Metadata, JSON-LD, sitemap, robots, deploy config |
+| #   | File                                   | What it does                                                                         |
+| --- | -------------------------------------- | ------------------------------------------------------------------------------------ |
+| 00  | `prompts/00-scaffold.md`               | Next.js + Tailwind + shadcn project scaffold and design tokens                       |
+| 01  | `prompts/01-site-config.md`            | Central `site.ts` config (nav, brand, contact details)                               |
+| 02  | `prompts/02-layout-and-nav.md`         | Root layout, top utility bar, main nav with mega-menu, footer                        |
+| 03  | `prompts/03-home-page.md`              | Home page in full (hero, terminals, ticker, services, products, sustainability, CTA) |
+| 04  | `prompts/04-market-ticker.md`          | Live market-price API route and `<MarketTicker />` component                         |
+| 05  | `prompts/05-about-page.md`             | About page with timeline, mission/vision/values                                      |
+| 06  | `prompts/06-services-pages.md`         | Services hub + 4 sub-pages (storage, inspection, lab, shipping)                      |
+| 07  | `prompts/07-terminal-and-storage.md`   | Terminal and Storage Facility pages                                                  |
+| 08  | `prompts/08-products.md`               | Products hub + 4 detail pages with spec tables & matching tanks                      |
+| 09  | `prompts/09-markets-page.md`           | Markets page with extended ticker and commentary                                     |
+| 10  | `prompts/10-sustainability-and-hse.md` | Sustainability and HSE pages                                                         |
+| 11  | `prompts/11-contact-form.md`           | Contact page, form, serverless email handler                                         |
+| 12  | `prompts/12-seo-and-deploy.md`         | Metadata, JSON-LD, sitemap, robots, deploy config                                    |
 
 ---
 
 ## Tips for working with Claude Code
 
 - **Use `/clear` between major prompts** if context gets bloated. `CLAUDE.md` is re-read on each new session.
-- **Ask Claude Code to read files before editing them**: it has direct filesystem access, so for non-trivial edits say *"read X first, then propose changes"*.
+- **Ask Claude Code to read files before editing them**: it has direct filesystem access, so for non-trivial edits say _"read X first, then propose changes"_.
 - **For images**, use placeholder URLs from `https://images.unsplash.com` during build, then swap to real assets later. Tell Claude Code which Unsplash IDs to use to keep things consistent.
 - **For brand assets** (real logo, real photography), drop them in `public/` and reference by path in your prompts.
-- **If Claude Code goes off-piste**, stop it, run `/clear`, and re-paste the current prompt with a one-line correction at the top: *"Previous attempt drifted — focus only on X."*
+- **If Claude Code goes off-piste**, stop it, run `/clear`, and re-paste the current prompt with a one-line correction at the top: _"Previous attempt drifted — focus only on X."_
 - **Confirm placeholders before deploy**. The `CLAUDE.md` file flags certifications and Houston/Singapore status as items to verify with the client.
 
 ---

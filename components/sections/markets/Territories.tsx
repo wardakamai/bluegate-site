@@ -1,11 +1,11 @@
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { GlowCard } from '@/components/ui/GlowCard'
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { GlowCard } from '@/components/ui/GlowCard';
 
 interface Territory {
-  tag: string
-  region: string
-  positioning: string
-  bullets: [string, string]
+  tag: string;
+  region: string;
+  positioning: string;
+  bullets: [string, string];
 }
 
 const TERRITORIES: Territory[] = [
@@ -54,45 +54,45 @@ const TERRITORIES: Territory[] = [
       'Fujairah hub bridges Middle East crude origination with Asian refinery demand and European re-export.',
     ],
   },
-]
+];
 
 export function Territories() {
   return (
     <section className="bg-grad-1 py-20 md:py-28" aria-label="Market territories">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
+          <p className="text-brand/70 mb-4 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
             Market Territories
           </p>
           <h2
-            className="font-serif font-normal text-ink leading-tight mb-14"
+            className="text-ink mb-14 font-serif leading-tight font-normal"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
             Markets We <em className="text-brand">Serve.</em>
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {TERRITORIES.map((t, i) => (
             <ScrollReveal key={t.region} delay={i * 0.08} className="h-full">
-              <GlowCard className="rounded-xl bg-bg p-7 flex flex-col h-full">
-                <span className="font-sans text-[10px] uppercase tracking-[0.12em] font-medium text-brand/70 mb-3">
+              <GlowCard className="bg-bg flex h-full flex-col rounded-xl p-7">
+                <span className="text-brand/70 mb-3 font-sans text-[10px] font-medium tracking-[0.12em] uppercase">
                   {t.tag}
                 </span>
-                <h3 className="font-serif text-xl font-normal text-ink leading-snug mb-2">
+                <h3 className="text-ink mb-2 font-serif text-xl leading-snug font-normal">
                   {t.region}
                 </h3>
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-5 border-b border-brand/10 pb-5">
+                <p className="text-muted-foreground border-brand/10 mb-5 border-b pb-5 font-sans text-sm leading-relaxed">
                   {t.positioning}
                 </p>
                 <ul className="space-y-3">
                   {t.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-2.5">
                       <span
-                        className="mt-2 shrink-0 w-1 h-1 rounded-full bg-brand"
+                        className="bg-brand mt-2 h-1 w-1 shrink-0 rounded-full"
                         aria-hidden="true"
                       />
-                      <span className="font-sans text-xs text-muted-foreground leading-relaxed">
+                      <span className="text-muted-foreground font-sans text-xs leading-relaxed">
                         {bullet}
                       </span>
                     </li>
@@ -104,5 +104,5 @@ export function Territories() {
         </div>
       </div>
     </section>
-  )
+  );
 }

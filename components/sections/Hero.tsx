@@ -1,46 +1,47 @@
-'use client'
+'use client';
 
-import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import Link from 'next/link'
-import Image from 'next/image'
-import { cn } from '@/lib/utils'
+import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
-const DURATION = 6000
+const DURATION = 6000;
 
 // Stable helpers for useSyncExternalStore — defined outside component to avoid re-creation
 function subscribeReducedMotion(cb: () => void) {
-  const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-  mq.addEventListener('change', cb)
-  return () => mq.removeEventListener('change', cb)
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  mq.addEventListener('change', cb);
+  return () => mq.removeEventListener('change', cb);
 }
-const getReducedMotionSnapshot = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const getReducedMotionServer   = () => false
+const getReducedMotionSnapshot = () =>
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const getReducedMotionServer = () => false;
 
 const slides = [
   {
     id: 1,
     image: '/images/hero-home.jpg',
     fallbackGradient: 'linear-gradient(135deg, #0C0C0F 0%, #1a0608 60%, #0C0C0F 100%)',
-    label: 'OIL TANK FARM · EST. 2010 · ROTTERDAM, NL',
-    headlinePlain: 'Oil Tank Farm.',
-    headlineItalic: 'Engineered for Reliability.',
+    label: 'OIL TANK FARM STORAGE · ESTABLISHED 2025 · ROTTERDAM, NL',
+    headlinePlain: 'Oil Tank Farm and',
+    headlineItalic: 'Petroleum Storage Services.',
     subdeck:
-      'Blue Gate Shipping and Trade B.V. operates a Rotterdam oil tank farm with ISO-certified storage for Jet A1, EN590 Diesel, Virgin Fuel Oil D6, and Crude Oil from multiple origins.',
-    primaryCta:   { label: 'Request a Quote →', href: '/contact?intent=quote' },
-    secondaryCta: { label: 'Explore Terminal',  href: '/terminal' },
+      'Blue Gate Tank Farm provides petroleum tank-storage services and capacity enquiries for EN590 Diesel, Jet A1, Virgin Fuel Oil D6 and Crude Oil across major energy markets.',
+    primaryCta: { label: 'Submit Storage Requirement →', href: '/contact?intent=quote' },
+    secondaryCta: { label: 'Our Storage Services', href: '/services/oil-storage' },
   },
   {
     id: 2,
     image: '/images/hero-terminal.jpg',
     fallbackGradient: 'linear-gradient(135deg, #0C0C0F 0%, #1a0608 60%, #0C0C0F 100%)',
-    label: 'FIVE TERMINALS · ROTTERDAM · FUJAIRAH · HOUSTON · JURONG · ZHOUSHAN',
-    headlinePlain: 'Five Global Terminals.',
-    headlineItalic: 'One Operating Standard.',
+    label: 'ENERGY MARKETS · ROTTERDAM · HOUSTON · SINGAPORE',
+    headlinePlain: 'Global Energy Markets.',
+    headlineItalic: 'One Point of Contact.',
     subdeck:
-      "From our Rotterdam flagship to Fujairah, Houston, Jurong, and Zhoushan — Blue Gate delivers 24/7 marine terminal access across the world's most critical energy corridors.",
-    primaryCta:   { label: 'View Terminal Network →', href: '/terminal' },
-    secondaryCta: { label: 'View Storage Facility',   href: '/storage-facility' },
+      'Blue Gate Tank Farm coordinates petroleum logistics and commercial support across major energy trade corridors, working with terminal holders, service providers and industry partners on a contract-by-contract basis.',
+    primaryCta: { label: 'Explore Markets →', href: '/markets' },
+    secondaryCta: { label: 'About Blue Gate Tank Farm', href: '/about' },
   },
   {
     id: 3,
@@ -48,75 +49,83 @@ const slides = [
     fallbackGradient: 'linear-gradient(135deg, #0C0C0F 0%, #1a0608 60%, #0C0C0F 100%)',
     label: 'JET A1 · EN590 DIESEL · VIRGIN FUEL OIL D6 · CRUDE OIL',
     headlinePlain: 'Four Core Products.',
-    headlineItalic: 'Tank Farm-Grade Storage.',
+    headlineItalic: 'Specialist Coordination.',
     subdeck:
-      'Dedicated storage infrastructure for every product — specification-matched tanks, independent inspection, and on-site laboratory testing at every parcel intake and outturn.',
-    primaryCta:   { label: 'View Products →',      href: '/products' },
-    secondaryCta: { label: 'View Storage Facility', href: '/storage-facility' },
+      'Blue Gate Tank Farm supports clients working with Jet A1, EN590 Diesel, Virgin Fuel Oil D6 and Crude Oil, coordinating documentation, inspection and logistics requirements around each transaction.',
+    primaryCta: { label: 'View Products →', href: '/products' },
+    secondaryCta: { label: 'Make an Enquiry', href: '/contact?intent=quote' },
   },
-]
+];
 
 export function Hero() {
-  const [current, setCurrent]       = useState(0)
-  const [isPlayingUser, setIsPlaying] = useState(true)
-  const [direction, setDirection]   = useState(1)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const [current, setCurrent] = useState(0);
+  const [isPlayingUser, setIsPlaying] = useState(true);
+  const [direction, setDirection] = useState(1);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const reducedMotion = useSyncExternalStore(
     subscribeReducedMotion,
     getReducedMotionSnapshot,
     getReducedMotionServer,
-  )
-  const isPlaying = isPlayingUser && !reducedMotion
+  );
+  const isPlaying = isPlayingUser && !reducedMotion;
 
-  const goTo = useCallback((index: number, dir?: number) => {
-    setDirection(dir ?? (index > current ? 1 : -1))
-    setCurrent(index)
-  }, [current])
+  const goTo = useCallback(
+    (index: number, dir?: number) => {
+      setDirection(dir ?? (index > current ? 1 : -1));
+      setCurrent(index);
+    },
+    [current],
+  );
 
-  const next = useCallback(() => goTo((current + 1) % slides.length, 1),  [current, goTo])
-  const prev = useCallback(() => goTo((current - 1 + slides.length) % slides.length, -1), [current, goTo])
+  const next = useCallback(() => goTo((current + 1) % slides.length, 1), [current, goTo]);
+  const prev = useCallback(
+    () => goTo((current - 1 + slides.length) % slides.length, -1),
+    [current, goTo],
+  );
 
   useEffect(() => {
-    if (!isPlaying) return
-    intervalRef.current = setInterval(next, DURATION)
-    return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
-  }, [isPlaying, next])
+    if (!isPlaying) return;
+    intervalRef.current = setInterval(next, DURATION);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isPlaying, next]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') next()
-      if (e.key === 'ArrowLeft')  prev()
-    }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [next, prev])
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [next, prev]);
 
-  const slide = slides[current]
+  const slide = slides[current];
 
   const bgVariants = {
-    enter:  (d: number) => ({
+    enter: (d: number) => ({
       opacity: 0,
-      scale:   reducedMotion ? 1 : 1.06,
-      x:       reducedMotion ? 0 : (d > 0 ? 30 : -30),
+      scale: reducedMotion ? 1 : 1.06,
+      x: reducedMotion ? 0 : d > 0 ? 30 : -30,
     }),
     center: { opacity: 1, scale: 1, x: 0 },
-    exit:   (d: number) => ({
+    exit: (d: number) => ({
       opacity: 0,
-      scale:   reducedMotion ? 1 : 0.97,
-      x:       reducedMotion ? 0 : (d > 0 ? -30 : 30),
+      scale: reducedMotion ? 1 : 0.97,
+      x: reducedMotion ? 0 : d > 0 ? -30 : 30,
     }),
-  }
+  };
 
   const contentVariants = {
     initial: { opacity: 0, y: reducedMotion ? 0 : 24 },
     animate: { opacity: 1, y: 0 },
-    exit:    { opacity: 0, y: reducedMotion ? 0 : -12 },
-  }
+    exit: { opacity: 0, y: reducedMotion ? 0 : -12 },
+  };
 
   return (
     <section
-      className="relative h-screen min-h-[620px] max-h-[1000px] w-full overflow-hidden bg-page"
+      className="bg-page relative h-screen max-h-[1000px] min-h-[620px] w-full overflow-hidden"
       onMouseEnter={() => setIsPlaying(false)}
       onMouseLeave={() => setIsPlaying(true)}
       aria-label="Hero slideshow"
@@ -147,7 +156,7 @@ export function Hero() {
           />
 
           {/* Layer 1 — uniform dark coat to desaturate/darken the photo */}
-          <div className="absolute inset-0 bg-page/60" />
+          <div className="bg-page/60 absolute inset-0" />
 
           {/* Layer 2 — left-side gradient for text legibility */}
           <div
@@ -196,29 +205,29 @@ export function Hero() {
                 initial={{ opacity: 0, y: reducedMotion ? 0 : 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="mb-6 font-sans text-[11px] font-medium uppercase tracking-[0.14em] text-brand/70"
+                className="text-brand/70 mb-6 font-sans text-[11px] font-medium tracking-[0.14em] uppercase"
               >
                 {slide.label}
               </motion.p>
 
               {/* H1 — bold serif, matches CLAUDE.md §4.2 scale */}
               <h1
-                className="mb-7 font-serif font-normal leading-[0.98] tracking-tight"
+                className="mb-7 font-serif leading-[0.98] font-normal tracking-tight"
                 style={{ fontSize: 'clamp(3rem, 7.5vw, 6rem)' }}
               >
                 <motion.span
                   initial={{ opacity: 0, y: reducedMotion ? 0 : 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.18 }}
-                  className="block text-ink"
+                  className="text-ink block"
                 >
                   {slide.headlinePlain}
                 </motion.span>
                 <motion.span
                   initial={{ opacity: 0, y: reducedMotion ? 0 : 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.30 }}
-                  className="block italic text-brand"
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="text-brand block italic"
                 >
                   {slide.headlineItalic}
                 </motion.span>
@@ -229,7 +238,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: reducedMotion ? 0 : 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.42 }}
-                className="mb-10 max-w-xl font-sans text-base leading-relaxed text-ink/65 md:text-lg"
+                className="text-ink/65 mb-10 max-w-xl font-sans text-base leading-relaxed md:text-lg"
               >
                 {slide.subdeck}
               </motion.p>
@@ -243,16 +252,20 @@ export function Hero() {
               >
                 <Link
                   href={slide.primaryCta.href}
-                  className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-page"
+                  className="focus-visible:ring-brand focus-visible:ring-offset-page inline-flex items-center justify-center px-8 py-3.5 text-sm font-medium text-white transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
                   style={{ backgroundColor: 'var(--brand-red)' }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--brand-steel)' }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--brand-red)' }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--brand-steel)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--brand-red)';
+                  }}
                 >
                   {slide.primaryCta.label}
                 </Link>
                 <Link
                   href={slide.secondaryCta.href}
-                  className="inline-flex items-center justify-center border border-ink/25 bg-transparent px-8 py-3.5 text-sm font-medium text-ink transition-all duration-200 hover:border-ink/50 hover:bg-ink/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/50"
+                  className="border-ink/25 text-ink hover:border-ink/50 hover:bg-ink/[0.08] focus-visible:ring-ink/50 inline-flex items-center justify-center border bg-transparent px-8 py-3.5 text-sm font-medium transition-all duration-200 focus-visible:ring-2 focus-visible:outline-none"
                 >
                   {slide.secondaryCta.label}
                 </Link>
@@ -263,16 +276,15 @@ export function Hero() {
       </div>
 
       {/* ── Bottom controls ── */}
-      <div className="absolute bottom-0 left-0 right-0 z-20">
+      <div className="absolute right-0 bottom-0 left-0 z-20">
         <div className="mx-auto flex w-full max-w-7xl items-end justify-between px-6 pb-7 md:px-12 lg:px-20">
-
           {/* Slide counter */}
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xl font-light tabular-nums text-ink/80">
+            <span className="text-ink/80 font-mono text-xl font-light tabular-nums">
               {String(current + 1).padStart(2, '0')}
             </span>
-            <div className="h-px w-8 bg-ink/20" />
-            <span className="font-mono text-sm tabular-nums text-ink/35">
+            <div className="bg-ink/20 h-px w-8" />
+            <span className="text-ink/35 font-mono text-sm tabular-nums">
               {String(slides.length).padStart(2, '0')}
             </span>
           </div>
@@ -287,28 +299,40 @@ export function Hero() {
                   aria-selected={i === current}
                   aria-label={`Go to slide ${i + 1}`}
                   onClick={() => goTo(i)}
-                  className="group relative flex h-6 w-6 items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                  className="group focus-visible:ring-brand relative flex h-6 w-6 items-center justify-center focus-visible:ring-2 focus-visible:outline-none"
                 >
                   <span
                     className={cn(
                       'block rounded-full transition-all duration-300',
                       i === current
-                        ? 'h-2.5 w-2.5 bg-brand'
-                        : 'h-1.5 w-1.5 bg-ink/25 group-hover:bg-ink/50',
+                        ? 'bg-brand h-2.5 w-2.5'
+                        : 'bg-ink/25 group-hover:bg-ink/50 h-1.5 w-1.5',
                     )}
                   />
                   {/* Progress ring on active dot */}
                   {i === current && isPlaying && !reducedMotion && (
                     <svg
                       className="absolute inset-0 -rotate-90"
-                      width="24" height="24" viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
-                      <circle cx="12" cy="12" r="10" fill="none"
-                        stroke="rgba(208,0,24,0.20)" strokeWidth="1.5" />
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        fill="none"
+                        stroke="rgba(208,0,24,0.20)"
+                        strokeWidth="1.5"
+                      />
                       <motion.circle
-                        cx="12" cy="12" r="10" fill="none"
-                        stroke="var(--brand-red)" strokeWidth="1.5"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        fill="none"
+                        stroke="var(--brand-red)"
+                        strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeDasharray={62.83}
                         strokeDashoffset={62.83}
@@ -324,18 +348,27 @@ export function Hero() {
 
             {/* Prev / Next arrows */}
             <div className="flex gap-1">
-              {([
-                { label: 'Previous slide', action: prev, d: 'M15 18l-6-6 6-6' },
-                { label: 'Next slide',     action: next, d: 'M9 18l6-6-6-6' },
-              ] as const).map((btn) => (
+              {(
+                [
+                  { label: 'Previous slide', action: prev, d: 'M15 18l-6-6 6-6' },
+                  { label: 'Next slide', action: next, d: 'M9 18l6-6-6-6' },
+                ] as const
+              ).map((btn) => (
                 <button
                   key={btn.label}
                   onClick={btn.action}
                   aria-label={btn.label}
-                  className="flex h-10 w-10 items-center justify-center border border-ink/20 text-ink/45 transition-all duration-200 hover:border-brand hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                  className="border-ink/20 text-ink/45 hover:border-brand hover:text-brand focus-visible:ring-brand flex h-10 w-10 items-center justify-center border transition-all duration-200 focus-visible:ring-2 focus-visible:outline-none"
                 >
-                  <svg width="15" height="15" fill="none" stroke="currentColor"
-                    strokeWidth="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg
+                    width="15"
+                    height="15"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
                     <path d={btn.d} strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
@@ -345,9 +378,9 @@ export function Hero() {
         </div>
 
         {/* Crimson progress bar */}
-        <div className="h-px w-full bg-ink/10">
+        <div className="bg-ink/10 h-px w-full">
           <motion.div
-            className="h-full bg-brand"
+            className="bg-brand h-full"
             animate={{ width: `${((current + 1) / slides.length) * 100}%` }}
             transition={{ duration: 0.45, ease: 'easeInOut' }}
           />
@@ -359,11 +392,11 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 0.8 }}
-        className="absolute bottom-14 right-8 z-20 hidden flex-col items-center gap-2 lg:flex"
+        className="absolute right-8 bottom-14 z-20 hidden flex-col items-center gap-2 lg:flex"
         aria-hidden="true"
       >
         <span
-          className="font-sans text-[10px] uppercase tracking-[0.22em] text-ink/30"
+          className="text-ink/30 font-sans text-[10px] tracking-[0.22em] uppercase"
           style={{ writingMode: 'vertical-rl' }}
         >
           Scroll
@@ -371,9 +404,9 @@ export function Hero() {
         <motion.div
           animate={reducedMotion ? {} : { y: [0, 7, 0] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-          className="h-7 w-px bg-gradient-to-b from-ink/35 to-transparent"
+          className="from-ink/35 h-7 w-px bg-gradient-to-b to-transparent"
         />
       </motion.div>
     </section>
-  )
+  );
 }

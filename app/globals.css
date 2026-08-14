@@ -1,77 +1,77 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 /* ─── Design Tokens ──────────────────────────────────────────────────────── */
 :root {
   /* ── Dark neutral + crimson accent palette ──────────────────── */
-  --page-bg:     #0C0C0F;   /* very dark neutral canvas               */
-  --bg-cream:    #141416;   /* elevated surface — cards, nav          */
-  --bg-raised:   #1A1A1E;   /* secondary raised surface               */
-  --ink:         #F0EAE0;   /* warm white — primary text              */
-  --brand-red:   #D00018;   /* vivid crimson — CTAs, borders, glows   */
-  --brand-steel: #9C0012;   /* darker red — hover states              */
-  --brand-gold:  #FFB830;   /* warm gold — accent / highlights        */
-  --ok-green:    #22C55E;   /* success                                */
-  --alert-red:   #D00018;   /* alerts / errors                        */
+  --page-bg: #0c0c0f; /* very dark neutral canvas               */
+  --bg-cream: #141416; /* elevated surface — cards, nav          */
+  --bg-raised: #1a1a1e; /* secondary raised surface               */
+  --ink: #f0eae0; /* warm white — primary text              */
+  --brand-red: #d00018; /* vivid crimson — CTAs, borders, glows   */
+  --brand-steel: #9c0012; /* darker red — hover states              */
+  --brand-gold: #ffb830; /* warm gold — accent / highlights        */
+  --ok-green: #22c55e; /* success                                */
+  --alert-red: #d00018; /* alerts / errors                        */
   --border-soft: rgba(208, 0, 24, 0.16); /* crimson border tint       */
 
   /* shadcn/ui variable mappings */
-  --background:             #0C0C0F;
-  --foreground:             var(--ink);
-  --card:                   var(--bg-cream);
-  --card-foreground:        var(--ink);
-  --popover:                var(--bg-cream);
-  --popover-foreground:     var(--ink);
-  --primary:                var(--brand-red);
-  --primary-foreground:     #ffffff;
-  --secondary:              #141416;
-  --secondary-foreground:   var(--ink);
-  --muted:                  #141416;
-  --muted-foreground:       #8A8A9A;
-  --accent:                 var(--brand-gold);
-  --accent-foreground:      #0C0C0F;
-  --destructive:            var(--alert-red);
+  --background: #0c0c0f;
+  --foreground: var(--ink);
+  --card: var(--bg-cream);
+  --card-foreground: var(--ink);
+  --popover: var(--bg-cream);
+  --popover-foreground: var(--ink);
+  --primary: var(--brand-red);
+  --primary-foreground: #ffffff;
+  --secondary: #141416;
+  --secondary-foreground: var(--ink);
+  --muted: #141416;
+  --muted-foreground: #8a8a9a;
+  --accent: var(--brand-gold);
+  --accent-foreground: #0c0c0f;
+  --destructive: var(--alert-red);
   --destructive-foreground: #ffffff;
-  --border:                 rgba(208, 0, 24, 0.14);
-  --input:                  #141416;
-  --ring:                   var(--brand-red);
-  --radius:                 0.375rem;
+  --border: rgba(208, 0, 24, 0.14);
+  --input: #141416;
+  --ring: var(--brand-red);
+  --radius: 0.375rem;
 }
 
 /* ─── Tailwind v4 Theme Registration ─────────────────────────────────────── */
 @theme inline {
   /* Semantic colour tokens */
-  --color-page:        var(--page-bg);     /* bg-page = dark neutral   */
-  --color-bg:          var(--bg-cream);    /* bg-bg   = card surface   */
-  --color-bg-raised:   var(--bg-raised);   /* bg-bg-raised             */
-  --color-ink:         var(--ink);         /* text-ink = warm white    */
-  --color-deep:        #0C0C0F;
-  --color-deep-red:    #141416;
-  --color-brand:       var(--brand-red);   /* #D00018 vivid crimson    */
-  --color-brand-dark:  #0C0C0F;
+  --color-page: var(--page-bg); /* bg-page = dark neutral   */
+  --color-bg: var(--bg-cream); /* bg-bg   = card surface   */
+  --color-bg-raised: var(--bg-raised); /* bg-bg-raised             */
+  --color-ink: var(--ink); /* text-ink = warm white    */
+  --color-deep: #0c0c0f;
+  --color-deep-red: #141416;
+  --color-brand: var(--brand-red); /* #D00018 vivid crimson    */
+  --color-brand-dark: #0c0c0f;
   --color-brand-steel: var(--brand-steel); /* dark crimson hover       */
-  --color-accent:      var(--brand-gold);  /* gold highlights          */
-  --color-ok:          var(--ok-green);
-  --color-alert:       var(--alert-red);
+  --color-accent: var(--brand-gold); /* gold highlights          */
+  --color-ok: var(--ok-green);
+  --color-alert: var(--alert-red);
   --color-border-soft: var(--border-soft);
 
   /* shadcn/ui tokens */
-  --color-background:         var(--background);
-  --color-foreground:         var(--foreground);
-  --color-primary:            var(--primary);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary:          var(--secondary);
-  --color-muted:              var(--muted);
-  --color-muted-foreground:   var(--muted-foreground);
-  --color-border:             var(--border);
-  --color-ring:               var(--ring);
-  --color-card:               var(--card);
-  --color-card-foreground:    var(--card-foreground);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
 
   /* Font families */
-  --font-sans:  var(--font-inter);
+  --font-sans: var(--font-inter);
   --font-serif: var(--font-fraunces);
-  --font-mono:  var(--font-jetbrains-mono);
+  --font-mono: var(--font-jetbrains-mono);
 
   /* Border radius */
   --radius-sm: calc(var(--radius) - 4px);
@@ -108,14 +108,13 @@ body {
 /* Grad-1: slightly lighter neutral, faint crimson glow bottom-right corner */
 .bg-grad-1 {
   background:
-    radial-gradient(ellipse 55% 60% at 100% 100%, rgba(208,0,24,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 60% at 100% 100%, rgba(208, 0, 24, 0.06) 0%, transparent 70%),
     #111113;
 }
 /* Grad-2: base canvas tone, faint crimson glow top-left corner */
 .bg-grad-2 {
   background:
-    radial-gradient(ellipse 55% 60% at 0% 0%, rgba(208,0,24,0.06) 0%, transparent 70%),
-    #0C0C0F;
+    radial-gradient(ellipse 55% 60% at 0% 0%, rgba(208, 0, 24, 0.06) 0%, transparent 70%), #0c0c0f;
 }
 
 /* ─── Header scroll state ─────────────────────────────────────────────────── */

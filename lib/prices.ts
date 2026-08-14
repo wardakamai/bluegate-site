@@ -1,11 +1,11 @@
-import yahooFinance from 'yahoo-finance2'
+import yahooFinance from 'yahoo-finance2';
 
 export type Instrument = {
-  symbol: string
-  name: string
-  sourceCode: string
-  unit: string
-}
+  symbol: string;
+  name: string;
+  sourceCode: string;
+  unit: string;
+};
 
 export const instruments: Instrument[] = [
   {
@@ -32,35 +32,35 @@ export const instruments: Instrument[] = [
     sourceCode: 'NYMEX Henry Hub (NG=F)',
     unit: 'per MMBtu',
   },
-]
+];
 
 export type Quote = {
-  symbol: string
-  name: string
-  sourceCode: string
-  unit: string
-  price: number
-  change: number
-  changePercent: number
-  asOf: string // ISO timestamp
-}
+  symbol: string;
+  name: string;
+  sourceCode: string;
+  unit: string;
+  price: number;
+  change: number;
+  changePercent: number;
+  asOf: string; // ISO timestamp
+};
 
 export async function fetchQuotes(): Promise<Quote[]> {
-  const symbols = instruments.map((i) => i.symbol)
+  const symbols = instruments.map((i) => i.symbol);
   try {
-    const results = await yahooFinance.quote(symbols, {}, { validateResult: false })
-    const raw = Array.isArray(results) ? results : [results]
-    const quoteMap = new Map(raw.map((q) => [q.symbol, q]))
+    const results = await yahooFinance.quote(symbols, {}, { validateResult: false });
+    const raw = Array.isArray(results) ? results : [results];
+    const quoteMap = new Map(raw.map((q) => [q.symbol, q]));
 
     return instruments.map((inst) => {
-      const q = quoteMap.get(inst.symbol)
-      const time = q?.regularMarketTime
+      const q = quoteMap.get(inst.symbol);
+      const time = q?.regularMarketTime;
       const asOf =
         time instanceof Date
           ? time.toISOString()
           : typeof time === 'number'
             ? new Date(time * 1000).toISOString()
-            : new Date().toISOString()
+            : new Date().toISOString();
 
       return {
         symbol: inst.symbol,
@@ -71,15 +71,15 @@ export async function fetchQuotes(): Promise<Quote[]> {
         change: q?.regularMarketChange ?? 0,
         changePercent: q?.regularMarketChangePercent ?? 0,
         asOf,
-      }
-    })
+      };
+    });
   } catch {
-    return []
+    return [];
   }
 }
 
 export function brentWtiSpread(quotes: Quote[]): number | null {
-  const brent = quotes.find((q) => q.symbol === 'BZ=F')?.price
-  const wti = quotes.find((q) => q.symbol === 'CL=F')?.price
-  return brent && wti ? +(brent - wti).toFixed(2) : null
+  const brent = quotes.find((q) => q.symbol === 'BZ=F')?.price;
+  const wti = quotes.find((q) => q.symbol === 'CL=F')?.price;
+  return brent && wti ? +(brent - wti).toFixed(2) : null;
 }

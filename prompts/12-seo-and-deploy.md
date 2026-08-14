@@ -7,6 +7,7 @@ Read `CLAUDE.md` §9 and §10. Final pass: lock down SEO, structured data, sitem
 ### 1. Per-page metadata audit
 
 For **every route**, ensure `generateMetadata` (or static `metadata`) returns:
+
 - `title` (≤ 60 chars, unique per page)
 - `description` (130–155 chars, unique per page)
 - `openGraph` with `title`, `description`, `url`, `type`, and an `images` entry referencing `/og/<slug>.jpg`
@@ -20,25 +21,32 @@ Create placeholder OG images at `public/og/` (single neutral cream image with th
 Inject the following via `<script type="application/ld+json">` blocks (use Next.js `Script` component or inline in `<head>`):
 
 **Site-wide (in `app/layout.tsx`):**
+
 - `Organization` schema with: name, legalName, url, logo, address (PostalAddress), contactPoint (telephone, email, contactType `customer service`, areaServed `Worldwide`, availableLanguage `en`), sameAs (LinkedIn, when confirmed).
 
 **Home page (`/`):**
+
 - `LocalBusiness` schema with full address, geo, openingHoursSpecification (24/7), telephone.
 - `WebSite` schema with `potentialAction` SearchAction (even if site has no internal search, you can omit this if not relevant).
 
 **Service pages (`/services/*`):**
+
 - `Service` schema for each: serviceType, provider (link to Organization), areaServed, description.
 
 **Product pages (`/products/*`):**
+
 - `Product` schema: name, description, brand, image, additionalProperty array carrying the spec table values.
 
 **About page (`/about`):**
+
 - `AboutPage` schema linked to the Organization.
 
 **Contact page (`/contact`):**
+
 - `ContactPage` schema with `mainEntity` referencing Organization contactPoint.
 
 Centralise the JSON-LD builders in `lib/schema.ts` with typed builder functions:
+
 ```ts
 export function organizationSchema(): WithContext<Organization> { ... }
 export function productSchema(product: Product): WithContext<Product> { ... }
@@ -104,6 +112,7 @@ async redirects() {
 ### 9. README finalisation
 
 Update `README.md` with:
+
 - Project overview (links to design rationale and CLAUDE.md)
 - Setup: `pnpm install`, env vars (`.env.example` reference)
 - Scripts: `pnpm dev`, `pnpm build`, `pnpm lint`, `pnpm tsc`
@@ -125,6 +134,7 @@ Update `README.md` with:
 ## Verification — final acceptance criteria from CLAUDE.md §10
 
 Tick each off:
+
 - [ ] All 10 primary nav routes + 4 service sub-routes + 4 product detail routes are live and styled
 - [ ] Market-price ticker fetches and displays live indicative data with 15-min ISR
 - [ ] Each product detail page renders both spec table AND matching storage tank table

@@ -1,28 +1,28 @@
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
-import { GlowCard } from '@/components/ui/GlowCard'
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { GlowCard } from '@/components/ui/GlowCard';
 
 interface ValueItem {
-  name: string
-  desc: string
+  name: string;
+  desc: string;
 }
 
 interface MvvCard {
-  label: string
-  title: string
-  body?: string
-  values?: ValueItem[]
+  label: string;
+  title: string;
+  body?: string;
+  values?: ValueItem[];
 }
 
 const CARDS: MvvCard[] = [
   {
     label: 'Mission',
-    title: 'Safe, In-Spec Storage. Every Cycle.',
-    body: 'To deliver safe, in-specification oil storage and bulk liquid terminal services that clients rely on without reservation — cycle after cycle, for as long as they need us.',
+    title: 'Precise, Accountable Logistics. Every Engagement.',
+    body: 'To deliver petroleum logistics and commercial support services that clients rely on without reservation — clear documentation, clear communication, every engagement.',
   },
   {
     label: 'Vision',
-    title: "Europe's Most Trusted Bulk Liquid Partner.",
-    body: 'To be the benchmark for bulk liquid storage integrity in Europe — known for precision, transparency, and an unconditional commitment to product quality at every throughput point.',
+    title: 'A Trusted Petroleum Logistics Partner.',
+    body: 'To become a benchmark for reliability in petroleum logistics coordination — known for precision, transparency, and an unconditional commitment to doing what was agreed.',
   },
   {
     label: 'Values',
@@ -30,7 +30,7 @@ const CARDS: MvvCard[] = [
     values: [
       {
         name: 'Safety',
-        desc: 'No shipment or schedule outweighs the safety of our people, our terminal, or the environment around us.',
+        desc: 'No shipment or schedule outweighs the safety of our people, our partners, or the environment around us.',
       },
       {
         name: 'Precision',
@@ -38,7 +38,7 @@ const CARDS: MvvCard[] = [
       },
       {
         name: 'Stewardship',
-        desc: "We operate as custodians of our clients' product, our port community, and the natural environment.",
+        desc: 'We take our responsibilities to our clients, the Rotterdam port community, and the natural environment seriously in everything we coordinate.',
       },
       {
         name: 'Partnership',
@@ -46,49 +46,49 @@ const CARDS: MvvCard[] = [
       },
     ],
   },
-]
+];
 
 export function MVV() {
   return (
     <section className="bg-grad-1 py-20 md:py-28" aria-label="Mission, Vision, Values">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
+          <p className="text-brand/70 mb-4 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
             Our Foundation
           </p>
           <h2
-            className="font-serif font-normal text-ink leading-tight mb-14"
+            className="text-ink mb-14 font-serif leading-tight font-normal"
             style={{ fontSize: 'clamp(32px, 4vw, 56px)' }}
           >
             Mission. Vision. <em className="text-brand">Values.</em>
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {CARDS.map((card, i) => (
             <ScrollReveal key={card.label} delay={i * 0.1}>
-              <GlowCard className="rounded-xl bg-bg p-7 flex flex-col h-full">
-                <span className="font-sans text-[10px] uppercase tracking-[0.12em] font-medium text-brand/70 mb-4">
+              <GlowCard className="bg-bg flex h-full flex-col rounded-xl p-7">
+                <span className="text-brand/70 mb-4 font-sans text-[10px] font-medium tracking-[0.12em] uppercase">
                   {card.label}
                 </span>
-                <h3 className="font-serif text-xl font-normal text-ink leading-snug mb-4">
+                <h3 className="text-ink mb-4 font-serif text-xl leading-snug font-normal">
                   {card.title}
                 </h3>
 
                 {card.body && (
-                  <p className="font-sans text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground font-sans text-sm leading-relaxed">
                     {card.body}
                   </p>
                 )}
 
                 {card.values && (
-                  <ul className="space-y-4 mt-1">
+                  <ul className="mt-1 space-y-4">
                     {card.values.map((v) => (
                       <li key={v.name}>
-                        <span className="font-sans text-xs font-semibold text-brand uppercase tracking-[0.07em]">
+                        <span className="text-brand font-sans text-xs font-semibold tracking-[0.07em] uppercase">
                           {v.name}
                         </span>
-                        <p className="font-sans text-xs text-muted-foreground leading-relaxed mt-0.5">
+                        <p className="text-muted-foreground mt-0.5 font-sans text-xs leading-relaxed">
                           {v.desc}
                         </p>
                       </li>
@@ -101,5 +101,5 @@ export function MVV() {
         </div>
       </div>
     </section>
-  )
+  );
 }

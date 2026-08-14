@@ -14,19 +14,19 @@ Rebuild the website of **Blue Gate Shipping and Trade B.V.** (legacy site: https
 
 ## 2. Company facts (use these verbatim)
 
-| Field | Value |
-|---|---|
-| Legal name | Blue Gate Shipping and Trade B.V. |
-| Short brand | Blue Gate / BlueGate |
-| Founded | 1964 |
-| HQ | Prinsenlaan 450, 3066 KD Rotterdam, Netherlands |
-| Email | storage@bluegou.com |
-| Phone | +31 97005034730 |
-| KVK | 86686607 |
-| SAFE No. | NL06152688 |
-| Sector | Oil tank farm operations, oil storage, terminal operations, shipping & trade |
-| Specialisation | Storage of Jet A1 Fuel, Diesel EN590, Virgin Fuel Oil D6, Crude Oil (various origins) |
-| Terminals | Rotterdam (flagship) + Fujairah + Houston + Jurong (verify Fujairah / Houston / Jurong status before publish) |
+| Field          | Value                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------- |
+| Legal name     | Blue Gate Shipping and Trade B.V.                                                                             |
+| Short brand    | Blue Gate / BlueGate                                                                                          |
+| Founded        | 1964                                                                                                          |
+| HQ             | Prinsenlaan 450, 3066 KD Rotterdam, Netherlands                                                               |
+| Email          | storage@bluegou.com                                                                                           |
+| Phone          | +31 97005034730                                                                                               |
+| KVK            | 86686607                                                                                                      |
+| SAFE No.       | NL06152688                                                                                                    |
+| Sector         | Oil tank farm operations, oil storage, terminal operations, shipping & trade                                  |
+| Specialisation | Storage of Jet A1 Fuel, Diesel EN590, Virgin Fuel Oil D6, Crude Oil (various origins)                         |
+| Terminals      | Rotterdam (flagship) + Fujairah + Houston + Jurong (verify Fujairah / Houston / Jurong status before publish) |
 
 ---
 
@@ -52,14 +52,14 @@ Rebuild the website of **Blue Gate Shipping and Trade B.V.** (legacy site: https
 
 ```css
 :root {
-  --bg-cream:        #FAF8F4;
-  --ink:             #0B1220;
-  --brand-deep-blue: #0E3A5F;
-  --brand-steel:     #3A6F94;
-  --brand-gold:      #B8893B;
-  --ok-green:        #1F7A4D;
-  --alert-red:       #B33A2F;
-  --border-soft:     #E6E1D6;
+  --bg-cream: #faf8f4;
+  --ink: #0b1220;
+  --brand-deep-blue: #0e3a5f;
+  --brand-steel: #3a6f94;
+  --brand-gold: #b8893b;
+  --ok-green: #1f7a4d;
+  --alert-red: #b33a2f;
+  --border-soft: #e6e1d6;
 }
 ```
 
@@ -72,6 +72,7 @@ Map these into `tailwind.config.ts` as semantic colour names: `bg`, `ink`, `bran
 - **Monospace** (prices, specs, codes): `JetBrains Mono`
 
 Sizes:
+
 - H1: `clamp(48px, 7vw, 96px)`, display serif, weight 400, slight negative tracking
 - H2: `clamp(32px, 4vw, 56px)`, display serif
 - Section labels: 11px, uppercase, letter-spacing `+0.08em`, weight 500
@@ -110,18 +111,22 @@ Sizes:
 ## 5. Information architecture
 
 ### 5.1 Primary nav (left-to-right)
+
 `Home · About · Services ▾ · Terminal · Storage Facility · Markets · Products · Sustainability · HSE · Contact · [Request a Quote →]`
 
 ### 5.2 Services dropdown (mega-menu)
+
 1. **Oil Storage Services** → `/services/oil-storage`
 2. **Product Inspection** → `/services/product-inspection`
 3. **Laboratory** → `/services/laboratory`
 4. **Shipping Services** → `/services/shipping` (sub-anchors: trucking, rail, cargo, tanker)
 
 ### 5.3 Products
+
 `/products/jet-a1` · `/products/diesel-en590` · `/products/virgin-fuel-oil-d6` · `/products/crude-oil`
 
 ### 5.4 Global CTA conventions
+
 - Primary CTA text: `Request a Quote →` → `/contact?intent=quote`
 - Spec CTA: `Download Spec Sheet` (PDF per product)
 - Visit CTA: `Book a Site Visit` → `/contact?intent=visit`
@@ -132,6 +137,7 @@ Sizes:
 ## 6. Product specifications (use these verbatim on product detail pages)
 
 ### Jet A1 Fuel
+
 - Standard: **ASTM D1655 / DEF STAN 91-091**
 - Density @15°C: 775–840 kg/m³
 - Flash point: ≥38°C
@@ -143,6 +149,7 @@ Sizes:
 - **Matching storage**: dedicated stainless or epoxy-lined fixed-roof tanks, nitrogen-blanketed where required, 5,000–25,000 m³
 
 ### Diesel EN590
+
 - Standard: **EN 590:2022**
 - Sulphur: ≤10 ppm (ULSD)
 - Cetane number: ≥51
@@ -154,6 +161,7 @@ Sizes:
 - **Matching storage**: floating-roof or internal-floating-roof tanks, 5,000–50,000 m³
 
 ### Virgin Fuel Oil D6
+
 - Standard: **ASTM D396 / ISO 8217 RMG-RMK** (D6 is a US grading)
 - Sulphur: 0.5–3.5% m/m (HSFO; LSFO variants available)
 - Density @15°C: 950–1010 kg/m³
@@ -164,19 +172,21 @@ Sizes:
 - **Matching storage**: heated fixed-roof tanks with steam or thermal-oil coils, 10,000–80,000 m³
 
 ### Crude Oil (multi-origin comparison table)
-| Grade | API° | Sulphur % | Origin |
-|---|---|---|---|
-| Brent Blend | ~38 | 0.40 | UK / Norway |
-| WTI | ~39.6 | 0.24 | USA |
-| Urals | ~31 | 1.30 | Russia |
-| Bonny Light | ~33 | 0.16 | Nigeria |
-| CPC Blend | ~46 | 0.55 | Kazakhstan |
-| Forties | ~40 | 0.56 | UK |
-| Murban | ~40 | 0.78 | UAE |
+
+| Grade       | API°  | Sulphur % | Origin      |
+| ----------- | ----- | --------- | ----------- |
+| Brent Blend | ~38   | 0.40      | UK / Norway |
+| WTI         | ~39.6 | 0.24      | USA         |
+| Urals       | ~31   | 1.30      | Russia      |
+| Bonny Light | ~33   | 0.16      | Nigeria     |
+| CPC Blend   | ~46   | 0.55      | Kazakhstan  |
+| Forties     | ~40   | 0.56      | UK          |
+| Murban      | ~40   | 0.78      | UAE         |
 
 **Matching storage**: floating-roof tanks with vapour recovery system, 20,000–80,000 m³
 
 Every product detail page MUST include:
+
 1. Hero (name, category, positioning line)
 2. At-a-glance strip (4 key specs)
 3. Full specification table
@@ -203,6 +213,7 @@ Every product detail page MUST include:
 ## 8. Repository conventions
 
 - Folder structure:
+
   ```
   app/
     (marketing)/        # all marketing routes
@@ -282,6 +293,7 @@ Every product detail page MUST include:
 ## 11. Open items flagged for client confirmation
 
 Before publish, confirm with client:
+
 - [ ] Are Houston and Singapore terminals currently active, or Rotterdam-only?
 - [ ] Confirmed certifications held (ISO 9001/14001/45001, OCIMF/SIRE, FETSA, SQAS, etc.)
 - [ ] Approved hero photography

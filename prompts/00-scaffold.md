@@ -41,6 +41,7 @@ Then scaffold the Next.js project in the current working directory:
 8. In `app/layout.tsx`, load all three Google Fonts via `next/font/google` with appropriate subsets and weight ranges (Fraunces: variable with italic, Inter: 400–700, JetBrains Mono: 400–500). Set CSS variables `--font-serif`, `--font-sans`, `--font-mono` on the `<html>` element. Set HTML `lang="en"`.
 
 9. Create `.env.example` with placeholders:
+
    ```
    RESEND_API_KEY=
    CONTACT_EMAIL=storage@bluegou.com
@@ -57,6 +58,7 @@ Then scaffold the Next.js project in the current working directory:
 ## Verification checklist
 
 After completing, run `pnpm dev` and confirm:
+
 - [ ] The placeholder page renders on `http://localhost:3000`
 - [ ] Background is cream (`#FAF8F4`)
 - [ ] Text is dark ink (`#0B1220`)

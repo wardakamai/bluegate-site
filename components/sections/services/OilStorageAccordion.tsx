@@ -1,34 +1,34 @@
-'use client'
+'use client';
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion'
+} from '@/components/ui/accordion';
 
 const ITEMS = [
   {
     value: 'short-term',
-    trigger: 'Short-term Leasing',
-    body: 'Month-to-month tank capacity for seasonal product positioning, arbitrage windows, and trial flows. Minimum commitment of one calendar month. Tariffs are quoted on a per-m³/month basis with agreed throughput volume included.',
+    trigger: 'Short-Term Access',
+    body: 'For seasonal product positioning, arbitrage windows, and trial flows, Blue Gate Tank Farm can discuss short-term storage access arrangements. Commercial terms are agreed case by case based on product, volume and duration.',
   },
   {
     value: 'long-term',
-    trigger: 'Long-term Leasing',
-    body: 'Dedicated tank capacity under annual or multi-year agreements. Fixed tariff structure with volume-tier throughput rebates. Site access, third-party inspection rights, and daily inventory reports are included as standard across all long-term agreements.',
+    trigger: 'Long-Term Access',
+    body: 'For clients with recurring or sustained volume, Blue Gate Tank Farm can discuss longer-term storage access arrangements. Specific terms — including reporting cadence and inspection access — are set out in the applicable executed agreement.',
   },
   {
     value: 'throughput',
-    trigger: 'Throughput Agreements',
-    body: 'Volume-based terminal access without fixed tank dedication. Suited to regular pipeline injections or marine discharge where product does not require extended storage. Tariffs are indexed to Platts Rotterdam Barges or agreed differentials per barrel or per metric tonne.',
+    trigger: 'Throughput Arrangements',
+    body: 'For regular pipeline injections or marine discharge where product does not require extended storage, Blue Gate Tank Farm can discuss throughput-based arrangements suited to volume that moves through rather than sits in storage.',
   },
   {
     value: 'blending',
-    trigger: 'Storage + Blending Packages',
-    body: 'Combined storage and in-line blending service for grade production, specification adjustment, or density correction. Blending tolerance of ±0.5%. Product can be stored, blended, and shipped under a single custody chain with full documentation from receipt to bill of lading.',
+    trigger: 'Storage + Blending Enquiries',
+    body: 'For clients requiring grade production or specification adjustment alongside storage, Blue Gate Tank Farm can discuss combined storage and blending requirements with qualified partners as part of the applicable agreement.',
   },
-] as const
+] as const;
 
 export function OilStorageAccordion() {
   return (
@@ -37,16 +37,16 @@ export function OilStorageAccordion() {
         <AccordionItem
           key={item.value}
           value={item.value}
-          className="rounded-xl border border-brand/[0.14] bg-bg px-5 data-[state=open]:border-brand/30"
+          className="border-brand/[0.14] bg-bg data-[state=open]:border-brand/30 rounded-xl border px-5"
         >
-          <AccordionTrigger className="font-serif text-lg font-normal text-ink py-4 hover:no-underline hover:text-brand transition-colors">
+          <AccordionTrigger className="text-ink hover:text-brand py-4 font-serif text-lg font-normal transition-colors hover:no-underline">
             {item.trigger}
           </AccordionTrigger>
-          <AccordionContent className="font-sans text-sm text-muted-foreground leading-relaxed pb-4">
+          <AccordionContent className="text-muted-foreground pb-4 font-sans text-sm leading-relaxed">
             {item.body}
           </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>
-  )
+  );
 }

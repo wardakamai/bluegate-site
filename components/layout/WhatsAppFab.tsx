@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { site } from '@/config/site'
+import { site } from '@/config/site';
 
 export function WhatsAppFab() {
   return (
@@ -9,7 +9,7 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Blue Gate on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 print:hidden size-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 focus-visible:ring-4 focus-visible:ring-[#25D366]/50 focus-visible:outline-none"
+      className="fixed right-6 bottom-6 z-50 flex size-14 items-center justify-center rounded-full shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl focus-visible:ring-4 focus-visible:ring-[#25D366]/50 focus-visible:outline-none print:hidden"
     >
       {/* Official WhatsApp logo SVG */}
       <svg
@@ -20,19 +20,33 @@ export function WhatsAppFab() {
         aria-hidden="true"
       >
         <defs>
-          <linearGradient id="wa-grad-b" x1="85.915" x2="86.535" y1="32.567" y2="137.092" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#57d163"/>
-            <stop offset="1" stopColor="#23b33a"/>
+          <linearGradient
+            id="wa-grad-b"
+            x1="85.915"
+            x2="86.535"
+            y1="32.567"
+            y2="137.092"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0" stopColor="#57d163" />
+            <stop offset="1" stopColor="#23b33a" />
           </linearGradient>
-          <linearGradient id="wa-grad-a" x1="85.984" x2="86.605" y1="31.648" y2="137.265" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#b3ffb3"/>
-            <stop offset="1" stopColor="#06cc3f"/>
+          <linearGradient
+            id="wa-grad-a"
+            x1="85.984"
+            x2="86.605"
+            y1="31.648"
+            y2="137.265"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0" stopColor="#b3ffb3" />
+            <stop offset="1" stopColor="#06cc3f" />
           </linearGradient>
         </defs>
         {/* Shadow circle */}
-        <circle cx="87.666" cy="87.776" r="72.639" fill="#b3b3b3" opacity=".15"/>
+        <circle cx="87.666" cy="87.776" r="72.639" fill="#b3b3b3" opacity=".15" />
         {/* Green background circle */}
-        <circle cx="87.058" cy="87.194" r="72.639" fill="url(#wa-grad-b)"/>
+        <circle cx="87.058" cy="87.194" r="72.639" fill="url(#wa-grad-b)" />
         {/* White speech bubble path */}
         <path
           fill="#fff"
@@ -50,9 +64,9 @@ export function WhatsAppFab() {
       </svg>
       {/* Pulse ring */}
       <span
-        className="absolute inset-0 rounded-full bg-[#25D366] motion-safe:animate-ping opacity-25"
+        className="absolute inset-0 rounded-full bg-[#25D366] opacity-25 motion-safe:animate-ping"
         aria-hidden="true"
       />
     </a>
-  )
+  );
 }

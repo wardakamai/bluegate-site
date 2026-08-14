@@ -8,18 +8,18 @@ Modern, conversion-focused corporate site for **Blue Gate Shipping and Trade B.V
 
 ## Tech Stack
 
-| Layer | Tooling |
-|---|---|
-| Framework | Next.js 16 (App Router, TypeScript strict) |
-| Styling | Tailwind CSS v4 + CSS custom properties |
-| UI primitives | shadcn/ui (Button, Card, Select, Sheet, Tabs, Accordion) |
-| Icons | Lucide React |
-| Forms | React Hook Form + Zod |
-| Email | Resend |
-| Market data | yahoo-finance2, ISR `revalidate: 900` |
-| Analytics | Plausible (optional) |
-| Hosting | Vercel |
-| Package manager | pnpm |
+| Layer           | Tooling                                                  |
+| --------------- | -------------------------------------------------------- |
+| Framework       | Next.js 16 (App Router, TypeScript strict)               |
+| Styling         | Tailwind CSS v4 + CSS custom properties                  |
+| UI primitives   | shadcn/ui (Button, Card, Select, Sheet, Tabs, Accordion) |
+| Icons           | Lucide React                                             |
+| Forms           | React Hook Form + Zod                                    |
+| Email           | Resend                                                   |
+| Market data     | yahoo-finance2, ISR `revalidate: 900`                    |
+| Analytics       | Plausible (optional)                                     |
+| Hosting         | Vercel                                                   |
+| Package manager | pnpm                                                     |
 
 ---
 
@@ -39,12 +39,12 @@ Copy `.env.example` to `.env.local` and fill in the values:
 cp .env.example .env.local
 ```
 
-| Variable | Required | Description |
-|---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Yes | Full URL of the deployed site, e.g. `https://bluegou.com` |
-| `RESEND_API_KEY` | Yes (for contact form) | API key from [resend.com](https://resend.com/api-keys) |
-| `CONTACT_EMAIL` | No | Destination for form submissions (defaults to `storage@bluegou.com`) |
-| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | No | Plausible analytics domain; leave empty to skip the script |
+| Variable                       | Required               | Description                                                          |
+| ------------------------------ | ---------------------- | -------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`         | Yes                    | Full URL of the deployed site, e.g. `https://bluegou.com`            |
+| `RESEND_API_KEY`               | Yes (for contact form) | API key from [resend.com](https://resend.com/api-keys)               |
+| `CONTACT_EMAIL`                | No                     | Destination for form submissions (defaults to `storage@bluegou.com`) |
+| `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | No                     | Plausible analytics domain; leave empty to skip the script           |
 
 ### 3. Start the dev server
 
@@ -93,12 +93,12 @@ The contact API uses an in-memory `Map` — acceptable for single-instance previ
 
 All brand data lives in **`config/`** — never hardcode addresses, phone numbers, or emails elsewhere:
 
-| File | Contains |
-|---|---|
-| `config/site.ts` | Brand name, address, phone, email, WhatsApp link, social handles |
-| `config/products.ts` | Product specs, storage descriptions, origins, safety data |
-| `config/terminals.ts` | Terminal cities, capacities, status, Incoterm tags |
-| `config/tanks.ts` | Tank inventory with IDs, types, capacity, compatible products |
+| File                  | Contains                                                         |
+| --------------------- | ---------------------------------------------------------------- |
+| `config/site.ts`      | Brand name, address, phone, email, WhatsApp link, social handles |
+| `config/products.ts`  | Product specs, storage descriptions, origins, safety data        |
+| `config/terminals.ts` | Terminal cities, capacities, status, Incoterm tags               |
+| `config/tanks.ts`     | Tank inventory with IDs, types, capacity, compatible products    |
 
 Edit the relevant config file and the change propagates to every page that imports it.
 
@@ -152,17 +152,17 @@ Edit the relevant config file and the change propagates to every page that impor
 
 Configured in `next.config.ts`. All 301-redirect from legacy WordPress slugs:
 
-| From | To |
-|---|---|
-| `/operations.html` | `/services/oil-storage` |
-| `/pipeline-transport.html` | `/services/shipping` |
-| `/logistics-solutions.html` | `/services/shipping` |
-| `/terminal-operations.html` | `/terminal` |
-| `/about-us.html` | `/about` |
-| `/sustainability.html` | `/sustainability` |
-| `/contact-us.html` | `/contact` |
-| `/services.html` | `/services` |
-| `/products.html` | `/products` |
+| From                        | To                      |
+| --------------------------- | ----------------------- |
+| `/operations.html`          | `/services/oil-storage` |
+| `/pipeline-transport.html`  | `/services/shipping`    |
+| `/logistics-solutions.html` | `/services/shipping`    |
+| `/terminal-operations.html` | `/terminal`             |
+| `/about-us.html`            | `/about`                |
+| `/sustainability.html`      | `/sustainability`       |
+| `/contact-us.html`          | `/contact`              |
+| `/services.html`            | `/services`             |
+| `/products.html`            | `/products`             |
 
 ---
 
@@ -189,19 +189,19 @@ Drop these files into `public/`, then rebuild `components/layout/Logo.tsx` to us
 
 The following placeholder files in `public/specs/` are **zero-byte stubs**. Replace each with the real document before going live:
 
-| File | Description |
-|---|---|
-| `public/specs/jet-a1-spec.pdf` | Jet A1 Fuel — product spec sheet |
-| `public/specs/jet-a1-sds.pdf` | Jet A1 Fuel — Safety Data Sheet |
-| `public/specs/diesel-en590-spec.pdf` | Diesel EN590 — product spec sheet |
-| `public/specs/diesel-en590-sds.pdf` | Diesel EN590 — Safety Data Sheet |
-| `public/specs/virgin-fuel-oil-d6-spec.pdf` | Virgin Fuel Oil D6 — product spec sheet |
-| `public/specs/virgin-fuel-oil-d6-sds.pdf` | Virgin Fuel Oil D6 — Safety Data Sheet |
-| `public/specs/crude-oil-spec.pdf` | Crude Oil — product spec sheet |
-| `public/specs/crude-oil-sds.pdf` | Crude Oil — Safety Data Sheet |
+| File                                       | Description                                  |
+| ------------------------------------------ | -------------------------------------------- |
+| `public/specs/jet-a1-spec.pdf`             | Jet A1 Fuel — product spec sheet             |
+| `public/specs/jet-a1-sds.pdf`              | Jet A1 Fuel — Safety Data Sheet              |
+| `public/specs/diesel-en590-spec.pdf`       | Diesel EN590 — product spec sheet            |
+| `public/specs/diesel-en590-sds.pdf`        | Diesel EN590 — Safety Data Sheet             |
+| `public/specs/virgin-fuel-oil-d6-spec.pdf` | Virgin Fuel Oil D6 — product spec sheet      |
+| `public/specs/virgin-fuel-oil-d6-sds.pdf`  | Virgin Fuel Oil D6 — Safety Data Sheet       |
+| `public/specs/crude-oil-spec.pdf`          | Crude Oil — product spec sheet               |
+| `public/specs/crude-oil-sds.pdf`           | Crude Oil — Safety Data Sheet                |
 | `public/specs/rotterdam-facility-spec.pdf` | Rotterdam storage facility — site spec sheet |
-| `public/specs/hse-policy.pdf` | HSE Policy document |
-| `public/specs/esg-report.pdf` | ESG / Sustainability report |
+| `public/specs/hse-policy.pdf`              | HSE Policy document                          |
+| `public/specs/esg-report.pdf`              | ESG / Sustainability report                  |
 
 Drop-in replacement: overwrite each file at the same path. No code changes needed — all `<a href="/specs/...">` links reference these paths directly.
 
@@ -214,40 +214,48 @@ Also replace OG images in `public/og/` if using static social images instead of 
 The following items are marked `// TODO: confirm with client` in the codebase. **Nothing should go live until these are resolved.**
 
 ### Company & Brand
+
 - [ ] LinkedIn company page URL → `config/site.ts`
 - [ ] Approved wordmark / logo file → `public/logo.svg`
 - [ ] Production hero photography → `public/images/`
 
 ### Terminals & Capacity
+
 - [ ] Confirm which terminals are currently active (Rotterdam confirmed; Fujairah, Houston, Jurong marked `tbc`)
 - [ ] Confirm actual capacity figures for each terminal → `config/terminals.ts`
 - [ ] Confirm exact terminal GPS coordinates → `lib/schema.ts`
 - [ ] Confirm founding / onboarding dates for Houston, Fujairah, Jurong → `components/sections/about/Timeline.tsx`
 
 ### Storage Facility
+
 - [ ] Confirm real tank IDs, tank types, and capacities → `config/tanks.ts`
 - [ ] Confirm capacity stats (total m³, throughput m³/hr, etc.) → `components/sections/storage/CapacityStats.tsx`
 - [ ] Facility spec sheet PDF → `public/specs/rotterdam-facility-spec.pdf`
 
 ### Certifications & Compliance
+
 - [ ] Confirm certifications actually held (ISO 9001 / 14001 / 45001, OCIMF/SIRE, FETSA, SQAS, etc.) → `components/sections/about/Certifications.tsx`, `components/sections/hse/Certifications.tsx`
 - [ ] Confirm HSE metrics (LTIF, spill count, audit frequency, toolbox talk cadence) → `components/sections/hse/Metrics.tsx`
 - [ ] Reporting frameworks subscribed to (GRI, TCFD, etc.) → `components/sections/sustainability/Reporting.tsx`
 - [ ] Emissions baselines and reduction targets → `components/sections/sustainability/EmissionsTable.tsx`
 
 ### Contact & Operations
+
 - [ ] Commercial email address (if different from `storage@bluegou.com`) → `app/(marketing)/contact/page.tsx`
 - [ ] Dedicated HSE contact email → `app/(marketing)/contact/page.tsx`
 - [ ] Inspection / Laboratory contact email → `app/(marketing)/contact/page.tsx`
 
 ### Product Documents
+
 - [ ] Real spec-sheet PDFs per product → `public/specs/`
 - [ ] Real Safety Data Sheets (SDS) per product → `public/specs/`
 
 ### Leadership & Team
+
 - [ ] Leadership team names, titles, and approved headshots → `components/sections/about/Leadership.tsx`
 
 ### Email / Deploy
+
 - [ ] Verify `bluegou.com` as sending domain in Resend dashboard before contact form goes live
 - [ ] Confirm `RESEND_API_KEY` and `CONTACT_EMAIL` set in Vercel environment variables
 
@@ -284,18 +292,19 @@ After deploying to https://bluegou.com:
 
 ### Target keywords to monitor in Search Console
 
-| Keyword | Target page |
-|---|---|
-| oil tank farm rotterdam | `/` |
-| oil storage terminal | `/terminal` |
-| crude oil tank farm houston | `/products/crude-oil` |
-| jet a1 fuel suppliers rotterdam | `/products/jet-a1` |
-| tank farm in rotterdam | `/terminal` |
-| lease storage tanks | `/storage-facility` |
-| rotterdam oil storage capacity | `/storage-facility` |
-| tank leasing rates | `/services/oil-storage` |
-| houston petroleum storage | `/products/diesel-en590` |
-| fuel storage terminal availability | `/services/oil-storage` |
+| Keyword                            | Target page              |
+| ---------------------------------- | ------------------------ |
+| oil tank farm rotterdam            | `/`                      |
+| oil storage terminal               | `/terminal`              |
+| crude oil tank farm houston        | `/products/crude-oil`    |
+| jet a1 fuel suppliers rotterdam    | `/products/jet-a1`       |
+| tank farm in rotterdam             | `/terminal`              |
+| lease storage tanks                | `/storage-facility`      |
+| rotterdam oil storage capacity     | `/storage-facility`      |
+| tank leasing rates                 | `/services/oil-storage`  |
+| houston petroleum storage          | `/products/diesel-en590` |
+| fuel storage terminal availability | `/services/oil-storage`  |
 
 ### Sitemap URL
+
 `https://bluegou.com/sitemap.xml` — 18 routes, auto-generated by `app/sitemap.ts`

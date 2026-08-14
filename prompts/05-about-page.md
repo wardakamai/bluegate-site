@@ -16,7 +16,7 @@ Sections in order:
 
 2. **Narrative block** — `components/sections/about/Narrative.tsx`
    - Two-column editorial layout: pull-quote left (serif italic, large) + body copy right
-   - Pull-quote example: *"Storage is the discipline of doing one thing — keeping product in spec — for decades on end."*
+   - Pull-quote example: _"Storage is the discipline of doing one thing — keeping product in spec — for decades on end."_
    - Body: 3–4 paragraphs covering heritage, technical evolution, and current mission. Original copy.
 
 3. **Timeline** — `components/sections/about/Timeline.tsx`
@@ -24,8 +24,8 @@ Sections in order:
    - Milestones (write the copy yourself, one short sentence each):
      - 1964 — Founded in Rotterdam
      - 1980s — European expansion, first dedicated jet fuel storage
-     - 2000s — Houston operations established *(mark as `// TODO: confirm with client`)*
-     - 2010s — Singapore expansion *(mark as `// TODO: confirm with client`)*
+     - 2000s — Houston operations established _(mark as `// TODO: confirm with client`)_
+     - 2010s — Singapore expansion _(mark as `// TODO: confirm with client`)_
      - 2020s — Sustainability programme launched, vapour recovery upgrades
      - 2026 — Modernised digital terminal management
    - Each entry: year (mono, large, brand-deep-blue), title (serif), one-line description
@@ -55,10 +55,12 @@ Sections in order:
    - CTAs: `Contact Operations →`, `Explore Services` (ghost)
 
 ### 2. SEO metadata
+
 - Title: `About Blue Gate — 60 Years of Bulk Liquid Storage`
 - Description: `Founded 1964 in Rotterdam. Blue Gate Shipping and Trade B.V. operates ISO-certified storage and terminal services across Europe and beyond.`
 
 ### 3. Refactor opportunity
+
 The `FinalCta` component used here and on the home page should accept props (`heading`, `subline`, `primaryCta`, `secondaryCta`, `imageUrl`). Refactor it now so future pages can reuse it cleanly.
 
 ## Verification

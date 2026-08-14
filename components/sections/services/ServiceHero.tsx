@@ -1,13 +1,13 @@
-import Image from 'next/image'
-import { ScrollReveal } from '@/components/ui/ScrollReveal'
+import Image from 'next/image';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 interface ServiceHeroProps {
-  label: string
-  headlinePlain: string
-  headlineItalic: string
-  subdeck: string
-  imageUrl: string
-  imageAlt: string
+  label: string;
+  headlinePlain: string;
+  headlineItalic: string;
+  subdeck: string;
+  imageUrl: string;
+  imageAlt: string;
 }
 
 export function ServiceHero({
@@ -19,10 +19,7 @@ export function ServiceHero({
   imageAlt,
 }: ServiceHeroProps) {
   return (
-    <section
-      className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden"
-      aria-label={label}
-    >
+    <section className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-28" aria-label={label}>
       <div className="absolute inset-0 -z-10">
         <Image
           src={imageUrl}
@@ -33,30 +30,29 @@ export function ServiceHero({
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-page/88" aria-hidden="true" />
+        <div className="bg-page/88 absolute inset-0" aria-hidden="true" />
         <div
-          className="absolute inset-0 bg-gradient-to-tr from-brand/[0.10] via-transparent to-transparent"
+          className="from-brand/[0.10] absolute inset-0 bg-gradient-to-tr via-transparent to-transparent"
           aria-hidden="true"
         />
       </div>
 
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <p className="font-sans text-[11px] uppercase tracking-[0.08em] font-medium text-brand/70 mb-4">
+          <p className="text-brand/70 mb-4 font-sans text-[11px] font-medium tracking-[0.08em] uppercase">
             {label}
           </p>
           <h1
-            className="font-serif font-normal text-ink leading-tight mb-6"
+            className="text-ink mb-6 font-serif leading-tight font-normal"
             style={{ fontSize: 'clamp(48px, 7vw, 88px)' }}
           >
-            {headlinePlain}{' '}
-            <em className="text-brand">{headlineItalic}</em>
+            {headlinePlain} <em className="text-brand">{headlineItalic}</em>
           </h1>
-          <p className="font-sans text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+          <p className="text-muted-foreground max-w-2xl font-sans text-base leading-relaxed md:text-lg">
             {subdeck}
           </p>
         </ScrollReveal>
       </div>
     </section>
-  )
+  );
 }

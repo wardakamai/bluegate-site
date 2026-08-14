@@ -4,8 +4,10 @@
 export const site = {
   name: 'Blue Gate Shipping and Trade B.V.',
   shortName: 'Blue Gate',
-  blurb: 'Oil storage company and tank farm operator headquartered in Rotterdam. ISO-certified storage of Jet A1, EN590, D6, and crude oil.',
-  founded: 2010,
+  brandName: 'Blue Gate Tank Farm',
+  blurb:
+    'Specialist petroleum logistics and commercial support services for energy-sector clients, based in Rotterdam.',
+  founded: 2025,
   address: {
     street: 'Prinsenlaan 450',
     postcode: '3066 KD',
@@ -50,7 +52,6 @@ export const primaryNav: NavItem[] = [
     ],
   },
   { label: 'Terminal', href: '/terminal' },
-  { label: 'Storage Facility', href: '/storage-facility' },
   { label: 'Markets', href: '/markets' },
   { label: 'Products', href: '/products' },
   { label: 'Sustainability', href: '/sustainability' },
@@ -64,6 +65,6 @@ export const ctaPrimary = {
 } as const;
 
 export const ctaVisit = {
-  label: 'Book a Site Visit →',
+  label: 'Request a Meeting →',
   href: '/contact?intent=visit',
 } as const;

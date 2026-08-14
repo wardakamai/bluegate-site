@@ -1,26 +1,27 @@
-import type { Metadata } from 'next'
-import Script from 'next/script'
-import { pageMeta } from '@/lib/meta'
-import { localBusinessSchema } from '@/lib/schema'
-import { Hero } from '@/components/sections/Hero'
-import { HeroStats } from '@/components/sections/HeroStats'
-import { TerminalNetwork } from '@/components/sections/TerminalNetwork'
-import { MarketTicker } from '@/components/sections/MarketTicker'
-import { Services } from '@/components/sections/Services'
-import { HorizontalScroll } from '@/components/sections/HorizontalScroll'
-import { StrategicLocations } from '@/components/sections/StrategicLocations'
-import { SustainabilityTriptych } from '@/components/sections/SustainabilityTriptych'
-import { FinalCta } from '@/components/sections/FinalCta'
+import type { Metadata } from 'next';
+import Script from 'next/script';
+import { pageMeta } from '@/lib/meta';
+import { localBusinessSchema } from '@/lib/schema';
+import { Hero } from '@/components/sections/Hero';
+import { HeroStats } from '@/components/sections/HeroStats';
+import { TerminalNetwork } from '@/components/sections/TerminalNetwork';
+import { MarketTicker } from '@/components/sections/MarketTicker';
+import { Services } from '@/components/sections/Services';
+import { SubmissionSteps } from '@/components/sections/SubmissionSteps';
+import { HorizontalScroll } from '@/components/sections/HorizontalScroll';
+import { StrategicLocations } from '@/components/sections/StrategicLocations';
+import { SustainabilityTriptych } from '@/components/sections/SustainabilityTriptych';
+import { FinalCta } from '@/components/sections/FinalCta';
 
 // ISR: rebuild the home page every 15 minutes so live prices stay fresh
-export const revalidate = 900
+export const revalidate = 900;
 
 export const metadata: Metadata = pageMeta({
-  title: 'Oil Tank Farm Rotterdam | Blue Gate Storage Terminal',
+  title: 'Oil Tank Farm Storage Services | Blue Gate Tank Farm',
   description:
-    'Rotterdam oil tank farm and oil storage terminal. ISO-certified storage for Jet A1, EN590 Diesel, D6 Fuel Oil and Crude Oil. Capacity available.',
+    'Blue Gate Tank Farm provides petroleum tank-storage services and capacity enquiries for EN590, Jet A1, D6 and crude oil across major energy markets.',
   path: '',
-})
+});
 
 export default function HomePage() {
   return (
@@ -47,6 +48,8 @@ export default function HomePage() {
         <Services />
       </section>
 
+      <SubmissionSteps />
+
       <section id="products" aria-label="Products">
         <HorizontalScroll />
       </section>
@@ -60,11 +63,15 @@ export default function HomePage() {
       </section>
 
       <FinalCta
-        heading={<>Reserve Your <em className="text-brand">Capacity.</em></>}
-        subline="Our operations team responds within 24 hours. Bring your volume, your product, and your timeline — we will engineer the storage solution around them."
-        primaryCta={{ label: 'Contact Operations →', href: '/contact?intent=quote' }}
-        secondaryCta={{ label: 'View Storage Facility', href: '/storage-facility' }}
+        heading={
+          <>
+            Make an <em className="text-brand">Enquiry.</em>
+          </>
+        }
+        subline="Our team responds within 24 hours. Tell us your product, your volume, and your timeline, and we will discuss how we can support your requirements."
+        primaryCta={{ label: 'Contact Us →', href: '/contact?intent=quote' }}
+        secondaryCta={{ label: 'Our Storage Services', href: '/services/oil-storage' }}
       />
     </>
-  )
+  );
 }
