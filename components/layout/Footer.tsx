@@ -8,7 +8,7 @@ import { products } from '@/config/products';
 const productLinks = products.map((p) => ({ label: p.name, href: `/products/${p.slug}` }));
 
 export function Footer() {
-  const { address, contact, legal, socials, founded, name } = site;
+  const { address, contact, legal, socials, founded, brandName } = site;
 
   return (
     <footer className="bg-page text-ink print:hidden" aria-label="Site footer">
@@ -147,7 +147,7 @@ export function Footer() {
       <div className="border-border-soft mx-auto max-w-7xl border-t px-6 py-5">
         <p className="text-muted-foreground flex flex-wrap gap-x-3 gap-y-1 text-xs">
           <span>
-            © {new Date().getFullYear()} {name}
+            © {new Date().getFullYear()} {brandName}
           </span>
           <span aria-hidden="true">·</span>
           <span>KVK {legal.kvk}</span>
