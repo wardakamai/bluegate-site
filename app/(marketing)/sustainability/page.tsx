@@ -26,6 +26,7 @@ export default function SustainabilityPage() {
             alt="Industrial petroleum infrastructure at a port facility"
             fill
             priority
+            fetchPriority="high"
             quality={85}
             className="object-cover object-center"
             sizes="100vw"

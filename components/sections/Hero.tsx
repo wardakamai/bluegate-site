@@ -151,6 +151,7 @@ export function Hero() {
             alt=""
             fill
             priority={slide.id === 1}
+            fetchPriority={slide.id === 1 ? 'high' : 'auto'}
             className="object-cover object-center"
             sizes="100vw"
           />

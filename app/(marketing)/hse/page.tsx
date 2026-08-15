@@ -28,6 +28,7 @@ export default function HsePage() {
             alt="Safety inspection equipment at an industrial petroleum facility"
             fill
             priority
+            fetchPriority="high"
             quality={85}
             className="object-cover object-center"
             sizes="100vw"

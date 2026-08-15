@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     formats: ['image/avif', 'image/webp'],
+    qualities: [75, 80, 85],
     remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }],
   },
 
@@ -68,33 +69,52 @@ const nextConfig: NextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
         ],
       },
+      // Next.js's own content-hashed build output (/_next/static/*) already gets
+      // immutable caching automatically. The rules below cover files in /public,
+      // which are served at a fixed URL that is NOT content-hashed — the same
+      // filename can later point to different bytes (e.g. a replaced photo), so
+      // "immutable" is unsafe here. Use a short max-age plus revalidation instead.
       {
         source: '/(.*)\\.jpg',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=86400' },
+        ],
       },
       {
         source: '/(.*)\\.jpeg',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=86400' },
+        ],
       },
       {
         source: '/(.*)\\.png',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=86400' },
+        ],
       },
       {
         source: '/(.*)\\.webp',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=86400' },
+        ],
       },
       {
         source: '/(.*)\\.avif',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=86400' },
+        ],
       },
       {
         source: '/(.*)\\.svg',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=86400' },
+        ],
       },
       {
         source: '/(.*)\\.ico',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' },
+        ],
       },
       {
         source: '/(.*)\\.pdf',

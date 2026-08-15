@@ -47,6 +47,7 @@ export function ProductHero({ product, heading }: ProductHeroProps) {
               alt={product.heroImageAlt}
               fill
               priority
+              fetchPriority="high"
               quality={80}
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"

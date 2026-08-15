@@ -15,6 +15,7 @@ export function Hero() {
           alt="Blue Gate oil storage tank exterior detail"
           fill
           priority
+          fetchPriority="high"
           quality={85}
           className="object-cover object-center"
           sizes="100vw"

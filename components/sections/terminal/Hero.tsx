@@ -13,6 +13,7 @@ export function TerminalHero() {
           alt="Petroleum terminal infrastructure at a marine port"
           fill
           priority
+          fetchPriority="high"
           quality={85}
           className="object-cover object-center"
           sizes="100vw"

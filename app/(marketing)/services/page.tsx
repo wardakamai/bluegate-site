@@ -70,6 +70,7 @@ export default function ServicesPage() {
             className="object-cover object-center"
             sizes="100vw"
             priority
+            fetchPriority="high"
           />
           <div className="bg-page/88 absolute inset-0" aria-hidden="true" />
           <div
